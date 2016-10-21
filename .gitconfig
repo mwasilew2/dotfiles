@@ -1,0 +1,7 @@
+[user]
+	name = Michal Wasilewski
+	email = mwasilewski@gmx.com
+[commit]
+	template = /home/michal/.gitmessage.txt
+[push]
+	default = simple
