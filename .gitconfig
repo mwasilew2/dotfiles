@@ -1,7 +1,11 @@
 [user]
 	name = Michal Wasilewski
 	email = mwasilewski@gmx.com
+	signingkey = 1F12B08D
 [commit]
 	template = /home/michal/.gitmessage.txt
+	gpgsign = true
 [push]
 	default = simple
+[gpg]
+	program = /usr/bin/gpg2
