@@ -1,6 +1,6 @@
+#[id] [WIP] one-line title
 
-General:
-
+What changed:
 *
 
 Signed-off-by: Michal Wasilewski <mwasilewski@gmx.com>
