@@ -1,0 +1,47 @@
+# User specific aliases and functions
+
+export HISTFILESIZE=200000
+export HISTSIZE=100000
+export HISTTIMEFORMAT="%d/%m/%y %T "
+
+
+# print function for colors in cli
+
+function print () {
+    RED="\e[0;31m"
+    GREEN="\e[0;32m"
+    BLUE="\e[0;34m"
+    WHITE="\e[1;37m"
+    echo -e "${!2}$1 \e[0m"
+}
+
+
+# function for quering all history
+
+function szuk(){
+  for i in `ls -al ~/.old_hist_files/CERN/ | grep history | awk {'print $9;'}`; do print $i "RED"; print "===================================================================" "GREEN"; cat ~/.old_hist_files/CERN/$i | grep $1; done
+  for i in `ls -al ~/.old_hist_files/ | grep history | awk {'print $9;'}`; do print $i "RED"; print "===================================================================" "GREEN"; cat ~/.old_hist_files/$i | grep $1; done
+  for i in `ls -al ~ | grep history | awk {'print $9;'}`; do print $i "RED"; print "===================================================================" "GREEN"; cat ~/$i | grep $1; done
+}
+
+
+# "e-mail to card" on trello lists
+
+function myboard() {
+mail michal02+43a6pt3pc0lv8yqdhlae@boards.trello.com
+}
+
+# powerline
+if [ -f `which powerline-daemon` ]; then
+  powerline-daemon -q
+  POWERLINE_BASH_CONTINUATION=1
+  POWERLINE_BASH_SELECT=1
+  . /usr/share/powerline/bash/powerline.sh
+fi
+
+# aliases
+alias projects="cd /media/truecrypt1/1_home/weekly.0/localhost/1_home/workspace/projects"
+alias st="git status"
+alias aa="git add --all"
+alias co="git commit"
+alias pu="git push"
