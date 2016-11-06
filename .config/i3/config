@@ -156,10 +156,14 @@ bar {
         status_command i3status
 }
 
-bindsym $mod+Delete exec i3lock
 
+bindsym $mod+Delete exec i3lock
+bindsym $mod+Shift+bracketleft move workspace to output left
+bindsym $mod+Shift+bracketright move workspace to output right
+
+exec --no-startup-id nitrogen --restore
 exec --no-startup-id i3-msg 'workspace 1; exec gnome-terminal'
 exec --no-startup-id i3-msg 'workspace 2; exec firefox'
-#exec --no-startup-id i3-msg 'workspace 3; exec sublime'
+exec --no-startup-id i3-msg 'workspace 3; exec sublime'
 bindsym XF86AudioMute exec amixer -q set Master toggle
 
