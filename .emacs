@@ -35,11 +35,7 @@
   :ensure t
   :config (load-theme 'monokai t))
 
-;; highlight trailing whitespaces
-(setq show-trailing-whitespace t)
-(require 'whitespace)
-(setq whitespace-style '(face empty tabs lines-tail trailing))
-(global-whitespace-mode t)
+(setq show-trailing-whitespace t) ;; highlight trailing whitespaces
 
 ;; display file path in the frame title
 (setq inhibit-default-init t)
@@ -49,14 +45,45 @@
 (setq column-number-mode t) ;; display cursor position at the bottom of a window
 (windmove-default-keybindings)
 (tool-bar-mode -1) ;; Turn off tool bar in X mode
+
+(set-default 'truncate-lines t) ;; don't wrap lines
+(setq truncate-partial-width-windows nil) ;; don't wrap lines for horizontally split windows
+(horizontal-scroll-bar-mode t) ;; display horizontal scroll bar
 (set-face-attribute 'default nil :height 100)  ;; font size
 (setq resize-mini-windows nil) ;; don't automatically resize the mini window
 
 
-
-
 ;; PACKAGES
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; Allow evil mode to be used if preferred
+(use-package evil
+  :ensure t)
+(global-undo-tree-mode)
+(setq undo-tree-visualizer-diff t)
+
+
+(use-package fill-column-indicator
+  :ensure t)
+(setq fci-rule-column 80)  ;; display ruler at 80
+(define-globalized-minor-mode global-fci-mode fci-mode (lambda () (fci-mode 1))) ;; make fill-column-indicator a global minor mode
+(global-fci-mode 1) ;; enable the global mode you just created
+
+
+
+(use-package tabbar
+  :ensure t)
+(defun my-tabbar-buffer-groups () ;; customize to show all normal files in one group
+  "Returns the name of the tab group names the current buffer belongs to.
+ There are two groups: Emacs buffers (those whose name starts with '*', plus
+ dired buffers), and the rest.  This works at least with Emacs v24.2 using
+ tabbar.el v1.7."
+  (list (cond ((string-equal "*" (substring (buffer-name) 0 1)) "emacs")
+	      ((eq major-mode 'dired-mode) "emacs")
+	      (t "user"))))
+(setq tabbar-buffer-groups-function 'my-tabbar-buffer-groups)
+
+
 
 
 (use-package auto-complete
@@ -164,7 +191,7 @@
 (defun terminalhere ()
   (interactive)
   (shell-command "xfce4-terminal"))
-(global-set-key [f5] 'terminalhere)
+(global-set-key [f7] 'terminalhere)
 
 
 ;; (setq make-backup-files nil)  ;; disable taking backups
@@ -173,3 +200,12 @@
       `((".*" . "~/.emacs_saves/")))
 (setq auto-save-file-name-transforms
       `((".*" "~/.emacs_saves/" t)))
+
+
+;; Add a keybinding to F5 to refresh the current buffer (from the file
+;; on the disk
+(global-set-key (kbd "<f5>")
+		(lambda ()
+		  (interactive)
+		  (revert-buffer t t)
+(message (concat "Refreshed buffer from " (buffer-file-name)))))
