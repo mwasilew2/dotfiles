@@ -82,6 +82,7 @@
 	      ((eq major-mode 'dired-mode) "emacs")
 	      (t "user"))))
 (setq tabbar-buffer-groups-function 'my-tabbar-buffer-groups)
+(tabbar-mode 1)
 
 
 
@@ -187,6 +188,9 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
+(setq inhibit-startup-screen t)
+
+
 ;; my custom function for opening terminal in the current buffer's location
 (defun terminalhere ()
   (interactive)
@@ -209,3 +213,13 @@
 		  (interactive)
 		  (revert-buffer t t)
 (message (concat "Refreshed buffer from " (buffer-file-name)))))
+
+
+(defun volatile-kill-buffer ()
+   "Kill current buffer unconditionally."
+   (interactive)
+   (let ((buffer-modified-p nil))
+     (kill-buffer (current-buffer))))
+
+(global-set-key (kbd "C-x k") 'volatile-kill-buffer)     ;; Unconditionally kill unmodified buffers.
+
