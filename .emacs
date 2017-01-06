@@ -79,13 +79,12 @@
   (shell-command "xfce4-terminal"))
 (global-set-key [f7] 'terminal-here)
 
-
-(defun refresh-file-from-disk ()
-  "Add a keybinding to F5 to refresh the current buffer (from the file on the disk"
-  (revert-buffer t t)
-  (message (concat "Refreshed buffer from " (buffer-file-name))))
-(global-set-key [f5] 'refresh-file-from-disk)
-
+(global-set-key (kbd "<f5>")
+  ;;"Add a keybinding to F5 to refresh the current buffer (from the file on the disk"
+  (lambda ()
+    (interactive)
+    (revert-buffer t t)
+    (message (concat "Refreshed buffer from " (buffer-file-name)))))
 
 (defun volatile-kill-buffer ()
   "Kill current buffer unconditionally."
