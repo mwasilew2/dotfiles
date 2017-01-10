@@ -38,8 +38,8 @@
 (global-linum-mode t) ;; display global line numbers on the left hand side
 (setq column-number-mode t) ;; display cursor position at the bottom of a window
 (tool-bar-mode -1) ;; Turn off tool bar in X mode
-(set-default 'truncate-lines t) ;; don't wrap lines
-(setq truncate-partial-width-windows nil) ;; don't wrap lines for horizontally split windows
+;; (set-default 'truncate-lines t) ;; don't wrap lines
+;; (setq truncate-partial-width-windows nil) ;; don't wrap lines for horizontally split windows
 (horizontal-scroll-bar-mode t) ;; display horizontal scroll bar
 (set-face-attribute 'default nil :height 100)  ;; font size
 (setq resize-mini-windows nil) ;; don't automatically resize the mini window
@@ -132,10 +132,10 @@
           ("C-x C-f" . helm-find-files)))
 
 
-;; don't use magit, it opens a window anyway so there's no benefit over opening a terminal
-;;(use-package magit
-;;  :ensure t)
-;;(global-set-key (kbd "C-x g") 'magit-status)
+;; use magit, opening a terminal takes too much time and it changes context
+(use-package magit
+  :ensure t)
+(global-set-key (kbd "C-x g") 'magit-status)
 
 
 (use-package markdown-mode
