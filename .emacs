@@ -38,7 +38,7 @@
 (global-linum-mode t) ;; display global line numbers on the left hand side
 (setq column-number-mode t) ;; display cursor position at the bottom of a window
 (tool-bar-mode -1) ;; Turn off tool bar in X mode
-;; (set-default 'truncate-lines t) ;; don't wrap lines
+(set-default 'truncate-lines nil) ;; wrap lines
 ;; (setq truncate-partial-width-windows nil) ;; don't wrap lines for horizontally split windows
 (horizontal-scroll-bar-mode t) ;; display horizontal scroll bar
 (set-face-attribute 'default nil :height 100)  ;; font size
@@ -110,12 +110,12 @@
   (setq elpy-rpc-python-command "python3"))
 
 
-(use-package fill-column-indicator
-  :ensure t
-  :config
-  (setq fci-rule-column 80))  ;; display ruler at 80
-(define-globalized-minor-mode global-fci-mode fci-mode (lambda () (fci-mode 1))) ;; make fill-column-indicator a global minor mode
-(global-fci-mode 1) ;; enable the global mode you just created
+;; (use-package fill-column-indicator
+;;  :ensure t
+ ;;  :config
+;;   (setq fci-rule-column 80))  ;; display ruler at 80
+;; (define-globalized-minor-mode global-fci-mode fci-mode (lambda () (fci-mode 1))) ;; make fill-column-indicator a global minor mode
+;; (global-fci-mode 1) ;; enable the global mode you just created
 
 
 (use-package helm
