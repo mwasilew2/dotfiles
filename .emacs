@@ -162,6 +162,7 @@
   (setq neo-window-fixed-size nil)
   (setq neo-window-width 35)
   (global-set-key [f8] 'neotree-toggle))
+(add-hook 'after-init-hook #'neotree-toggle)
 
 (defun projects ()
   (interactive)
