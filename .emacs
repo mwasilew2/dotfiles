@@ -210,9 +210,11 @@
 
 (use-package evil
   ;; behaves better if declared last
-  :ensure t)
+  :ensure t
+  :config
+  (global-undo-tree-mode -1))
+
 
 ;; installed and configured by evil?
-(global-undo-tree-mode)
-(setq undo-tree-visualizer-diff t)
+;; (setq undo-tree-visualizer-diff t)
 
