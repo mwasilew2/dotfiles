@@ -65,6 +65,7 @@
 (setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
 (setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
 (setq scroll-step 2) ;; keyboard scroll one line at a time
+(global-set-key "\M-;" 'comment-line)
 
 ;; (setq make-backup-files nil)  ;; disable taking backups
 ;; store all backup and autosave files in a local dir
