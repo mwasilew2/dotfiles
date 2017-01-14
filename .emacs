@@ -1,6 +1,3 @@
-;; Custom emacs configuration.
-
-
 ;; PACKAGE REPOSITORIES
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -20,7 +17,6 @@
   (package-refresh-contents)
   (package-install 'use-package))
 
-
 ;; VIEW PREFERENCES
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -29,12 +25,19 @@
   :ensure t
   :config (load-theme 'monokai t))
 
+;; Use powerline
+(use-package powerline
+ :ensure t
+ :config
+ (powerline-default-theme))
+
 ;; display file path in the frame title
 (setq inhibit-default-init t)
 (setq-default frame-title-format "%b (%f)")
 
-
-(setq show-trailing-whitespace t) ;; highlight trailing whitespaces
+(setq-default show-trailing-whitespace t) ;; highlight trailing whitespaces
+(setq show-paren-delay 0)  ;; disable delay when highlighting matching parenthesis
+(show-paren-mode 1)  ;; highlight matching parenthesis
 (global-linum-mode t) ;; display global line numbers on the left hand side
 (setq column-number-mode t) ;; display cursor position at the bottom of a window
 (tool-bar-mode -1) ;; Turn off tool bar in X mode
@@ -46,10 +49,8 @@
 (setq inhibit-startup-screen t) ;; don't display emacs welcome screen (tutorial)
 (windmove-default-keybindings) ;; use default keybindings for moving across windows
 
-
 ;; OTHER
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
 
 ;; spell checking
 (add-hook 'text-mode-hook 'flyspell-buffer)
@@ -58,7 +59,6 @@
 ;;(with-eval-after-load 'go-mode
 ;; (require 'go-autocomplete)
 ;; (ac-flyspell-workaround))
-
 
 ;; less "jumpy" scrolling than defaults
 (setq mouse-wheel-scroll-amount '(2 ((shift) . 2))) ;; one line at a time
@@ -117,14 +117,15 @@
 	(forward-char pos)))))
 (global-set-key (kbd "C-S-d") 'duplicate-line-or-region)
 
-
 ;; PACKAGES
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-
 (use-package auto-complete
-  :ensure t)
-
+  :ensure t
+  :init
+  (progn
+    (ac-config-default)
+    (global-auto-complete-mode t)))
 
 (use-package elpy
   :ensure t
@@ -132,14 +133,12 @@
   (elpy-enable)
   (setq elpy-rpc-python-command "python3"))
 
-
 ;; (use-package fill-column-indicator
 ;;  :ensure t
  ;;  :config
 ;;   (setq fci-rule-column 80))  ;; display ruler at 80
 ;; (define-globalized-minor-mode global-fci-mode fci-mode (lambda () (fci-mode 1))) ;; make fill-column-indicator a global minor mode
 ;; (global-fci-mode 1) ;; enable the global mode you just created
-
 
 (use-package helm
   ;; HELM - fuzzy matching, etc.
@@ -154,20 +153,15 @@
           ;; to locate and open files
           ("C-x C-f" . helm-find-files)))
 
-
 ;; use magit, opening a terminal takes too much time and it changes context
 (use-package magit
   :ensure t)
 (global-set-key (kbd "C-x g") 'magit-status)
 
-
 (use-package markdown-mode
   :ensure t)
-
-
 (use-package markdown-toc
   :ensure t)
-
 
 (use-package move-text
   :ensure t
@@ -176,6 +170,8 @@
   (global-set-key [C-M-next] 'move-text-down)
   (global-set-key [C-M-prior] 'move-text-up))
 
+(use-package multiple-cursors
+  :ensure t)
 
 (use-package neotree
   ;; neotree - displays directory tree on the side
@@ -186,15 +182,12 @@
   (setq neo-window-width 35)
   (global-set-key [f8] 'neotree-toggle))
 (add-hook 'after-init-hook #'neotree-toggle)
-
 (defun projects ()
   (interactive)
   (neotree-dir "/media/truecrypt1/1_home/weekly.0/localhost/1_home/workspace/projects"))
-
 (defun projectswork ()
   (interactive)
   (neotree-dir "/data/mw5/workspace"))
-
 
 (use-package projectile
   :ensure t
@@ -203,10 +196,8 @@
     :ensure t)
   (helm-projectile-on))
 
-
 (use-package puppet-mode
   :ensure t)
-
 
 (use-package tabbar
   :ensure t)
@@ -221,22 +212,19 @@
 (setq tabbar-buffer-groups-function 'my-tabbar-buffer-groups)
 (tabbar-mode 1)
 
-
 (use-package yaml-mode
-  :ensure t)
+  :ensure t
+  :mode ("\\.yaml$" . yaml-mode))
 
-
-
-
-
-
+(use-package yasnippet
+  :ensure t
+  :config
+  (yas-global-mode 1))
 
 (use-package evil
   ;; behaves better if declared last
   :ensure t)
-
-
-;; installed and configured by evil?
+;; installed and configured by evil anyway, configuring explicitly
 (global-undo-tree-mode)
 (setq undo-tree-visualizer-diff t)
 
