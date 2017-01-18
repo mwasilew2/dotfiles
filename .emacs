@@ -44,7 +44,7 @@
 (tool-bar-mode -1) ;; Turn off tool bar in X mode
 (set-default 'truncate-lines nil) ;; wrap lines
 ;; (setq truncate-partial-width-windows nil) ;; don't wrap lines for horizontally split windows
-;;  (horizontal-scroll-bar-mode t) ;; display horizontal scroll bar
+;; (horizontal-scroll-bar-mode t) ;; display horizontal scroll bar
 (set-face-attribute 'default nil :height 100)  ;; font size
 (setq resize-mini-windows nil) ;; don't automatically resize the mini window
 (setq inhibit-startup-screen t) ;; don't display emacs welcome screen (tutorial)
