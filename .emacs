@@ -31,6 +31,14 @@
  :config
  (powerline-default-theme))
 
+(use-package fill-column-indicator
+  :ensure t
+  :config
+  (setq fci-rule-column 80)
+  (setq fci-handle-truncate-lines nil))
+(define-globalized-minor-mode global-fci-mode fci-mode (lambda () (fci-mode 1))) ;; make fill-column-indicator a global minor mode
+(global-fci-mode 1) ;; enable the global mode you just created
+
 ;; display file path in the frame title
 (setq inhibit-default-init t)
 (setq-default frame-title-format "%b (%f)")
@@ -133,13 +141,6 @@
   :config
   (elpy-enable)
   (setq elpy-rpc-python-command "python3"))
-
-;; (use-package fill-column-indicator
-;;  :ensure t
- ;;  :config
-;;   (setq fci-rule-column 80))  ;; display ruler at 80
-;; (define-globalized-minor-mode global-fci-mode fci-mode (lambda () (fci-mode 1))) ;; make fill-column-indicator a global minor mode
-;; (global-fci-mode 1) ;; enable the global mode you just created
 
 (use-package helm
   ;; HELM - fuzzy matching, etc.
