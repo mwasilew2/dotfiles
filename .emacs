@@ -36,6 +36,7 @@
 (setq-default frame-title-format "%b (%f)")
 
 (setq-default show-trailing-whitespace t) ;; highlight trailing whitespaces
+(add-hook 'before-save-hook 'delete-trailing-whitespace) ;; delete trailing whitespaces on save
 (setq show-paren-delay 0)  ;; disable delay when highlighting matching parenthesis
 (show-paren-mode 1)  ;; highlight matching parenthesis
 (global-linum-mode t) ;; display global line numbers on the left hand side
@@ -43,7 +44,7 @@
 (tool-bar-mode -1) ;; Turn off tool bar in X mode
 (set-default 'truncate-lines nil) ;; wrap lines
 ;; (setq truncate-partial-width-windows nil) ;; don't wrap lines for horizontally split windows
-(horizontal-scroll-bar-mode t) ;; display horizontal scroll bar
+;; (horizontal-scroll-bar-mode t) ;; display horizontal scroll bar
 (set-face-attribute 'default nil :height 100)  ;; font size
 (setq resize-mini-windows nil) ;; don't automatically resize the mini window
 (setq inhibit-startup-screen t) ;; don't display emacs welcome screen (tutorial)
@@ -227,4 +228,3 @@
 ;; installed and configured by evil anyway, configuring explicitly
 (global-undo-tree-mode)
 (setq undo-tree-visualizer-diff t)
-
