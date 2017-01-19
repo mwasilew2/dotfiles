@@ -126,6 +126,23 @@
 	(forward-char pos)))))
 (global-set-key (kbd "C-S-d") 'duplicate-line-or-region)
 
+
+;; BUFFER BEHAVIOUR :: handy function from wikipedia, that
+;; makes new windows automatically load the next buffer
+;; rather than the same one as is already open.
+
+(defun split-vertical-to-next-buffer ()
+  (interactive)
+  (split-window-vertically)
+  ((setq )et-window-buffer (next-window) (other-buffer)))
+(defun split-horizontal-to-next-buffer ()
+  (interactive)
+  (split-window-horizontally)
+  (set-window-buffer (next-window) (other-buffer)))
+(global-set-key "\C-x2" 'split-vertical-to-next-buffer)
+(global-set-key "\C-x3" 'split-horizontal-to-next-buffer)
+
+
 ;; PACKAGES
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
