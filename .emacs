@@ -89,6 +89,8 @@
   (shell-command "xfce4-terminal"))
 (global-set-key [f7] 'terminal-here)
 
+(global-set-key [f6] 'ansi-term)
+
 (global-set-key (kbd "<f5>")
   ;;"Add a keybinding to F5 to refresh the current buffer (from the file on the disk"
   (lambda ()
