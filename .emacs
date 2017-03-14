@@ -31,6 +31,7 @@
  :config
  (powerline-default-theme))
 
+;; ruler
 (use-package fill-column-indicator
   :ensure t
   :config
@@ -58,6 +59,13 @@
 (setq inhibit-startup-screen t) ;; don't display emacs welcome screen (tutorial)
 (windmove-default-keybindings) ;; use default keybindings for moving across windows
 
+;; less "jumpy" scrolling than defaults
+(setq mouse-wheel-scroll-amount '(2 ((shift) . 2))) ;; one line at a time
+(setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
+(setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
+(setq scroll-step 2) ;; keyboard scroll one line at a time
+
+
 ;; OTHER
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -69,11 +77,6 @@
 ;; (require 'go-autocomplete)
 ;; (ac-flyspell-workaround))
 
-;; less "jumpy" scrolling than defaults
-(setq mouse-wheel-scroll-amount '(2 ((shift) . 2))) ;; one line at a time
-(setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
-(setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
-(setq scroll-step 2) ;; keyboard scroll one line at a time
 (global-set-key "\M-;" 'comment-line)
 
 ;; (setq make-backup-files nil)  ;; disable taking backups
@@ -82,6 +85,33 @@
   `((".*" . "~/.emacs_saves/")))
 (setq auto-save-file-name-transforms
   `((".*" "~/.emacs_saves/" t)))
+
+
+;; CLIPBOARD BEHAVIOUR
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; replace selection when pasting
+(delete-selection-mode 1)
+
+;; make kill and yank use primary selection instead of clipboard
+;; if this is not set, kill commands will overwrite OS clipboard
+;; (setq select-enable-clipboard nil) ;; non-nil means cutting and pasting uses the clipboard
+;; (setq x-select-enable-clipboard t) ;; alias for select-enable-clipboard
+;; (setq select-enable-primary t) ;; non-nil means cutting and pasting uses the primary selection
+;; (setq mouse-drag-copy-region t) ;; non-nil means copy to kill-ring upon mouse adjustmenets of region
+(setq save-interprogram-paste-before-kill t)
+
+;; CUSTOM FUNCTIONS
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(defun delete-current-line ()
+  "Delete (not kill) the current line."
+  (interactive)
+  (save-excursion
+    (delete-region
+     (progn (forward-visible-line 0) (point))
+     (progn (forward-visible-line 1) (point)))))
+(global-set-key (kbd "<C-S-backspace>") 'delete-current-line)
 
 (defun terminal-here ()
   "open terminal in the current buffer's location"
@@ -142,7 +172,6 @@
 ;; BUFFER BEHAVIOUR :: handy function from wikipedia, that
 ;; makes new windows automatically load the next buffer
 ;; rather than the same one as is already open.
-
 (defun split-vertical-to-next-buffer ()
   (interactive)
   (split-window-vertically)
