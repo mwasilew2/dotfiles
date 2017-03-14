@@ -90,9 +90,15 @@
 (global-set-key [f7] 'terminal-here)
 
 (defun terminal-inside ()
-  "open terminal inside of emacs"
+  "
+  open terminal inside of emacs
+  shell is very limited
+  ansi-term
+  "
   (interactive)
-  (shell))
+  (let ((buf (ansi-term "/bin/bash")))
+    (switch-to-buffer (other-buffer buf))
+    (switch-to-buffer-other-window buf)))
 (global-set-key [f6] 'terminal-inside)
 
 (global-set-key (kbd "<f5>")
@@ -245,6 +251,8 @@
   :ensure t
   :config
   (yas-global-mode 1))
+(add-hook 'term-mode-hook (lambda()
+        (setq yas-dont-activate t)))
 
 (use-package evil
   ;; behaves better if declared last
