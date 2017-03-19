@@ -40,24 +40,21 @@
     emacs25
     evince
     firefox
-    git
-    git-lfs
-    gitAndTools.gitFull # for gitk
-    gnome3.gnome_control_center
-    gnome3.gnome_terminal
-    gnome3.nautilus
     libreoffice
-    pulseaudioFull
     truecrypt
     keepass
     vim
-    # gui
+    # desktop environment
     dmenu
+    gnome3.gnome_control_center
+    gnome3.gnome_terminal
+    gnome3.nautilus
     i3
     i3status
     i3lock
     nitrogen
     powerline-fonts
+    pulseaudioFull
     python35Packages.powerline
     xorg.xorgserver
     # network
@@ -85,6 +82,9 @@
     curl
     eject #util-linux
     fail2ban
+    git
+    git-lfs
+    gitAndTools.gitFull # for gitk
     gnupg
     gnutar
     haveged
@@ -103,6 +103,7 @@
     strace
     telnet
     tmux
+    trash-cli
     unzip
     watch
     wget
@@ -113,16 +114,18 @@
   # Enable the OpenSSH daemon.
   services.openssh.enable = false;
   programs.ssh.startAgent = true;
+
   programs.bash.enableCompletion = true;
 
   # Enable CUPS to print documents.
   services.printing.enable = false;
+
   services.locate.enable = true;
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
   services.xserver.windowManager.i3.enable = true;
-  # services.xserver.layout = "us";
+  services.xserver.layout = "pl";
   # services.xserver.xkbOptions = "eurosign:e";
 
   # Enable the KDE Desktop Environment.

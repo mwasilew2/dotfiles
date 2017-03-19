@@ -4,6 +4,8 @@ export HISTFILESIZE=200000
 export HISTSIZE=100000
 export HISTTIMEFORMAT="%d/%m/%y %T "
 
+export VISUAL=vim
+export EDITOR="$VISUAL"
 
 # print function for colors in cli
 
@@ -41,5 +43,5 @@ if [ -f `which powerline-daemon` ]; then
 fi
 
 # aliases
-alias projects="cd /media/truecrypt1/1_home/weekly.0/localhost/1_home/workspace/projects"
+alias workspace="cd /media/truecrypt1/1_home/weekly.0/localhost/1_home/workspace"
 alias cp="cp -i"
