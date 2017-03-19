@@ -42,6 +42,7 @@
     firefox
     git
     git-lfs
+    gitAndTools.gitFull # for gitk
     gnome3.gnome_control_center
     gnome3.gnome_terminal
     gnome3.nautilus
