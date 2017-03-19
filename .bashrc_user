@@ -41,7 +41,3 @@ fi
 
 # aliases
 alias projects="cd /media/truecrypt1/1_home/weekly.0/localhost/1_home/workspace/projects"
-alias st="git status"
-alias aa="git add --all"
-alias co="git commit"
-alias pu="git push"
