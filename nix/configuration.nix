@@ -38,14 +38,17 @@
   environment.systemPackages = with pkgs; [
     # desktop applications
     emacs25
+    evince
     firefox
     git
     git-lfs
     gnome3.gnome_control_center
     gnome3.gnome_terminal
+    gnome3.nautilus
     libreoffice
     pulseaudioFull
     truecrypt
+    keepass
     vim
     # gui
     dmenu
@@ -75,6 +78,7 @@
     stress
     # other
     at
+    bc
     bashCompletion
     coreutils
     curl
