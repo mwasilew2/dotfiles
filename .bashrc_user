@@ -36,8 +36,10 @@ if [ -f `which powerline-daemon` ]; then
   powerline-daemon -q
   POWERLINE_BASH_CONTINUATION=1
   POWERLINE_BASH_SELECT=1
-  . /usr/share/powerline/bash/powerline.sh
+  . /run/current-system/sw/lib/python3.5/site-packages/powerline/bindings/bash/powerline.sh
+  #  . /usr/share/powerline/bash/powerline.sh
 fi
 
 # aliases
 alias projects="cd /media/truecrypt1/1_home/weekly.0/localhost/1_home/workspace/projects"
+alias cp="cp -i"
