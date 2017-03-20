@@ -126,7 +126,7 @@
   ansi-term
   "
   (interactive)
-  (let ((buf (ansi-term "/bin/bash")))
+  (let ((buf (ansi-term "/usr/bin/env bash")))
     (switch-to-buffer (other-buffer buf))
     (switch-to-buffer-other-window buf)))
 (global-set-key [f6] 'terminal-inside)
@@ -242,10 +242,10 @@
   (setq neo-window-width 35)
   (global-set-key [f8] 'neotree-toggle))
 (add-hook 'after-init-hook #'neotree-toggle)
-(defun projects ()
+(defun workspace ()
   (interactive)
-  (neotree-dir "/media/truecrypt1/1_home/weekly.0/localhost/1_home/workspace/projects"))
-(defun projectswork ()
+  (neotree-dir "/media/truecrypt1/1_home/weekly.0/localhost/1_home/workspace"))
+(defun workworkspace ()
   (interactive)
   (neotree-dir "/data/mw5/workspace"))
 
