@@ -271,6 +271,13 @@
 (use-package puppet-mode
   :ensure t)
 
+(use-package smart-shift
+  :ensure t
+  :config
+  (global-smart-shift-mode 1))
+
+
+
 (use-package tabbar
   :ensure t)
 (defun my-tabbar-buffer-groups () ;; customize to show all normal files in one group
