@@ -235,13 +235,6 @@
 (use-package markdown-toc
   :ensure t)
 
-(use-package move-text
-  :ensure t
-  :config
-  ;; moving text (lines, sections, marked text) up and down
-  (global-set-key [C-M-next] 'move-text-down)
-  (global-set-key [C-M-prior] 'move-text-up))
-
 (use-package multiple-cursors
   :ensure t)
 
@@ -272,6 +265,7 @@
   :ensure t)
 
 (use-package smart-shift
+  ;; replaced move-text
   :ensure t
   :config
   (global-smart-shift-mode 1))
