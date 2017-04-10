@@ -44,4 +44,5 @@ fi
 
 # aliases
 alias workspace="cd /media/truecrypt1/1_home/weekly.0/localhost/1_home/workspace"
-alias cp="cp -i"
+alias workworkspace="cd /data/mw5/workspace"
+alias h='$(history | awk "{\$1=\$2=\$3=\"\"; print \$0}" | fzf)'
