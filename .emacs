@@ -85,13 +85,19 @@
 
 (global-set-key "\M-;" 'comment-line)
 
+;; workaround for loading functions from view mode
+(view-mode 1)
+(view-mode 0)
+(global-set-key "\C-v" 'View-scroll-half-page-forward)
+(global-set-key "\M-v" 'View-scroll-half-page-backward)
+
+
 ;; (setq make-backup-files nil)  ;; disable taking backups
 ;; store all backup and autosave files in a local dir
 (setq backup-directory-alist
   `((".*" . "~/.emacs_saves/")))
 (setq auto-save-file-name-transforms
   `((".*" "~/.emacs_saves/" t)))
-
 
 ;; CLIPBOARD BEHAVIOUR
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -178,16 +184,16 @@
 ;; BUFFER BEHAVIOUR :: handy function from wikipedia, that
 ;; makes new windows automatically load the next buffer
 ;; rather than the same one as is already open.
-(defun split-vertical-to-next-buffer ()
-  (interactive)
-  (split-window-vertically)
-  ((setq )et-window-buffer (next-window) (other-buffer)))
-(defun split-horizontal-to-next-buffer ()
-  (interactive)
-  (split-window-horizontally)
-  (set-window-buffer (next-window) (other-buffer)))
-(global-set-key "\C-x2" 'split-vertical-to-next-buffer)
-(global-set-key "\C-x3" 'split-horizontal-to-next-buffer)
+;; (defun split-vertical-to-next-buffer ()
+;;   (interactive)
+;;   (split-window-vertically)
+;;   ((setq )et-window-buffer (next-window) (other-buffer)))
+;; (defun split-horizontal-to-next-buffer ()
+;;   (interactive)
+;;   (split-window-horizontally)
+;;   (set-window-buffer (next-window) (other-buffer)))
+;; (global-set-key "\C-x2" 'split-vertical-to-next-buffer)
+;; (global-set-key "\C-x3" 'split-horizontal-to-next-buffer)
 
 
 ;; PACKAGES
