@@ -105,6 +105,8 @@
 (setq auto-save-file-name-transforms
   `((".*" "~/.emacs_saves/" t)))
 
+(setq tramp-default-method "ssh")
+
 ;; CLIPBOARD BEHAVIOUR
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
