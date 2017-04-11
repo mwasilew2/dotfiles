@@ -85,6 +85,12 @@
 
 (global-set-key "\M-;" 'comment-line)
 
+;; with the below, keybindings are as needed, but view-mode is enabled
+;; (defvar view-mode-map
+;;   (let ((map (make-sparse-keymap)))
+;;     (define-key map "\C-v" 'View-scroll-half-page-forward)
+;;     map))
+;; (view-mode 1)
 ;; workaround for loading functions from view mode
 (view-mode 1)
 (view-mode 0)
