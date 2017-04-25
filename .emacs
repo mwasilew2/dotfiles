@@ -99,11 +99,15 @@
 
 
 ;; (setq make-backup-files nil)  ;; disable taking backups
-;; store all backup and autosave files in a local dir
+;; I save files very often, I use it more for controlling when I'm editing
+;; I don't want to rely only on auto-saving and backups, because then I lose track of whan and when I edited
+;; store all backup and autosave files in a local dir instead of next to the original file
 (setq backup-directory-alist
   `((".*" . "~/.emacs_saves/")))
 (setq auto-save-file-name-transforms
   `((".*" "~/.emacs_saves/" t)))
+(setq auto-save-interval 20)
+(setq auto-save-tiemout 3)
 
 (setq tramp-default-method "ssh")
 
