@@ -1,5 +1,5 @@
 ;; PACKAGE REPOSITORIES
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;; First we set up the emacs package repository, and require
 ;;; emacs to use it.
@@ -18,7 +18,7 @@
   (package-install 'use-package))
 
 ;; VIEW PREFERENCES
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; Load the monokai theme
 ;; (use-package monokai-theme
@@ -73,12 +73,13 @@
 
 
 ;; OTHER
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; spell checking
-(add-hook 'text-mode-hook 'flyspell-buffer)
-(add-hook 'text-mode-hook 'flyspell-mode)
-(add-hook 'prog-mode-hook (lambda () (ac-flyspell-workaround)))
+;; (add-hook 'text-mode-hook 'flyspell-buffer) ;; check the entire buffer when opening, slows down emacs massively when working with big files
+(add-hook 'text-mode-hook 'flyspell-mode) ;; enable flyspell-mode, checks only the word around cursor
+(add-hook 'prog-mode-hook (lambda () (ac-flyspell-workaround))) ;; enable flyspell workaround
+(setq flyspell-issue-message-flag nil) ;; don't print error messages, improves performance
 ;;(with-eval-after-load 'go-mode
 ;; (require 'go-autocomplete)
 ;; (ac-flyspell-workaround))
@@ -107,12 +108,12 @@
 (setq auto-save-file-name-transforms
   `((".*" "~/.emacs_saves/" t)))
 (setq auto-save-interval 20)
-(setq auto-save-tiemout 3)
+(setq auto-save-timeout 3)
 
 (setq tramp-default-method "ssh")
 
 ;; CLIPBOARD BEHAVIOUR
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;; replace selection when pasting
 (delete-selection-mode 1)
@@ -126,7 +127,7 @@
 (setq save-interprogram-paste-before-kill t)
 
 ;; CUSTOM FUNCTIONS
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (defun delete-current-line ()
   "Delete (not kill) the current line."
@@ -167,7 +168,7 @@
   (interactive)
   (let ((buffer-modified-p nil))
     (kill-buffer (current-buffer))))
-(global-set-key (kbd "C-x k") 'volatile-kill-buffer)     ;; Unconditionally kill unmodified buffers.
+(global-set-key (kbd "C-x k") 'volatile-kill-buffer) ;; Unconditionally kill unmodified buffers.
 
 (defun duplicate-line-or-region (&optional n)
   "Duplicate current line, or region if active.
@@ -176,17 +177,17 @@
   (interactive "*p")
   (let ((use-region (use-region-p)))
     (save-excursion
-      (let ((text (if use-region        ;Get region if active, otherwise line
+      (let ((text (if use-region ;Get region if active, otherwise line
 		      (buffer-substring (region-beginning) (region-end))
 		    (prog1 (thing-at-point 'line)
 		      (end-of-line)
 		      (if (< 0 (forward-line 1)) ;Go to beginning of next line, or make a new one
 			  (newline))))))
-	(dotimes (i (abs (or n 1)))     ;Insert N times, or once if not specified
+	(dotimes (i (abs (or n 1))) ;Insert N times, or once if not specified
 	  (insert text))))
-    (if use-region nil                  ;Only if we're working with a line (not a region)
+    (if use-region nil ;Only if we're working with a line (not a region)
       (let ((pos (- (point) (line-beginning-position)))) ;Save column
-	(if (> 0 n)                             ;Comment out original with negative arg
+	(if (> 0 n) ;Comment out original with negative arg
 	    (comment-region (line-beginning-position) (line-end-position)))
 	(forward-line 1)
 	(forward-char pos)))))
@@ -209,7 +210,7 @@
 
 
 ;; PACKAGES
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (use-package auto-complete
   :ensure t
@@ -288,8 +289,6 @@
   :config
   (global-smart-shift-mode 1))
 
-
-
 (use-package tabbar
   :ensure t)
 (defun my-tabbar-buffer-groups () ;; customize to show all normal files in one group
@@ -317,6 +316,5 @@
 (use-package evil
   ;; behaves better if declared last
   :ensure t)
-;; installed and configured by evil anyway, configuring explicitly
-(global-undo-tree-mode)
+(global-undo-tree-mode) ;; installed and configured by evil anyway, configuring explicitly
 (setq undo-tree-visualizer-diff t)
