@@ -212,6 +212,11 @@
 ;; PACKAGES
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+(use-package avy
+  :ensure t
+  :config
+  (global-set-key (kbd "M-g f") 'avy-goto-line))
+
 (use-package auto-complete
   :ensure t
   :init
