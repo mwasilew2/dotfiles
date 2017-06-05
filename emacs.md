@@ -3,36 +3,21 @@
 
 - [Motion](#motion)
 - [Editing](#editing)
-- [Learning](#learning)
+- [Indentation](#indentation)
+- [Search & Replace](#search--replace)
+- [windows/buffers](#windowsbuffers)
+- [Markdown](#markdown)
+- [Magit](#magit)
+- [Neotree](#neotree)
+- [Projectile](#projectile)
+- [Clipboards](#clipboards)
+- [getting help, other](#getting-help-other)
 
 <!-- markdown-toc end -->
 
 
 
 # Motion #
-
-
-
-# Editing #
-
-
-
-# Learning #
-
-A-m    jump to first non-white character in the line
-A-t    transpose two words
-
-
-
-
-
-## emacs (with evil mode)
-
-C-x C-c   - close emacs
-tutorial: https://www.gnu.org/software/emacs/tour/
-macros
-
-### moving cursor ###
 
 C-f   forward character
 C-n   next line
@@ -55,17 +40,13 @@ M-m   move to the first non-whitespace character on the current line
 
 C-arrows   move by entire sections
 
-### windows/buffers ###
 
-S-arrows    move between windows
-C-c C-arrows   move between buffers in tabbar
-C-x C-b     fuzzy much on open buffers
-
-### editing ###
+# Editing #
 
 C-o   new line
+C-S-D            duplicate line
 
-C-S-backspace      delete entire line
+C-S-backspace      kill current line
 backspace   delete character before point
 C-d         delete character after point
 M-d         kill forward to the end of word
@@ -75,6 +56,7 @@ C-k         kill to the end of line
 M-;   comment out line/section
 M-l   turn to lower case
 M-u   turn to upper case
+M-c       capitalize word
 
 C-x h    - mark the whole file
 C-SPC    - make selections using keyboard
@@ -88,29 +70,40 @@ C-x C-s   - save current buffer immediately
 
 M-tab     autofix spelling errors
 
-### indentation ###
+M-t    transpose two words
+
+# Indentation #
 
 C-c arrows    move code blocks
 
 C-M-\    indent a code block
 C-x tab - indent
 
-### Search & Replace
+# Search & Replace #
 
 C-s    - incremental search forwards
 C-r    - incremental search backwards
 M-%    - query replace
 C-M-%   - query replace with regex
-replace-string    - replace without querquering
+replace-string    - replace without quering
 
-### Markdown ###
+
+
+# windows/buffers #
+
+S-arrows    move between windows
+C-c C-arrows   move between buffers in tabbar
+C-x C-b     fuzzy much on open buffers
+
+# Markdown #
 
 C-c C-t 3
 
 M-<left>
 M-<right>
 
-### Magit
+# Magit #
+
 C-x g   open magit status
 S       Stage everything
 cc      commit
@@ -118,16 +111,18 @@ C-c C-c finish commiting
 Pu      push
 
 
-### Neotree
+# Neotree #
+
 C-c C-n   - new file
 C-c C-d   - delete a file
 C-c C-r   - rename
 C-c C-p   - copy
 
-### Projectile
+# Projectile #
+
 http://projectile.readthedocs.io/en/latest/usage/
 
-### Clipboards
+# Clipboards #
 
 the primary facility to store text in emacs is kill ring: `https://www.gnu.org/software/emacs/manual/html_node/emacs/Kill-Ring.html`
 by default kill commands will overwrite clipboard (which will make first entry in kill ring available outside of emacs). If you had something in clipboard when killing, it will be queued in the kill ring: `https://www.gnu.org/software/emacs/manual/html_node/emacs/Clipboard.html`
@@ -139,7 +134,7 @@ by default kill commands will overwrite clipboard (which will make first entry i
 	- paste with middle click
 
 
-### getting help, other ###
+# getting help, other #
 
 C-h
 C-h v     get value, information, about a variable
