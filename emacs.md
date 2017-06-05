@@ -20,31 +20,31 @@
 
 # Motion #
 
-| Shortcut | Action            |
-|----------+-------------------|
-| C-f      | forward character |
-| M-f      | forward word      |
-| C-e      | end of the line   |
-| C-n      | next line         |
-| M-e      | next sentence     |
-| C-v      | down one page     |
-| M->      | end of buffer     |
+| Shortcut  | Action            |
+| --------- | ----------------- |
+| C-f       | forward character |
+| M-f       | forward word      |
+| C-e       | end of the line   |
+| C-n       | next line         |
+| M-e       | next sentence     |
+| C-v       | down one page     |
+| M->       | end of buffer     |
 
-| Shortcut | Action                |
-|----------+-----------------------|
-| C-b      | backward character    |
-| M-b      | backward word         |
-| C-a      | beginning of the line |
-| C-p      | previous line         |
-| M-a      | previous sentence     |
-| M-v      | up one page           |
-| M-<      | beginning of buffer   |
+| Shortcut  | Action                |
+| --------- | --------------------- |
+| C-b       | backward character    |
+| M-b       | backward word         |
+| C-a       | beginning of the line |
+| C-p       | previous line         |
+| M-a       | previous sentence     |
+| M-v       | up one page           |
+| M-<       | beginning of buffer   |
 
-| Shortcut | Action                                                         |
-|----------+----------------------------------------------------------------|
-| C-l      | move underlying text to the middle/top/bottom of the screen    |
-| M-m      | move to the first non-whitespace character on the current line |
-| C-arrows | move by entire sections                                        |
+| Shortcut  | Action                                                         |
+| --------- | -------------------------------------------------------------- |
+| C-l       | move underlying text to the middle/top/bottom of the screen    |
+| M-m       | move to the first non-whitespace character on the current line |
+| C-arrows  | move by entire sections                                        |
 
 
 # Editing #
@@ -80,10 +80,10 @@ M-t    transpose two words
 
 # Repeating/Macros #
 
-| Shortcut   | Action                      |
-|------------+-----------------------------|
-| C-x z      | repeat command              |
-| C-u 20 C-d | repeat 20 times command C-d |
+| Shortcut    | Action                      |
+| ----------- | --------------------------- |
+| C-x z       | repeat command              |
+| C-u 20 C-d  | repeat 20 times command C-d |
 
 
 C-x (     -start macro
@@ -93,58 +93,58 @@ C-x e     - apply macro
 
 # Indentation #
 
-| Shortcut   | Action              |
-|------------+---------------------|
-| C-c arrows | move code blocks    |
-| C-M-\      | indent a code block |
-| C-x tab    | indent              |
+| Shortcut    | Action              |
+| ----------- | ------------------- |
+| C-c arrows  | move code blocks    |
+| C-M-\       | indent a code block |
+| C-x tab     | indent              |
 
 # Search & Replace #
 
-| Shortcut       | Action                       |
-|----------------+------------------------------|
-| C-s            | incremental search forwards  |
-| C-r            | incremental search backwards |
-| M-%            | query replace                |
-| C-M-%          | query replace with regex     |
-| replace-string | replace without quering      |
+| Shortcut        | Action                       |
+| --------------- | ---------------------------- |
+| C-s             | incremental search forwards  |
+| C-r             | incremental search backwards |
+| M-%             | query replace                |
+| C-M-%           | query replace with regex     |
+| replace-string  | replace without quering      |
 
 
 
 # windows/buffers #
 
-| Shortcut     | Action                         |
-|--------------+--------------------------------|
-| S-arrows     | move between windows           |
-| C-c C-arrows | move between buffers in tabbar |
-| C-x C-b      | fuzzy much on open buffers     |
+| Shortcut      | Action                         |
+| ------------- | ------------------------------ |
+| S-arrows      | move between windows           |
+| C-c C-arrows  | move between buffers in tabbar |
+| C-x C-b       | fuzzy much on open buffers     |
 
 # Markdown #
 
-| Shortcut  | Action        |
-|-----------+---------------|
-| C-c C-t 3 | title level 3 |
-| M-<left>  | unindent      |
-| M-<right> | indent        |
+| Shortcut   | Action        |
+| ---------- | ------------- |
+| C-c C-t 3  | title level 3 |
+| M-<left>   | unindent      |
+| M-<right>  | indent        |
 
 # Magit #
 
-| Shortcut | Action            |
-|----------+-------------------|
-| C-x g    | open magit status |
-| S        | Stage everything  |
-| cc       | commit            |
-| C-c C-c  | finish commiting  |
-| Pu       | push              |
+| Shortcut  | Action            |
+| --------- | ----------------- |
+| C-x g     | open magit status |
+| S         | Stage everything  |
+| cc        | commit            |
+| C-c C-c   | finish commiting  |
+| Pu        | push              |
 
 # Neotree #
 
-| Shortcut | Action        |
-|----------+---------------|
-| C-c C-n  | new file      |
-| C-c C-d  | delete a file |
-| C-c C-r  | rename        |
-| C-c C-p  | copy          |
+| Shortcut  | Action        |
+| --------- | ------------- |
+| C-c C-n   | new file      |
+| C-c C-d   | delete a file |
+| C-c C-r   | rename        |
+| C-c C-p   | copy          |
 
 # Projectile #
 
@@ -164,14 +164,15 @@ by default kill commands will overwrite clipboard (which will make first entry i
 
 # getting help, other #
 
-| Shortcut | Action                                   |
-|----------+------------------------------------------|
-| C-h      | help                                     |
-| C-h v    | get value, information, about a variable |
-| C-h c    | get information about a keybinding       |
-| C-h f    | get information about a function         |
+| Shortcut  | Action                                   |
+| --------- | ---------------------------------------- |
+| C-h       | help                                     |
+| C-h v     | get value, information, about a variable |
+| C-h c     | get information about a keybinding       |
+| C-h f     | get information about a function         |
+|           |                                          |
 
-| Shortcut | Action                                                    |
-|----------+-----------------------------------------------------------|
-| M-x      | run a function (with my config it's doing fuzzy matching) |
-| M-:      | evaluate elisp (run an elisp command)                     |
+| Shortcut  | Action                                                    |
+| --------- | --------------------------------------------------------- |
+| M-x       | run a function (with my config it's doing fuzzy matching) |
+| M-:       | evaluate elisp (run an elisp command)                     |
