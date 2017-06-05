@@ -112,6 +112,8 @@
 
 (setq tramp-default-method "ssh")
 
+(setq-default tab-width 1)
+
 ;; CLIPBOARD BEHAVIOUR
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -286,7 +288,11 @@
   (helm-projectile-on))
 
 (use-package puppet-mode
-  :ensure t)
+  :ensure t
+  :config)
+(defun puppet-custom-settings ()
+  (setq tab-width 2))
+(add-hook 'puppet-mode-hook 'puppet-custom-settings)
 
 (use-package smart-shift
   ;; replaced move-text
