@@ -128,14 +128,14 @@
 ;; CUSTOM FUNCTIONS
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(defun delete-current-line ()
-  "Delete (not kill) the current line."
-  (interactive)
-  (save-excursion
-    (delete-region
-     (progn (forward-visible-line 0) (point))
-     (progn (forward-visible-line 1) (point)))))
-(global-set-key (kbd "<C-S-backspace>") 'delete-current-line)
+;; (defun delete-current-line ()
+;;   "Delete (not kill) the current line."
+;;   (interactive)
+;;   (save-excursion
+;;     (delete-region
+;;      (progn (forward-visible-line 0) (point))
+;;      (progn (forward-visible-line 1) (point)))))
+;; (global-set-key (kbd "<C-S-backspace>") 'delete-current-line)
 
 (defun terminal-here ()
   "open terminal in the current buffer's location"
