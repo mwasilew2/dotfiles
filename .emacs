@@ -117,16 +117,13 @@
 ;; CLIPBOARD BEHAVIOUR
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;; replace selection when pasting
-(delete-selection-mode 1)
+(delete-selection-mode 1) ;; replace selection when pasting
 
-;; make kill and yank use primary selection instead of clipboard
-;; if this is not set, kill commands will overwrite OS clipboard
-;; (setq select-enable-clipboard nil) ;; non-nil means cutting and pasting uses the clipboard
+;; (setq select-enable-clipboard nil) ;; non-nil means kill commands will overwrite OS clipboard
 ;; (setq x-select-enable-clipboard t) ;; alias for select-enable-clipboard
 ;; (setq select-enable-primary t) ;; non-nil means cutting and pasting uses the primary selection
-;; (setq mouse-drag-copy-region t) ;; non-nil means copy to kill-ring upon mouse adjustmenets of region
-(setq save-interprogram-paste-before-kill t)
+;; (setq mouse-drag-copy-region t) ;; non-nil means copy to kill-ring upon mouse adjustments of region
+(setq save-interprogram-paste-before-kill t) ;; save clipboard to kill ring when overwriting clipboard with kill
 
 ;; CUSTOM FUNCTIONS
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
