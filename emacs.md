@@ -19,13 +19,15 @@
 
 # Motion #
 
-| C-f | forward character             |
-| C-n | next line                     |
-| C-a | beginning of the line         |
-| M-f | forward word                  |
-| M-a | previous sentence             |
-| M-v | previous screen (up one page) |
-| M-< | beginning of buffer           |
+| Shortcut | Action                        |
+| ----     | ----                          |
+| C-f      | forward character             |
+| C-n      | next line                     |
+| C-a      | beginning of the line         |
+| M-f      | forward word                  |
+| M-a      | previous sentence             |
+| M-v      | previous screen (up one page) |
+| M-<      | beginning of buffer           |
 
 | C-b | backward character |
 | C-p | previous line      |
