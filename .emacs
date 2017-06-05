@@ -277,6 +277,9 @@
   (interactive)
   (neotree-dir "/data/mw5/workspace"))
 
+(use-package org
+		:ensure t)
+
 (use-package projectile
   :ensure t
   :config (projectile-global-mode)
