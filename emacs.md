@@ -128,12 +128,15 @@ C-c C-p   - copy
 http://projectile.readthedocs.io/en/latest/usage/
 
 ### Clipboards
-- clipboard
-- kill ring
-- primary sellection
-- https://www.gnu.org/software/emacs/manual/html_node/emacs/Clipboard.html
 
-Killing text also copies it to clipboard by default
+the primary facility to store text in emacs is kill ring: `https://www.gnu.org/software/emacs/manual/html_node/emacs/Kill-Ring.html`
+by default kill commands will overwrite clipboard (which will make first entry in kill ring available outside of emacs). If you had something in clipboard when killing, it will be queued in the kill ring: `https://www.gnu.org/software/emacs/manual/html_node/emacs/Clipboard.html`
+
+- clipboard (OS wide)
+- kill ring
+- primary selection
+	- copy by selecting with mouse in any application
+	- paste with middle click
 
 
 ### getting help, other ###
