@@ -19,27 +19,21 @@
 
 # Motion #
 
-C-f   forward character
+| C-f | forward character             |
+| C-n | next line                     |
+| C-a | beginning of the line         |
+| M-f | forward word                  |
+| M-a | previous sentence             |
+| M-v | previous screen (up one page) |
+| M-< | beginning of buffer           |
 
-C-n   next line
-
-C-a   beginning of the line
-
-M-f   forward word
-
-M-a   previous sentence
-
-M-v   previous screen (up one page)
-
-M-<   beginning of buffer
-
-C-b   backward character
-C-p   previous line
-C-e   end of the line
-M-b   backward word
-M-e   next sentence
-C-v   down one page
-M->   end of buffer
+| C-b | backward character |
+| C-p | previous line      |
+| C-e | end of the line    |
+| M-b | backward word      |
+| M-e | next sentence      |
+| C-v | down one page      |
+| M-> | end of buffer      |
 
 C-l   move underlying text to the middle/top/bottom of the screen
 M-m   move to the first non-whitespace character on the current line
@@ -77,6 +71,17 @@ C-x C-s   - save current buffer immediately
 M-tab     autofix spelling errors
 
 M-t    transpose two words
+
+# Repeating/Macros #
+
+C-x z     - repeat command
+
+C-u 20 C-d     - repeat 20 times command C-d
+
+C-x (     -start macro
+press the sequence
+C-x )     - stop recording macro
+C-x e     - apply macro
 
 # Indentation #
 
