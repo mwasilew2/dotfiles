@@ -1,8 +1,13 @@
 <!-- markdown-toc start - Don't edit this section. Run M-x markdown-toc-generate-toc again -->
 **Table of Contents**
 
+- [Links](#links)
 - [Motion](#motion)
+- [File](#file)
 - [Editing](#editing)
+    - [killing and yanking](#killing-and-yanking)
+    - [undoing](#undoing)
+    - [other](#other)
 - [Repeating/Macros](#repeatingmacros)
 - [Indentation](#indentation)
 - [Search & Replace](#search--replace)
@@ -12,7 +17,8 @@
 - [Neotree](#neotree)
 - [Projectile](#projectile)
 - [Clipboards](#clipboards)
-- [getting help, other](#getting-help-other)
+- [getting help](#getting-help)
+- [other](#other)
 
 <!-- markdown-toc end -->
 
@@ -24,17 +30,20 @@ https://www.emacswiki.org/emacs/EmacsNiftyTricks
 
 # Motion #
 
-| Amount           | forward | backward | forward       | backward      |
-| ---              | ----    | -----    | ----          | ----          |
-| characters       | C-f     | C-b      | C-d           | BACKSPACE     |
-| words            | M-f     | M-b      | M-d           | C-BACKSPACE   |
-| lines            | C-n     | C-p      | C-S-BACKSPACE | C-S-BACKSPACE |
-| line end/start   | C-e     | C-a      | C-k           |               |
-| sentences        | M-e     | M-a      | M-k           |               |
-| expressions      |         |          |               |               |
-| paragraphs       | M-}     | M-{      |               |               |
-| buffer end/start | M->     | M-<      |               |               |
-| page down/up     | C-v     | M-v      |               |               |
+| Amount               | forward            | backward          | forward       | backward      |
+| ---                  | ----               | -----             | ----          | ----          |
+| characters           | C-f                | C-b               | C-d           | BACKSPACE     |
+| words                | M-f                | M-b               | M-d           | C-BACKSPACE   |
+| lines                | C-n                | C-p               | C-S-BACKSPACE | C-S-BACKSPACE |
+| line end/start       | C-e                | C-a               | C-k           |               |
+| sentences            | M-e                | M-a               | M-k           |               |
+| expressions          |                    |                   |               |               |
+| paragraphs           | M-}                | M-{               |               |               |
+| buffer end/start     | M->                | M-<               |               |               |
+| page down/up         | C-v                | M-v               |               |               |
+| parenthesis balanced | C-M-right or C-M-f | C-M-left or C-M-b | C-M-k         |               |
+| parenthetical group  | C-M-n              | C-M-p             |               |               |
+|                      |                    |                   |               |               |
 
 
 | Shortcut  | Action                                                         |
@@ -53,6 +62,9 @@ https://www.emacswiki.org/emacs/EmacsNiftyTricks
 | C-x C-s  | Save current buffer immediatelly  |
 | C-x s    | save all buffers with changes     |
 | C-x C-b  | list buffers (fuzzy matched)      |
+| C-x C-w  | save as                           |
+| F5       | refresh from file                 |
+| C-x k    | close window/buffer               |
 
 
 # Editing #
@@ -129,11 +141,14 @@ C-x e     - apply macro
 
 # windows/buffers #
 
-| Shortcut      | Action                         |
-| ------------- | ------------------------------ |
-| S-arrows      | move between windows           |
-| C-c C-arrows  | move between buffers in tabbar |
-| C-x C-b       | fuzzy much on open buffers     |
+| Shortcut          | Action                         |
+| -------------     | ------------------------------ |
+| S-arrows or C-x o | move between windows           |
+| C-c C-arrows      | move between buffers in tabbar |
+| C-x C-b           | fuzzy much on open buffers     |
+| C-x 0             | close window                   |
+| C-x 3             | split vertical                 |
+| C-x 2             | splint horizontal              |
 
 # Markdown #
 
