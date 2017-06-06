@@ -19,152 +19,52 @@
 # Links #
 
 http://www.star.bris.ac.uk/bjm/emacs-tips.html
+
 https://www.emacswiki.org/emacs/EmacsNiftyTricks
 
 # Motion #
 
-<!--
-#+ORGTBL: SEND movement orgtbl-to-html
-|           | move              |          | delete  |          |
-| Amount    | forward           | backward | forward | backward |
-| Shortcut  | Action            |          |         |          |
-| --------- | ----------------- | ----     | ---     | ---      |
-| C-f       | forward character |          |         |          |
-| M-f       | forward word      |          |         |          |
-| C-e       | end of the line   |          |         |          |
-| C-n       | next line         |          |         |          |
-| M-e       | next sentence     |          |         |          |
-| C-v       | down one page     |          |         |          |
-| M->       | end of buffer     |          |         |          |
--->
+| Amount           | forward | backward | forward       | backward      |
+| ---              | ----    | -----    | ----          | ----          |
+| characters       | C-f     | C-b      | C-d           | BACKSPACE     |
+| words            | M-f     | M-b      | M-d           | C-BACKSPACE   |
+| lines            | C-n     | C-p      | C-S-BACKSPACE | C-S-BACKSPACE |
+| line end/start   | C-e     | C-a      | C-k           |               |
+| sentences        | M-e     | M-a      | M-k           |               |
+| expressions      |         |          |               |               |
+| paragraphs       | M-}     | M-{      |               |               |
+| buffer end/start | M->     | M-<      |               |               |
+| page down/up     | C-v     | M-v      |               |               |
 
-#BEGIN RECEIVE ORGTBL movement
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="left" />
-
-<col  class="left" />
-
-<col  class="left" />
-
-<col  class="left" />
-
-<col  class="left" />
-</colgroup>
-<tbody>
-<tr>
-<td class="left">&#xa0;</td>
-<td class="left">move</td>
-<td class="left">&#xa0;</td>
-<td class="left">delete</td>
-<td class="left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="left">Amount</td>
-<td class="left">forward</td>
-<td class="left">backward</td>
-<td class="left">forward</td>
-<td class="left">backward</td>
-</tr>
-
-<tr>
-<td class="left">Shortcut</td>
-<td class="left">Action</td>
-<td class="left">&#xa0;</td>
-<td class="left">&#xa0;</td>
-<td class="left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="left">---------</td>
-<td class="left">-----------------</td>
-<td class="left">----</td>
-<td class="left">---</td>
-<td class="left">---</td>
-</tr>
-
-<tr>
-<td class="left">C-f</td>
-<td class="left">forward character</td>
-<td class="left">&#xa0;</td>
-<td class="left">&#xa0;</td>
-<td class="left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="left">M-f</td>
-<td class="left">forward word</td>
-<td class="left">&#xa0;</td>
-<td class="left">&#xa0;</td>
-<td class="left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="left">C-e</td>
-<td class="left">end of the line</td>
-<td class="left">&#xa0;</td>
-<td class="left">&#xa0;</td>
-<td class="left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="left">C-n</td>
-<td class="left">next line</td>
-<td class="left">&#xa0;</td>
-<td class="left">&#xa0;</td>
-<td class="left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="left">M-e</td>
-<td class="left">next sentence</td>
-<td class="left">&#xa0;</td>
-<td class="left">&#xa0;</td>
-<td class="left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="left">C-v</td>
-<td class="left">down one page</td>
-<td class="left">&#xa0;</td>
-<td class="left">&#xa0;</td>
-<td class="left">&#xa0;</td>
-</tr>
-
-<tr>
-<td class="left">M-&gt;</td>
-<td class="left">end of buffer</td>
-<td class="left">&#xa0;</td>
-<td class="left">&#xa0;</td>
-</tr>
-</tbody>
-</table>
-
-#END RECEIVE ORGTBL movement
-
-
-| Shortcut  | Action                |
-| --------- | --------------------- |
-| C-b       | backward character    |
-| M-b       | backward word         |
-| C-a       | beginning of the line |
-| C-p       | previous line         |
-| M-a       | previous sentence     |
-| M-v       | up one page           |
-| M-<       | beginning of buffer   |
 
 | Shortcut  | Action                                                         |
 | --------- | -------------------------------------------------------------- |
 | C-l       | move underlying text to the middle/top/bottom of the screen    |
 | M-m       | move to the first non-whitespace character on the current line |
-| C-arrows  | move by entire sections                                        |
 | M-g M-g   | go to line by number                                           |
+| C-x C-x   | swap mark and point                                            |
+
+
+# File #
+
+| Shortcut | Acton                             |
+| --       | ---                               |
+| C-x C-f  | open file by name (fuzzy matched) |
+| C-x C-s  | Save current buffer immediatelly  |
+| C-x s    | save all buffers with changes     |
+| C-x C-b  | list buffers (fuzzy matched)      |
 
 
 # Editing #
+
+## killing and yanking ##
+
+| Shortcut | Acton                 |
+| --       | ---                   |
+| M-w      | copy                  |
+| S-INSERT | paste                 |
+| M-y      | rotate over kill ring |
+| C-w      | kill current region   |
 
 ## undoing ##
 
@@ -173,17 +73,6 @@ https://www.emacswiki.org/emacs/EmacsNiftyTricks
 | C-/      | - undo      |
 | C-?      | - redo      |
 | C-x u    | - undo tree |
-
-## deleting ##
-
-| Shortcut      | Acton                                  |
-| --            | ---                                    |
-| C-S-backspace | kill current line                      |
-| backspace     | delete character before point          |
-| C-d           | delete character after point           |
-| M-d           | kill forward to the end of word        |
-| M-DEL         | kill back to the beginning of the word |
-| C-k           | kill to the end of line                |
 
 ## other ##
 
@@ -198,9 +87,6 @@ M-c       capitalize word
 
 C-x h    - mark the whole file
 C-SPC    - make selections using keyboard
-
-C-x s   - save all buffers with changes
-C-x C-s   - save current buffer immediately
 
 M-tab     autofix spelling errors
 
@@ -231,8 +117,10 @@ C-x e     - apply macro
 
 | Shortcut        | Action                       |
 | --------------- | ---------------------------- |
-| C-s             | incremental search forwards  |
-| C-r             | incremental search backwards |
+| C-s             | search forward               |
+| C-r             | search backward              |
+| C-M-s           | search forward using regex   |
+| C-M-r           | search backward using regex  |
 | M-%             | query replace                |
 | C-M-%           | query replace with regex     |
 | replace-string  | replace without quering      |
@@ -291,7 +179,7 @@ by default kill commands will overwrite clipboard (which will make first entry i
 	- paste with middle click
 
 
-# getting help, other #
+# getting help #
 
 | Shortcut  | Action                                   |
 | --------- | ---------------------------------------- |
@@ -299,10 +187,14 @@ by default kill commands will overwrite clipboard (which will make first entry i
 | C-h v     | get value, information, about a variable |
 | C-h c     | get information about a keybinding       |
 | C-h f     | get information about a function         |
-|           |                                          |
+| C-h b     | display all key bindings                 |
+
+# other #
 
 | Shortcut  | Action                                                    |
 | --------- | --------------------------------------------------------- |
-| M-x       | run a function (with my config it's doing fuzzy matching) |
+| M-x       | run a function (with my config it's doing fuzzy matched)  |
 | M-:       | evaluate elisp (run an elisp command)                     |
 | C-c C-o   | follow a symlink (if it's url it will open a browser)     |
+| C-g       | Cancel                                                    |
+| C-x C-c   | quit emacs                                                |
