@@ -16,19 +16,24 @@
 
 <!-- markdown-toc end -->
 
+# Links #
 
+http://www.star.bris.ac.uk/bjm/emacs-tips.html
+https://www.emacswiki.org/emacs/EmacsNiftyTricks
 
 # Motion #
 
-| Shortcut  | Action            |
-| --------- | ----------------- |
-| C-f       | forward character |
-| M-f       | forward word      |
-| C-e       | end of the line   |
-| C-n       | next line         |
-| M-e       | next sentence     |
-| C-v       | down one page     |
-| M->       | end of buffer     |
+|           | move              || delete  ||
+| Amount    | forward           | backward | forward | backward |
+| Shortcut  | Action            |          |         |          |
+| --------- | ----------------- |          |         |          |
+| C-f       | forward character |          |         |          |
+| M-f       | forward word      |          |         |          |
+| C-e       | end of the line   |          |         |          |
+| C-n       | next line         |          |         |          |
+| M-e       | next sentence     |          |         |          |
+| C-v       | down one page     |          |         |          |
+| M->       | end of buffer     |          |         |          |
 
 | Shortcut  | Action                |
 | --------- | --------------------- |
@@ -45,19 +50,35 @@
 | C-l       | move underlying text to the middle/top/bottom of the screen    |
 | M-m       | move to the first non-whitespace character on the current line |
 | C-arrows  | move by entire sections                                        |
+| M-g M-g   | go to line by number                                           |
 
 
 # Editing #
 
+## undoing ##
+
+| Shortcut | Acton       |
+| --       | ---         |
+| C-/      | - undo      |
+| C-?      | - redo      |
+| C-x u    | - undo tree |
+
+## deleting ##
+
+| Shortcut      | Acton                                  |
+| --            | ---                                    |
+| C-S-backspace | kill current line                      |
+| backspace     | delete character before point          |
+| C-d           | delete character after point           |
+| M-d           | kill forward to the end of word        |
+| M-DEL         | kill back to the beginning of the word |
+| C-k           | kill to the end of line                |
+
+## other ##
+
+
 C-o   new line
 C-S-D            duplicate line
-
-C-S-backspace      kill current line
-backspace   delete character before point
-C-d         delete character after point
-M-d         kill forward to the end of word
-M-DEL       kill back to the beginning of the word
-C-k         kill to the end of line
 
 M-;   comment out line/section
 M-l   turn to lower case
@@ -66,10 +87,6 @@ M-c       capitalize word
 
 C-x h    - mark the whole file
 C-SPC    - make selections using keyboard
-
-C-/   - undo
-C-?   - redo
-C-x u   - undo tree
 
 C-x s   - save all buffers with changes
 C-x C-s   - save current buffer immediately
@@ -136,6 +153,7 @@ C-x e     - apply macro
 | cc        | commit            |
 | C-c C-c   | finish commiting  |
 | Pu        | push              |
+| Fu        | pull              |
 
 # Neotree #
 
@@ -176,3 +194,4 @@ by default kill commands will overwrite clipboard (which will make first entry i
 | --------- | --------------------------------------------------------- |
 | M-x       | run a function (with my config it's doing fuzzy matching) |
 | M-:       | evaluate elisp (run an elisp command)                     |
+| C-c C-o   | follow a symlink (if it's url it will open a browser)     |
