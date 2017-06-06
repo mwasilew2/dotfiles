@@ -358,3 +358,4 @@
 
 (diminish 'flyspell-mode)
 (diminish 'undo-tree-mode)
+(diminish 'auto-revert-mode)
