@@ -25,6 +25,9 @@
   ;; :ensure t
   ;; :config (load-theme 'monokai t))
 
+(use-package diminish
+		:ensure t)
+
 ;; Load material theme
 (use-package material-theme
   :ensure t
@@ -232,6 +235,7 @@
 
 (use-package auto-complete
   :ensure t
+		:diminish auto-complete-mode
   :init
   (progn
     (ac-config-default)
@@ -268,14 +272,17 @@
 (global-set-key (kbd "C-x g") 'magit-status)
 
 (use-package org
-		:ensure t)
+		:ensure t
+		:diminish orgtbl-mode)
 
 (use-package markdown-mode
-  :ensure t)
+  :ensure t
+		:diminish markdown-mode)
 (add-hook 'markdown-mode-hook 'orgtbl-mode)
 
 (use-package markdown-toc
-  :ensure t)
+  :ensure t
+		:diminish markdown-toc-mode)
 
 (use-package multiple-cursors
   :ensure t)
@@ -298,6 +305,7 @@
 
 (use-package projectile
   :ensure t
+		:diminish projectile-mode
   :config (projectile-global-mode)
   (use-package helm-projectile
     :ensure t)
@@ -335,6 +343,7 @@
 
 (use-package yasnippet
   :ensure t
+		:diminish yasnippet-mode
   :config
   (yas-global-mode 1))
 (add-hook 'term-mode-hook (lambda()
@@ -345,3 +354,7 @@
   :ensure t)
 (global-undo-tree-mode) ;; installed and configured by evil anyway, configuring explicitly
 (setq undo-tree-visualizer-diff t)
+
+
+(diminish 'flyspell-mode)
+(diminish 'undo-tree-mode)
