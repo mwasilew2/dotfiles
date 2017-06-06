@@ -45,6 +45,20 @@
 (define-globalized-minor-mode global-fci-mode fci-mode (lambda () (fci-mode 1))) ;; make fill-column-indicator a global minor mode
 (global-fci-mode 1) ;; enable the global mode you just created
 
+;; LINE NUMBERING:: use nlinum for line numbering
+;; (use-package nlinum
+;;   :ensure t
+;;   :diminish nlinum-mode)
+
+;; (use-package nlinum-relative
+;;   :ensure t
+;;   :pin melpa
+;;   :diminish nlinum-relative-mode
+;;   :config
+;;   (setq nlinum-relative-redisplay-delay 0)
+;;   (setq nlinum-relative-current-symbol "0")
+;;   (global-nlinum-relative-mode))
+
 ;; display file path in the frame title
 (setq inhibit-default-init t)
 (setq-default frame-title-format "%b (%f)")
@@ -253,8 +267,13 @@
   :ensure t)
 (global-set-key (kbd "C-x g") 'magit-status)
 
+(use-package org
+		:ensure t)
+
 (use-package markdown-mode
   :ensure t)
+(add-hook 'markdown-mode-hook 'orgtbl-mode)
+
 (use-package markdown-toc
   :ensure t)
 
@@ -276,9 +295,6 @@
 (defun workworkspace ()
   (interactive)
   (neotree-dir "/data/mw5/workspace"))
-
-(use-package org
-		:ensure t)
 
 (use-package projectile
   :ensure t
