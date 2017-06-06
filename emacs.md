@@ -23,7 +23,9 @@ https://www.emacswiki.org/emacs/EmacsNiftyTricks
 
 # Motion #
 
-|           | move              || delete  ||
+<!--
+#+ORGTBL: SEND movement orgtbl-to-html
+|           | move              |          | delete  |          |
 | Amount    | forward           | backward | forward | backward |
 | Shortcut  | Action            |          |         |          |
 | --------- | ----------------- | ----     | ---     | ---      |
@@ -34,6 +36,115 @@ https://www.emacswiki.org/emacs/EmacsNiftyTricks
 | M-e       | next sentence     |          |         |          |
 | C-v       | down one page     |          |         |          |
 | M->       | end of buffer     |          |         |          |
+-->
+
+#BEGIN RECEIVE ORGTBL movement
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="left">&#xa0;</td>
+<td class="left">move</td>
+<td class="left">&#xa0;</td>
+<td class="left">delete</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left">Amount</td>
+<td class="left">forward</td>
+<td class="left">backward</td>
+<td class="left">forward</td>
+<td class="left">backward</td>
+</tr>
+
+<tr>
+<td class="left">Shortcut</td>
+<td class="left">Action</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left">---------</td>
+<td class="left">-----------------</td>
+<td class="left">----</td>
+<td class="left">---</td>
+<td class="left">---</td>
+</tr>
+
+<tr>
+<td class="left">C-f</td>
+<td class="left">forward character</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left">M-f</td>
+<td class="left">forward word</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left">C-e</td>
+<td class="left">end of the line</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left">C-n</td>
+<td class="left">next line</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left">M-e</td>
+<td class="left">next sentence</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left">C-v</td>
+<td class="left">down one page</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="left">M-&gt;</td>
+<td class="left">end of buffer</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+
+#END RECEIVE ORGTBL movement
+
 
 | Shortcut  | Action                |
 | --------- | --------------------- |
