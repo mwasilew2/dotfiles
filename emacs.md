@@ -26,7 +26,7 @@ https://www.emacswiki.org/emacs/EmacsNiftyTricks
 |           | move              || delete  ||
 | Amount    | forward           | backward | forward | backward |
 | Shortcut  | Action            |          |         |          |
-| --------- | ----------------- |          |         |          |
+| --------- | ----------------- | ----     | ---     | ---      |
 | C-f       | forward character |          |         |          |
 | M-f       | forward word      |          |         |          |
 | C-e       | end of the line   |          |         |          |
