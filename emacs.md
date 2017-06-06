@@ -7,9 +7,9 @@
 - [Editing](#editing)
     - [killing and yanking](#killing-and-yanking)
     - [undoing](#undoing)
+    - [formatting](#formatting)
     - [other](#other)
 - [Repeating/Macros](#repeatingmacros)
-- [Indentation](#indentation)
 - [Search & Replace](#search--replace)
 - [windows/buffers](#windowsbuffers)
 - [Markdown](#markdown)
@@ -28,6 +28,10 @@ http://www.star.bris.ac.uk/bjm/emacs-tips.html
 
 https://www.emacswiki.org/emacs/EmacsNiftyTricks
 
+https://www.gnu.org/software/emacs/refcards/pdf/refcard.pdf
+
+http://www.ast.cam.ac.uk/~vasily/idl/emacs_commands_list.html
+
 # Motion #
 
 | Amount               | forward            | backward          | forward       | backward      |
@@ -43,7 +47,7 @@ https://www.emacswiki.org/emacs/EmacsNiftyTricks
 | page down/up         | C-v                | M-v               |               |               |
 | parenthesis balanced | C-M-right or C-M-f | C-M-left or C-M-b | C-M-k         |               |
 | parenthetical group  | C-M-n              | C-M-p             |               |               |
-|                      |                    |                   |               |               |
+| function             | C-M-e              | C-M-a             |               |               |
 
 
 | Shortcut  | Action                                                         |
@@ -52,6 +56,7 @@ https://www.emacswiki.org/emacs/EmacsNiftyTricks
 | M-m       | move to the first non-whitespace character on the current line |
 | M-g M-g   | go to line by number                                           |
 | C-x C-x   | swap mark and point                                            |
+| M-z char  | kill to the next occurrence of char                            |
 
 
 # File #
@@ -86,44 +91,55 @@ https://www.emacswiki.org/emacs/EmacsNiftyTricks
 | C-?      | - redo      |
 | C-x u    | - undo tree |
 
+## formatting ##
+
+| Shortcut | Acton               |
+| --       | ---                 |
+| M-u      | uppercase word      |
+| M-l      | lowercase word      |
+| M-c      | capitalize word     |
+| C-x C-u  | uppercase selection |
+| C-x C-l  | lowercase selection |
+
+
+| Shortcut    | Action              |
+| ----------- | ------------------- |
+| C-c arrows  | move code           |
+| C-M-\       | indent a code block |
+| C-x tab     | indent              |
+
+
 ## other ##
 
 
-C-o   new line
-C-S-D            duplicate line
+| Shortcut    | Action                            |
+| ----------- | -------------------               |
+| C-o         | new line                          |
+| C-M-o       | move rest of line vertically down |
+| C-S-D       | duplicate line                    |
+| M-;         | comment out line/section          |
+| C-SPC       | make selections using keyboard    |
+| C-x C-p     | select page                       |
+| C-x h       | mark the whole file               |
+| M-tab       | autofix spelling errors           |
+| C-t         | transpose two characters          |
+| M-t         | transpose two words               |
+| C-x C-t     | transpose lines                   |
 
-M-;   comment out line/section
-M-l   turn to lower case
-M-u   turn to upper case
-M-c       capitalize word
-
-C-x h    - mark the whole file
-C-SPC    - make selections using keyboard
-
-M-tab     autofix spelling errors
-
-M-t    transpose two words
 
 # Repeating/Macros #
 
-| Shortcut    | Action                      |
-| ----------- | --------------------------- |
-| C-x z       | repeat command              |
-| C-u 20 C-d  | repeat 20 times command C-d |
+| Shortcut    | Action                                           |
+| ----------- | ---------------------------                      |
+| C-x z       | repeat command                                   |
+| M-number    | repeat command number of times (the same as C-u) |
+| C-u 20 C-d  | repeat 20 times command C-d                      |
 
 
 C-x (     -start macro
 press the sequence
 C-x )     - stop recording macro
 C-x e     - apply macro
-
-# Indentation #
-
-| Shortcut    | Action              |
-| ----------- | ------------------- |
-| C-c arrows  | move code blocks    |
-| C-M-\       | indent a code block |
-| C-x tab     | indent              |
 
 # Search & Replace #
 
