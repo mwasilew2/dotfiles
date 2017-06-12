@@ -277,7 +277,8 @@
 
 (use-package markdown-mode
   :ensure t
-		:diminish markdown-mode)
+		:diminish markdown-mode
+		:diminish orgtbl-mode)
 (add-hook 'markdown-mode-hook 'orgtbl-mode)
 
 (use-package markdown-toc
