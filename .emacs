@@ -299,7 +299,7 @@
 (add-hook 'after-init-hook #'neotree-toggle)
 (defun workspace ()
   (interactive)
-  (neotree-dir "/media/truecrypt1/1_home/weekly.0/localhost/1_home/workspace"))
+  (neotree-dir "/media/veracrypt1/1_home/weekly.0/localhost/1_home/workspace"))
 (defun workworkspace ()
   (interactive)
   (neotree-dir "/data/mw5/workspace"))
