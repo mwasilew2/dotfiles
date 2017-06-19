@@ -66,6 +66,7 @@
 (setq inhibit-default-init t)
 (setq-default frame-title-format "%b (%f)")
 
+;; emacs balanced parenthesis, smart parenthesis
 (setq-default show-trailing-whitespace t) ;; highlight trailing whitespaces
 (add-hook 'before-save-hook 'delete-trailing-whitespace) ;; delete trailing whitespaces on save
 (setq show-paren-delay 0)  ;; disable delay when highlighting matching parenthesis
