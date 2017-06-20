@@ -79,7 +79,7 @@
 ;; (horizontal-scroll-bar-mode t) ;; display horizontal scroll bar
 (scroll-bar-mode -1) ;; remove all scroll bars
 (set-face-attribute 'default nil :height 110)  ;; font size
-(setq resize-mini-windows nil) ;; don't automatically resize the mini window
+;; (setq resize-mini-windows nil) ;; don't automatically resize the mini window
 (setq inhibit-startup-screen t) ;; don't display emacs welcome screen (tutorial)
 (windmove-default-keybindings) ;; use default keybindings for moving across windows
 
@@ -245,6 +245,10 @@
   (unless (eq major-mode 'python-mode) ad-do-it))
 (ad-activate 'auto-complete-mode)
 
+(use-package dockerfile-mode
+		:ensure t)
+(add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-mode))
+
 (use-package elpy
   ;; requires following pip modules: elpy jedi rope
   :ensure t
@@ -273,14 +277,18 @@
 (global-set-key (kbd "C-x g") 'magit-status)
 
 (use-package org
+		:ensure t)
+
+(use-package org-tbl
+		:ensure t)
+
+(use-package org-trello
 		:ensure t
-		:diminish orgtbl-mode)
+		:config
+		(setq org-trello-files '("/home/michal/trello")))
 
 (use-package markdown-mode
-  :ensure t
-		:diminish markdown-mode
-		:diminish orgtbl-mode)
-(add-hook 'markdown-mode-hook 'orgtbl-mode)
+  :ensure t)
 
 (use-package markdown-toc
   :ensure t
