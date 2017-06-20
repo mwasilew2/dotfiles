@@ -16,6 +16,10 @@
 - [Magit](#magit)
 - [Neotree](#neotree)
 - [Projectile](#projectile)
+- [Dockerfile](#dockerfile)
+- [Org](#org)
+    - [Org-tbl](#org-tbl)
+    - [Org-trello](#org-trello)
 - [Clipboards](#clipboards)
 - [getting help](#getting-help)
 - [other](#other)
@@ -197,6 +201,20 @@ C-x e     - apply macro
 # Projectile #
 
 http://projectile.readthedocs.io/en/latest/usage/
+
+# Dockerfile #
+
+https://github.com/spotify/dockerfile-mode
+
+# Org #
+
+http://orgmode.org/guide/index.html#Top
+
+## Org-tbl ##
+
+## Org-trello ##
+
+http://org-trello.github.io/
 
 # Clipboards #
 
