@@ -279,9 +279,6 @@
 (use-package org
 		:ensure t)
 
-(use-package org-tbl
-		:ensure t)
-
 (use-package org-trello
 		:ensure t
 		:config
