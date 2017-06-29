@@ -327,6 +327,9 @@
   (setq tab-width 2))
 (add-hook 'puppet-mode-hook 'puppet-custom-settings)
 
+(use-package rpm-spec
+		:ensure t)
+
 (use-package smart-shift
   ;; replaced move-text
   :ensure t
