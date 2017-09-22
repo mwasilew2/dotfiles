@@ -178,6 +178,10 @@ C-x e     - apply macro
 | M-<left>   | unindent      |
 | M-<right>  | indent        |
 
+https://jblevins.org/projects/markdown-mode/
+
+
+
 # Magit #
 
 | Shortcut  | Action            |
@@ -189,6 +193,8 @@ C-x e     - apply macro
 | Pu        | push              |
 | Fu        | pull              |
 
+https://magit.vc/manual/magit.html#Top
+
 # Neotree #
 
 | Shortcut  | Action        |
@@ -197,6 +203,8 @@ C-x e     - apply macro
 | C-c C-d   | delete a file |
 | C-c C-r   | rename        |
 | C-c C-p   | copy          |
+
+https://www.emacswiki.org/emacs/NeoTree
 
 # Projectile #
 
