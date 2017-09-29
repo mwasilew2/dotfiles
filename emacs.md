@@ -1,4 +1,4 @@
-<!-- markdown-toc start - Don't edit this section. Run M-x markdown-toc-generate-toc again -->
+<!-- markdown-toc start - Don't edit this section. Run M-x markdown-toc-refresh-toc -->
 **Table of Contents**
 
 - [Links](#links)
@@ -18,13 +18,14 @@
 - [Projectile](#projectile)
 - [Dockerfile](#dockerfile)
 - [Org](#org)
-    - [Org-tbl](#org-tbl)
+    - [Tables](#tables)
     - [Org-trello](#org-trello)
 - [Clipboards](#clipboards)
 - [getting help](#getting-help)
-- [other](#other)
+- [other](#other-1)
 
 <!-- markdown-toc end -->
+
 
 # Links #
 
@@ -172,15 +173,19 @@ C-x e     - apply macro
 
 # Markdown #
 
-| Shortcut   | Action        |
-| ---------- | ------------- |
-| C-c C-t 3  | title level 3 |
-| M-<left>   | unindent      |
-| M-<right>  | indent        |
+| Shortcut   | Action                |
+| ---------- | -------------         |
+| C-c C-s    | set style of text     |
+| C-c C-s 3  | title level 3         |
+| C-c C--    | promote with children |
+| C-c C-=    | demote with children  |
+| C-c >      | indent region         |
+| C-c <      | unindent region       |
+|            |                       |
 
 https://jblevins.org/projects/markdown-mode/
 
-
+https://github.com/jrblevin/markdown-mode/blob/ee7a3a5bf19e0ad4163a4d7e136829ebd5dcc892/markdown-mode.el#L5780
 
 # Magit #
 
@@ -216,9 +221,12 @@ https://github.com/spotify/dockerfile-mode
 
 # Org #
 
-http://orgmode.org/guide/index.html#Top
+full: http://orgmode.org/org.html
+compact: http://orgmode.org/guide/
 
-## Org-tbl ##
+## Tables ##
+
+http://orgmode.org/guide/Tables.html#Tables
 
 ## Org-trello ##
 
