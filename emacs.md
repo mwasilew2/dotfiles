@@ -39,7 +39,7 @@ http://www.ast.cam.ac.uk/~vasily/idl/emacs_commands_list.html
 
 # Motion #
 
-| Amount               | forward            | backward          | forward       | backward      |
+| Amount               | forward            | backward          | del forward   | del backward  |
 | ---                  | ----               | -----             | ----          | ----          |
 | characters           | C-f                | C-b               | C-d           | BACKSPACE     |
 | words                | M-f                | M-b               | M-d           | C-BACKSPACE   |
