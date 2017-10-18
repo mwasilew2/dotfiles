@@ -336,6 +336,12 @@
   :config
   (global-smart-shift-mode 1))
 
+(use-package smartparens
+		:ensure t
+		:diminish smartparens-mode
+		:config
+		(smartparens-global-mode t))
+
 (use-package tabbar
   :ensure t)
 (defun my-tabbar-buffer-groups () ;; customize to show all normal files in one group
