@@ -32,6 +32,7 @@
 (set-face-attribute 'default nil :height 110)  ;; font size
 ;; (setq resize-mini-windows nil) ;; don't automatically resize the mini window
 (split-window-right)
+(global-hl-line-mode)
 
 ;; (use-package monokai-theme
   ;; :ensure t
