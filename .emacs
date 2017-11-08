@@ -31,17 +31,17 @@
   ;; :config (load-theme 'material t))
 
 (use-package solarized-theme
-		:ensure t
-		:config (load-theme 'solarized-dark t))
+  :ensure t
+  :config (load-theme 'solarized-dark t))
 
 (use-package diminish
-		:ensure t)
+  :ensure t)
 
 ;; Use powerline
 (use-package powerline
- :ensure t
- :config
- (powerline-default-theme))
+  :ensure t
+  :config
+  (powerline-default-theme))
 
 ;; ruler
 (use-package fill-column-indicator
@@ -69,8 +69,6 @@
 (setq inhibit-default-init t) ;; don't load default init file
 (setq-default frame-title-format "%b (%f)") ;; display file path in the frame title
 
-(setq-default show-trailing-whitespace t) ;; highlight trailing whitespaces
-(add-hook 'before-save-hook 'delete-trailing-whitespace) ;; delete trailing whitespaces on save
 (setq show-paren-delay 0)  ;; disable delay when highlighting matching parenthesis
 (show-paren-mode 1)  ;; highlight matching parenthesis
 ;; (global-linum-mode t) ;; display global line numbers on the left hand side
@@ -85,15 +83,22 @@
 (setq inhibit-startup-screen t) ;; don't display emacs welcome screen (tutorial)
 (windmove-default-keybindings) ;; use default keybindings for moving across windows
 
+(setq-default tab-width 1) ;; default tab width
+(setq-default indent-tabs-mode nil) ;; don't use tabs for indentation
+(setq whitespace-style '(face tabs))
+(global-whitespace-mode t)
+(setq-default show-trailing-whitespace t) ;; highlight trailing whitespaces
+(add-hook 'before-save-hook 'delete-trailing-whitespace) ;; delete trailing whitespaces on save
+
 ;; less "jumpy" scrolling than defaults
 (setq mouse-wheel-scroll-amount '(2 ((shift) . 2))) ;; one line at a time
 (setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
 (setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
 (setq redisplay-dont-pause t
-						scroll-margin 1
-						scroll-step 1
-						scroll-conservatively 10000
-						scroll-preserve-screen-position 1)
+      scroll-margin 1
+      scroll-step 1
+      scroll-conservatively 10000
+      scroll-preserve-screen-position 1)
 
 
 ;; OTHER
@@ -137,7 +142,6 @@
 
 (setq tramp-default-method "ssh")
 
-(setq-default tab-width 1)
 
 ;; CLIPBOARD BEHAVIOUR
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -202,19 +206,19 @@
   (let ((use-region (use-region-p)))
     (save-excursion
       (let ((text (if use-region ;Get region if active, otherwise line
-		      (buffer-substring (region-beginning) (region-end))
-		    (prog1 (thing-at-point 'line)
-		      (end-of-line)
-		      (if (< 0 (forward-line 1)) ;Go to beginning of next line, or make a new one
-			  (newline))))))
-	(dotimes (i (abs (or n 1))) ;Insert N times, or once if not specified
-	  (insert text))))
+        (buffer-substring (region-beginning) (region-end))
+      (prog1 (thing-at-point 'line)
+        (end-of-line)
+        (if (< 0 (forward-line 1)) ;Go to beginning of next line, or make a new one
+     (newline))))))
+  (dotimes (i (abs (or n 1))) ;Insert N times, or once if not specified
+    (insert text))))
     (if use-region nil ;Only if we're working with a line (not a region)
       (let ((pos (- (point) (line-beginning-position)))) ;Save column
-	(if (> 0 n) ;Comment out original with negative arg
-	    (comment-region (line-beginning-position) (line-end-position)))
-	(forward-line 1)
-	(forward-char pos)))))
+  (if (> 0 n) ;Comment out original with negative arg
+     (comment-region (line-beginning-position) (line-end-position)))
+  (forward-line 1)
+  (forward-char pos)))))
 (global-set-key (kbd "C-S-d") 'duplicate-line-or-region)
 
 (split-window-right)
@@ -243,7 +247,7 @@
 
 (use-package auto-complete
   :ensure t
-		:diminish auto-complete-mode
+  :diminish auto-complete-mode
   :init
   (progn
     (ac-config-default)
@@ -253,7 +257,7 @@
 (ad-activate 'auto-complete-mode)
 
 (use-package dockerfile-mode
-		:ensure t)
+  :ensure t)
 (add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-mode))
 
 (use-package elpy
@@ -284,19 +288,19 @@
 (global-set-key (kbd "C-x g") 'magit-status)
 
 (use-package org
-		:ensure t)
+  :ensure t)
 
 (use-package org-trello
-		:ensure t
-		:config
-		(setq org-trello-files '("/home/michal/trello")))
+  :ensure t
+  :config
+  (setq org-trello-files '("/home/michal/trello")))
 
 (use-package markdown-mode
   :ensure t)
 
 (use-package markdown-toc
   :ensure t
-		:diminish markdown-toc-mode)
+  :diminish markdown-toc-mode)
 
 (use-package multiple-cursors
   :ensure t)
@@ -319,7 +323,7 @@
 
 (use-package projectile
   :ensure t
-		:diminish projectile-mode
+  :diminish projectile-mode
   :config (projectile-global-mode)
   (use-package helm-projectile
     :ensure t)
@@ -335,7 +339,7 @@
 (add-hook 'puppet-mode-hook 'puppet-custom-settings)
 
 (use-package rpm-spec-mode
-		:ensure t)
+  :ensure t)
 
 (use-package smart-shift
   ;; replaced move-text
@@ -344,21 +348,21 @@
   (global-smart-shift-mode 1))
 
 (use-package smartparens
-		:ensure t
-		:diminish smartparens-mode
-		:config
-		(smartparens-global-mode t))
+  :ensure t
+  :diminish smartparens-mode
+  :config
+  (smartparens-global-mode t))
 
 (use-package tabbar
   :ensure t)
 (defun my-tabbar-buffer-groups () ;; customize to show all normal files in one group
   "Returns the name of the tab group names the current buffer belongs to.
- There are two groups: Emacs buffers (those whose name starts with '*', plus
- dired buffers), and the rest.  This works at least with Emacs v24.2 using
- tabbar.el v1.7."
+  There are two groups: Emacs buffers (those whose name starts with '*', plus
+  dired buffers), and the rest.  This works at least with Emacs v24.2 using
+  tabbar.el v1.7."
   (list (cond ((string-equal "*" (substring (buffer-name) 0 1)) "emacs")
-	      ((eq major-mode 'dired-mode) "emacs")
-	      (t "user"))))
+       ((eq major-mode 'dired-mode) "emacs")
+       (t "user"))))
 (setq tabbar-buffer-groups-function 'my-tabbar-buffer-groups)
 (tabbar-mode 1)
 
@@ -368,7 +372,7 @@
 
 (use-package yasnippet
   :ensure t
-		:diminish yasnippet-mode
+  :diminish yasnippet-mode
   :config
   (yas-global-mode 1))
 (add-hook 'term-mode-hook (lambda()
@@ -393,8 +397,8 @@
 (use-package evil
   ;; behaves better if declared last
   :ensure t
-		:diminish evil-mode
-		:config (evil-mode t))
+  :diminish evil-mode
+  :config (evil-mode t))
 (global-undo-tree-mode) ;; installed and configured by evil anyway, configuring explicitly
 (setq undo-tree-visualizer-diff t)
 
