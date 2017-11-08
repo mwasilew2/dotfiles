@@ -53,25 +53,23 @@
 ;;   :ensure t
 ;;   :diminish nlinum-mode)
 
-;; (use-package nlinum-relative
-;;   :ensure t
-;;   :pin melpa
-;;   :diminish nlinum-relative-mode
-;;   :config
-;;   (setq nlinum-relative-redisplay-delay 0)
-;;   (setq nlinum-relative-current-symbol "0")
-;;   (global-nlinum-relative-mode))
+(use-package nlinum-relative
+  :ensure t
+  :pin melpa
+  :diminish nlinum-relative-mode
+  :config
+  (setq nlinum-relative-redisplay-delay 0)
+  (setq nlinum-relative-current-symbol "0")
+  (global-nlinum-relative-mode))
 
-;; display file path in the frame title
-(setq inhibit-default-init t)
-(setq-default frame-title-format "%b (%f)")
+(setq inhibit-default-init t) ;; don't load default init file
+(setq-default frame-title-format "%b (%f)") ;; display file path in the frame title
 
-;; emacs balanced parenthesis, smart parenthesis
 (setq-default show-trailing-whitespace t) ;; highlight trailing whitespaces
 (add-hook 'before-save-hook 'delete-trailing-whitespace) ;; delete trailing whitespaces on save
 (setq show-paren-delay 0)  ;; disable delay when highlighting matching parenthesis
 (show-paren-mode 1)  ;; highlight matching parenthesis
-(global-linum-mode t) ;; display global line numbers on the left hand side
+;; (global-linum-mode t) ;; display global line numbers on the left hand side
 (setq column-number-mode t) ;; display cursor position at the bottom of a window
 (tool-bar-mode -1) ;; Turn off tool bar in X mode
 (set-default 'truncate-lines nil) ;; wrap lines
@@ -87,7 +85,11 @@
 (setq mouse-wheel-scroll-amount '(2 ((shift) . 2))) ;; one line at a time
 (setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
 (setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
-(setq scroll-step 2) ;; keyboard scroll one line at a time
+(setq redisplay-dont-pause t
+						scroll-margin 1
+						scroll-step 1
+						scroll-conservatively 10000
+						scroll-preserve-screen-position 1)
 
 
 ;; OTHER
@@ -111,8 +113,8 @@
 ;;     map))
 ;; (view-mode 1)
 ;; workaround for loading functions from view mode
-(view-mode 1)
-(view-mode 0)
+;; (view-mode 1)
+;; (view-mode 0)
 (global-set-key "\C-v" 'View-scroll-half-page-forward)
 (global-set-key "\M-v" 'View-scroll-half-page-backward)
 
@@ -121,6 +123,7 @@
 ;; I save files very often, I use it more for controlling when I'm editing
 ;; I don't want to rely only on auto-saving and backups, because then I lose track of whan and when I edited
 ;; store all backup and autosave files in a local dir instead of next to the original file
+(setq global-auto-revert-mode t)
 (setq backup-directory-alist
   `((".*" . "~/.emacs_saves/")))
 (setq auto-save-file-name-transforms
@@ -385,7 +388,9 @@
 
 (use-package evil
   ;; behaves better if declared last
-  :ensure t)
+  :ensure t
+		:diminish evil-mode
+		:config (evil-mode t))
 (global-undo-tree-mode) ;; installed and configured by evil anyway, configuring explicitly
 (setq undo-tree-visualizer-diff t)
 
