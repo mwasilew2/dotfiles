@@ -25,13 +25,17 @@
   ;; :ensure t
   ;; :config (load-theme 'monokai t))
 
+;; Load material theme
+;; (use-package material-theme
+  ;; :ensure t)
+  ;; :config (load-theme 'material t))
+
+(use-package solarized-theme
+		:ensure t
+		:config (load-theme 'solarized-dark t))
+
 (use-package diminish
 		:ensure t)
-
-;; Load material theme
-(use-package material-theme
-  :ensure t
-  :config (load-theme 'material t))
 
 ;; Use powerline
 (use-package powerline
@@ -213,7 +217,7 @@
 	(forward-char pos)))))
 (global-set-key (kbd "C-S-d") 'duplicate-line-or-region)
 
-
+(split-window-right)
 ;; BUFFER BEHAVIOUR :: handy function from wikipedia, that
 ;; makes new windows automatically load the next buffer
 ;; rather than the same one as is already open.
@@ -330,7 +334,7 @@
   (setq tab-width 2))
 (add-hook 'puppet-mode-hook 'puppet-custom-settings)
 
-(use-package rpm-spec
+(use-package rpm-spec-mode
 		:ensure t)
 
 (use-package smart-shift
