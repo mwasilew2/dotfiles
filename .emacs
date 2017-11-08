@@ -20,12 +20,23 @@
 ;; VIEW PREFERENCES
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;; Load the monokai theme
+(setq inhibit-startup-screen t) ;; don't display emacs welcome screen (tutorial)
+(setq inhibit-default-init t) ;; don't load default init file
+(scroll-bar-mode -1) ;; remove all scroll bars
+;; (horizontal-scroll-bar-mode t) ;; display horizontal scroll bar
+(tool-bar-mode -1) ;; Turn off tool bar in X mode
+(set-default 'truncate-lines nil) ;; wrap lines
+;; (setq truncate-partial-width-windows nil) ;; don't wrap lines for horizontally split windows
+(setq column-number-mode t) ;; display cursor position at the bottom of a window
+(setq-default frame-title-format "%b (%f)") ;; display file path in the frame title
+(set-face-attribute 'default nil :height 110)  ;; font size
+;; (setq resize-mini-windows nil) ;; don't automatically resize the mini window
+(split-window-right)
+
 ;; (use-package monokai-theme
   ;; :ensure t
   ;; :config (load-theme 'monokai t))
 
-;; Load material theme
 ;; (use-package material-theme
   ;; :ensure t)
   ;; :config (load-theme 'material t))
@@ -35,27 +46,23 @@
   :config (load-theme 'solarized-dark t))
 
 (use-package diminish
+  ;; don't display modes in the status bar
   :ensure t)
 
-;; Use powerline
 (use-package powerline
+  ;; Use powerline
   :ensure t
   :config
   (powerline-default-theme))
 
-;; ruler
 (use-package fill-column-indicator
+  ;; ruler
   :ensure t
   :config
   (setq fci-rule-column 80)
   (setq fci-handle-truncate-lines nil))
 (define-globalized-minor-mode global-fci-mode fci-mode (lambda () (fci-mode 1))) ;; make fill-column-indicator a global minor mode
 (global-fci-mode 1) ;; enable the global mode you just created
-
-;; LINE NUMBERING:: use nlinum for line numbering
-;; (use-package nlinum
-;;   :ensure t
-;;   :diminish nlinum-mode)
 
 (use-package nlinum-relative
   :ensure t
@@ -66,31 +73,30 @@
   (setq nlinum-relative-current-symbol "0")
   (global-nlinum-relative-mode))
 
-(setq inhibit-default-init t) ;; don't load default init file
-(setq-default frame-title-format "%b (%f)") ;; display file path in the frame title
+;; (use-package nlinum
+;; LINE NUMBERING:: use nlinum for line numbering
+;;   :ensure t
+;;   :diminish nlinum-mode)
 
-(setq show-paren-delay 0)  ;; disable delay when highlighting matching parenthesis
-(show-paren-mode 1)  ;; highlight matching parenthesis
 ;; (global-linum-mode t) ;; display global line numbers on the left hand side
-(setq column-number-mode t) ;; display cursor position at the bottom of a window
-(tool-bar-mode -1) ;; Turn off tool bar in X mode
-(set-default 'truncate-lines nil) ;; wrap lines
-;; (setq truncate-partial-width-windows nil) ;; don't wrap lines for horizontally split windows
-;; (horizontal-scroll-bar-mode t) ;; display horizontal scroll bar
-(scroll-bar-mode -1) ;; remove all scroll bars
-(set-face-attribute 'default nil :height 110)  ;; font size
-;; (setq resize-mini-windows nil) ;; don't automatically resize the mini window
-(setq inhibit-startup-screen t) ;; don't display emacs welcome screen (tutorial)
-(windmove-default-keybindings) ;; use default keybindings for moving across windows
 
+
+;; OTHER
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(global-set-key "\M-;" 'comment-line)
+(windmove-default-keybindings) ;; use default keybindings for moving across windows
+(setq tramp-default-method "ssh")
+
+;; tabs vs spaces
 (setq-default tab-width 1) ;; default tab width
 (setq-default indent-tabs-mode nil) ;; don't use tabs for indentation
-(setq whitespace-style '(face tabs))
-(global-whitespace-mode t)
+(setq whitespace-style '(face tabs)) ;; configure whitespace mode to highlight tabs
+(global-whitespace-mode t) ;; enable whitespace highglighting
 (setq-default show-trailing-whitespace t) ;; highlight trailing whitespaces
 (add-hook 'before-save-hook 'delete-trailing-whitespace) ;; delete trailing whitespaces on save
 
-;; less "jumpy" scrolling than defaults
+;; scrolling
 (setq mouse-wheel-scroll-amount '(2 ((shift) . 2))) ;; one line at a time
 (setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
 (setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
@@ -101,9 +107,6 @@
       scroll-preserve-screen-position 1)
 
 
-;; OTHER
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
 ;; spell checking
 ;; (add-hook 'text-mode-hook 'flyspell-buffer) ;; check the entire buffer when opening, slows down emacs massively when working with big files
 (add-hook 'text-mode-hook 'flyspell-mode) ;; enable flyspell-mode, checks only the word around cursor
@@ -113,8 +116,7 @@
 ;; (require 'go-autocomplete)
 ;; (ac-flyspell-workaround))
 
-(global-set-key "\M-;" 'comment-line)
-
+;; no longer needed since using evil
 ;; with the below, keybindings are as needed, but view-mode is enabled
 ;; (defvar view-mode-map
 ;;   (let ((map (make-sparse-keymap)))
@@ -124,10 +126,10 @@
 ;; workaround for loading functions from view mode
 ;; (view-mode 1)
 ;; (view-mode 0)
-(global-set-key "\C-v" 'View-scroll-half-page-forward)
-(global-set-key "\M-v" 'View-scroll-half-page-backward)
+;; (global-set-key "\C-v" 'View-scroll-half-page-forward)
+;; (global-set-key "\M-v" 'View-scroll-half-page-backward)
 
-
+;; auto save, backup
 ;; (setq make-backup-files nil)  ;; disable taking backups
 ;; I save files very often, I use it more for controlling when I'm editing
 ;; I don't want to rely only on auto-saving and backups, because then I lose track of whan and when I edited
@@ -140,14 +142,8 @@
 (setq auto-save-interval 20)
 (setq auto-save-timeout 3)
 
-(setq tramp-default-method "ssh")
-
-
-;; CLIPBOARD BEHAVIOUR
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
+;; clipboard behaviour
 (delete-selection-mode 1) ;; replace selection when pasting
-
 ;; (setq select-enable-clipboard nil) ;; non-nil means kill commands will overwrite OS clipboard
 ;; (setq x-select-enable-clipboard t) ;; alias for select-enable-clipboard
 ;; (setq select-enable-primary t) ;; non-nil means cutting and pasting uses the primary selection
@@ -198,30 +194,30 @@
     (kill-buffer (current-buffer))))
 (global-set-key (kbd "C-x k") 'volatile-kill-buffer) ;; Unconditionally kill unmodified buffers.
 
-(defun duplicate-line-or-region (&optional n)
-  "Duplicate current line, or region if active.
-    With argument N, make N copies.
-    With negative N, comment out original line and use the absolute value."
-  (interactive "*p")
-  (let ((use-region (use-region-p)))
-    (save-excursion
-      (let ((text (if use-region ;Get region if active, otherwise line
-        (buffer-substring (region-beginning) (region-end))
-      (prog1 (thing-at-point 'line)
-        (end-of-line)
-        (if (< 0 (forward-line 1)) ;Go to beginning of next line, or make a new one
-     (newline))))))
-  (dotimes (i (abs (or n 1))) ;Insert N times, or once if not specified
-    (insert text))))
-    (if use-region nil ;Only if we're working with a line (not a region)
-      (let ((pos (- (point) (line-beginning-position)))) ;Save column
-  (if (> 0 n) ;Comment out original with negative arg
-     (comment-region (line-beginning-position) (line-end-position)))
-  (forward-line 1)
-  (forward-char pos)))))
-(global-set-key (kbd "C-S-d") 'duplicate-line-or-region)
+;; no longer needed since using evil
+;; (defun duplicate-line-or-region (&optional n)
+;;   "Duplicate current line, or region if active.
+;;     With argument N, make N copies.
+;;     With negative N, comment out original line and use the absolute value."
+;;   (interactive "*p")
+;;   (let ((use-region (use-region-p)))
+;;     (save-excursion
+;;       (let ((text (if use-region ;Get region if active, otherwise line
+;;         (buffer-substring (region-beginning) (region-end))
+;;       (prog1 (thing-at-point 'line)
+;;         (end-of-line)
+;;         (if (< 0 (forward-line 1)) ;Go to beginning of next line, or make a new one
+;;      (newline))))))
+;;   (dotimes (i (abs (or n 1))) ;Insert N times, or once if not specified
+;;     (insert text))))
+;;     (if use-region nil ;Only if we're working with a line (not a region)
+;;       (let ((pos (- (point) (line-beginning-position)))) ;Save column
+;;   (if (> 0 n) ;Comment out original with negative arg
+;;      (comment-region (line-beginning-position) (line-end-position)))
+;;   (forward-line 1)
+;;   (forward-char pos)))))
+;; (global-set-key (kbd "C-S-d") 'duplicate-line-or-region)
 
-(split-window-right)
 ;; BUFFER BEHAVIOUR :: handy function from wikipedia, that
 ;; makes new windows automatically load the next buffer
 ;; rather than the same one as is already open.
@@ -282,7 +278,6 @@
           ;; to locate and open files
           ("C-x C-f" . helm-find-files)))
 
-;; use magit, opening a terminal takes too much time and it changes context
 (use-package magit
   :ensure t)
 (global-set-key (kbd "C-x g") 'magit-status)
@@ -319,7 +314,7 @@
   (neotree-dir "/media/veracrypt1/1_home/weekly.0/localhost/1_home/workspace"))
 (defun workworkspace ()
   (interactive)
-  (neotree-dir "/data/mw5/workspace"))
+  (neotree-dir "/home/michal/workspace"))
 
 (use-package projectile
   :ensure t
@@ -353,6 +348,9 @@
   :config
   (smartparens-global-mode t))
 
+(setq show-paren-delay 0)  ;; disable delay when highlighting matching parenthesis
+(show-paren-mode 1)  ;; highlight matching parenthesis
+
 (use-package tabbar
   :ensure t)
 (defun my-tabbar-buffer-groups () ;; customize to show all normal files in one group
@@ -377,8 +375,6 @@
   (yas-global-mode 1))
 (add-hook 'term-mode-hook (lambda()
         (setq yas-dont-activate t)))
-
-
 
 (use-package haskell-mode
   :ensure t
