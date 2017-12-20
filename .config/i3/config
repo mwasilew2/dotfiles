@@ -23,7 +23,7 @@ font pango:monospace 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec xfce4-terminal
+bindsym $mod+Return exec gnome-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -176,9 +176,8 @@ bindsym $mod+Pause mode "$mode_system"
 
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id nm-applet
-exec --no-startup-id i3-msg 'workspace 1:term; exec xfce4-terminal'
-exec --no-startup-id i3-msg 'workspace 3:emacs; exec emacs'
-exec --no-startup-id i3-msg 'workspace 5:VBox; exec virtualbox'
+exec --no-startup-id i3-msg 'workspace 10:term; exec gnome-terminal'
+exec --no-startup-id i3-msg 'workspace 8:emacs; exec emacs'
 
-exec --no-startup-id i3-msg 'workspace 2:Web; exec firefox'
-exec --no-startup-id i3-msg 'workspace 4:nautilus; exec nautilus'
+exec --no-startup-id i3-msg 'workspace 9:Web; exec firefox'
+#exec --no-startup-id i3-msg 'workspace 4:nautilus; exec nautilus'

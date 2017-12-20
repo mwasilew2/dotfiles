@@ -7,6 +7,10 @@ export HISTTIMEFORMAT="%d/%m/%y %T "
 export VISUAL=vim
 export EDITOR="$VISUAL"
 
+export WORKON_HOME=~/.virtualenvs
+#. /home/michal/.local/bin/virtualenvwrapper.sh
+. /usr/bin/virtualenvwrapper.sh
+
 # print function for colors in cli
 
 function print () {
@@ -39,12 +43,13 @@ if [ -f `which powerline-daemon` ]; then
   POWERLINE_BASH_CONTINUATION=1
   POWERLINE_BASH_SELECT=1
   # . /run/current-system/sw/lib/python3.5/site-packages/powerline/bindings/bash/powerline.sh
+  # . /usr/share/powerline/bindings/bash/powerline.sh
   . /usr/share/powerline/bash/powerline.sh
 fi
 
 # aliases
 alias workspace="cd /media/veracrypt1/1_home/weekly.0/localhost/1_home/workspace"
-alias workworkspace="cd /data/mw5/workspace"
+alias workworkspace="cd /home/michal/workspace/"
 alias h='$(history | awk "{\$1=\$2=\$3=\"\"; print \$0}" | fzf)'
 
 
