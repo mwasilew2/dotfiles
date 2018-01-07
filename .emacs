@@ -279,6 +279,13 @@
           ;; to locate and open files
           ("C-x C-f" . helm-find-files)))
 
+(use-package helm-swoop
+  :ensure t
+  :after helm)
+
+(use-package hydra
+  :ensure t)
+
 (use-package magit
   :ensure t)
 (global-set-key (kbd "C-x g") 'magit-status)
