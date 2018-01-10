@@ -117,6 +117,11 @@
 ;; (require 'go-autocomplete)
 ;; (ac-flyspell-workaround))
 
+;; (use-package flycheck
+  ;; :ensure t
+  ;; :config
+  ;; (global-flycheck-mode))
+
 ;; no longer needed since using evil
 ;; with the below, keybindings are as needed, but view-mode is enabled
 ;; (defvar view-mode-map
@@ -240,7 +245,7 @@
 (use-package avy
   :ensure t
   :config
-  (global-set-key (kbd "M-g f") 'avy-goto-line))
+  (global-set-key (kbd "M-g f") 'avy-goto-word-1))
 
 (use-package auto-complete
   :ensure t
@@ -327,7 +332,8 @@
 (use-package projectile
   :ensure t
   :diminish projectile-mode
-  :config (projectile-global-mode)
+  :config
+  (projectile-global-mode)
   (use-package helm-projectile
     :ensure t)
   (helm-projectile-on))
@@ -353,8 +359,8 @@
 (use-package smartparens
   :ensure t
   :diminish smartparens-mode
-  :config
-  (smartparens-global-mode t))
+  :config)
+  ;; (smartparens-global-mode t))
 
 (setq show-paren-delay 0)  ;; disable delay when highlighting matching parenthesis
 (show-paren-mode 1)  ;; highlight matching parenthesis
@@ -402,9 +408,11 @@
   ;; behaves better if declared last
   :ensure t
   :diminish evil-mode
-  :config (evil-mode t))
+  :config
+  (evil-mode t))
 (global-undo-tree-mode) ;; installed and configured by evil anyway, configuring explicitly
 (setq undo-tree-visualizer-diff t)
+(define-key evil-normal-state-map (kbd "M-.") nil)
 
 
 (diminish 'flyspell-mode)

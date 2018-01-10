@@ -1,0 +1,297 @@
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" " alternatively, pass a path where Vundle should install plugins
+" "call vundle#begin('~/some/path/here')
+"
+" " let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+"
+" " The following are examples of different formats supported.
+" " Keep Plugin commands between vundle#begin/end.
+" " plugin on GitHub repo
+Plugin 'tpope/vim-fugitive'
+" " plugin from http://vim-scripts.org/vim/scripts.html
+" Plugin 'L9'
+" " Git plugin not hosted on GitHub
+" Plugin 'git://git.wincent.com/command-t.git'
+" " git repos on your local machine (i.e. when working on your own plugin)
+" Plugin 'file:///home/gmarik/path/to/plugin'
+" " The sparkup vim script is in a subdirectory of this repo called vim.
+" " Pass the path to set the runtimepath properly.
+" Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+" " Install L9 and avoid a Naming conflict if you've already installed a
+" " different version somewhere else.
+" Plugin 'ascenator/L9', {'name': 'newL9'}
+"
+
+
+
+set number
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'scrooloose/nerdtree'
+
+
+
+
+" " All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" " To ignore plugin indent changes, instead use:
+" "filetype plugin on
+" "
+" " Brief help
+" " :PluginList       - lists configured plugins
+" " :PluginInstall    - installs plugins; append `!` to update or just
+" :PluginUpdate
+" " :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" " :PluginClean      - confirms removal of unused plugins; append `!` to
+" auto-approve removal
+" "
+" " see :h vundle for more details or wiki for FAQ
+" " Put your non-Plugin stuff after this line
+
+Example of vimrc
+================
+set nocompatible
+filetype off
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'xolox/vim-misc'
+
+Plugin 'Valloric/YouCompleteMe'
+
+Plugin 'sheerun/vim-polyglot' "Extended language syntax + indent
+Plugin 'scrooloose/Syntastic' "Syntax checking
+"Plugin 'jaxbot/semantic-highlight.vim'
+Plugin 'Xenopathic/semantic-highlight.vim'
+
+Plugin 'scrooloose/nerdcommenter' "Comment helper
+Plugin 'ctrlpvim/ctrlp.vim'
+
+Plugin 'bkad/CamelCaseMotion'
+Plugin 'easymotion/vim-easymotion'
+Plugin 'congma/vim-fakeclip'
+Plugin 'tpope/vim-abolish'
+
+"Plugin 'xolox/vim-easytags'
+Plugin 'majutsushi/tagbar' "Browse tags
+
+Plugin 'hari-rangarajan/CCTree'
+
+Plugin 'shawncplus/phpcomplete.vim' "Auto-completion PHP
+Plugin 'tobyS/pdv' "PHP Documentor
+Plugin 'joonty/vdebug'
+Plugin 'docteurklein/php-getter-setter.vim'
+
+Plugin 'tmhedberg/SimpylFold' "Python code folding
+Plugin 'vim-scripts/indentpython.vim' "Better Python auto-indent
+
+Plugin 'elzr/vim-json'
+Plugin 'othree/javascript-libraries-syntax.vim'
+
+Plugin 'scrooloose/nerdtree' "Filesystem explorer
+Plugin 'yegappan/mru' "Most recently used files
+Plugin 'tpope/vim-fugitive' "Git wrapper
+Plugin 'Xuyuanp/nerdtree-git-plugin' "NERDTree git extension
+Plugin 'airblade/vim-gitgutter' "git status per-line
+
+Plugin 'jeetsukumaran/vim-buffergator'
+
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'ryanoasis/vim-webdevicons'
+
+Plugin 'ntpeters/vim-better-whitespace' "Whitespace highligher
+Plugin 'tpope/vim-sleuth' "Set buffer options based on file heuristics
+
+Plugin 'vim-pandoc/vim-pandoc'
+Plugin 'vim-pandoc/vim-pandoc-syntax'
+
+"Plugin 'jaxbot/github-issues.vim'
+
+call vundle#end()
+filetype plugin indent on
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+set tabstop=4
+set shiftwidth=4
+set nobackup
+set nowb
+set number
+set nowrap
+set smartcase
+set timeoutlen=1000
+set ttimeoutlen=10
+
+set relativenumber
+
+syntax enable
+set background=dark
+colorscheme solarized
+set laststatus=2
+
+map , <Leader2>
+nnoremap ; :
+
+set hlsearch
+nmap <silent> <Leader2>/ :nohlsearch<CR>
+
+cmap w!! w !sudo tee % >/dev/null
+
+set foldnestmax=1
+autocmd FileType c set foldmethod=syntax
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Syntastic
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+
+let g:syntastic_cpp_compiler = 'clang++-3.6'
+let g:syntastic_cpp_compiler_options = ' -std=c++11'
+
+"let g:syntastic_python_python_exec = '/usr/bin/python2.7'
+"let g:syntastic_python_pylint_exec = '/usr/bin/pylint2'
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Eclim
+
+let g:EclimDefaultFileOpenAction = 'edit'
+let g:EclimCompletionMethod = 'omnifunc' "For YouCompleteMe
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" EasyTags
+
+let g:easytags_async = 0
+let g:easytags_auto_highlight = 0
+let g:easytags_dynamic_files = 1
+set tags=./tags;
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Tagbar
+
+nmap <silent> <C-m> :TagbarOpenAutoClose<CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" WebDevIcons
+
+let g:webdevicons_enable_nerdtree = 0
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Powerline
+
+let g:powerline_pycmd = 'py3'
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" NERDTree
+
+map <silent> <C-n> :NERDTreeFocus<CR>
+let NERDTreeIgnore=['\.pyc$', '\~$']
+let NERDTreeQuitOnOpen = 1
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" EasyMotion
+
+let g:EasyMotion_smartcase = 1
+"map <Leader> <Plug>(easymotion-prefix)
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" CamelCaseMotion
+
+map <silent> <Leader2>w <Plug>CamelCaseMotion_w
+map <silent> <Leader2>b <Plug>CamelCaseMotion_b
+map <silent> <Leader2>e <Plug>CamelCaseMotion_e
+map <silent> <Leader2>ge <Plug>CamelCaseMotion_ge
+omap <silent> <Leader2>iw <Plug>CamelCaseMotion_iw
+xmap <silent> <Leader2>iw <Plug>CamelCaseMotion_iw
+omap <silent> <Leader2>ib <Plug>CamelCaseMotion_ib
+xmap <silent> <Leader2>ib <Plug>CamelCaseMotion_ib
+omap <silent> <Leader2>ie <Plug>CamelCaseMotion_ie
+xmap <silent> <Leader2>ie <Plug>CamelCaseMotion_ie
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" CtrlP
+
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/](\.(git|hg|svn)|\_site)$',
+  \ 'file': '\v\.(exe|so|dll|class|png|jpg|jpeg)$',
+\}
+
+" Use the nearest .git/.svn/... directory as the cwd
+let g:ctrlp_working_path_mode = 'r'
+
+nmap <leader>p :CtrlP<cr>
+
+nmap <leader>bb :CtrlPBuffer<cr>
+nmap <leader>bm :CtrlPMixed<cr>
+nmap <leader>bs :CtrlPMRU<cr>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Buffergator
+
+set hidden
+
+let g:buffergator_viewport_split_policy = 'R'
+
+let g:buffergator_suppress_keymaps = 1
+nmap <leader>jj :BuffergatorMruCyclePrev<cr>
+nmap <leader>kk :BuffergatorMruCycleNext<cr>
+nmap <leader>bl :BuffergatorOpen<cr>
+
+nmap <leader>l :bnext<CR>
+nmap <leader>h :bprevious<CR>
+nmap <leader>T :enew<cr>
+nmap <leader>bq :bp <BAR> bd #<cr>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" VDebug
+
+let g:vdebug_options = {}
+let g:vdebug_options['break_on_open'] = 0
+"let g:vdebug_options['path_maps'] = {'/var/www/owncloud': '/srv/'}
+let g:vdebug_options['server'] = ''
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Fakeclip
+
+vmap <Leader2>D <Plug>(fakeclip-D)
+nmap <Leader2>D <Plug>(fakeclip-D)
+nmap <Leader2>dd <Plug>(fakeclip-dd)
+vmap <Leader2>d <Plug>(fakeclip-d)
+nmap <Leader2>d <Plug>(fakeclip-d)
+
+vmap <Leader2>gP <Plug>(fakeclip-gP)
+nmap <Leader2>gP <Plug>(fakeclip-gP)
+vmap <Leader2>gp <Plug>(fakeclip-gp)
+nmap <Leader2>gp <Plug>(fakeclip-gp)
+vmap <Leader2>P <Plug>(fakeclip-P)
+nmap <Leader2>P <Plug>(fakeclip-P)
+vmap <Leader2>p <Plug>(fakeclip-p)
+nmap <Leader2>p <Plug>(fakeclip-p)
+
+vmap <Leader2>y <Plug>(fakeclip-y)
+nmap <Leader2>y <Plug>(fakeclip-y)
+vmap <Leader2>Y <Plug>(fakeclip-Y)
+nmap <Leader2>Y <Plug>(fakeclip-Y)
+nmap <Leader2>yy <Plug>(fakeclip-Y)
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" SimpylFold
+
+let g:SimpylFold_docstring_preview=1
+let g:SimpylFold_fold_docstring = 0
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" YouCompleteMe
+
+let g:ycm_autoclose_preview_window_after_completion=1
+map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+"let g:ycm_python_binary_path = 'python2'
