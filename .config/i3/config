@@ -89,6 +89,7 @@ bindsym $mod+Tab workspace next
 bindsym $mod+Shift+Tab workspace prev
 
 # assign workspaces to monitors (xrandr --current for list of monitors)
+# for desktop numbers beyond 10: https://faq.i3wm.org/question/1267/desktop-numbers-beyond-10.1.html
 workspace 1 output VGA-1
 workspace 2 output VGA-1
 workspace 3 output VGA-1
