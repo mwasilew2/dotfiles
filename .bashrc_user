@@ -67,3 +67,5 @@ function stopwatch(){
     sleep 0.1
    done
 }
+
+alias docker_cleanc='printf "\n>>> Deleting stopped containers\n\n" && docker rm $(docker ps -a -q) && printf "\n>>> Deleting all images\n\n"  && docker rmi $(docker images -q)'
