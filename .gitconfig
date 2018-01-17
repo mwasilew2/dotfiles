@@ -1,14 +1,16 @@
 [user]
-	name = Michal Wasilewski
-	email = mwasilewski@gmx.com
-	signingkey = 1F12B08D
+ name = Michal Wasilewski
+ email = mwasilewski@gmx.com
+ signingkey = 1F12B08D
 [commit]
-	template = /home/michal/.gitmessage.txt
-	gpgsign = true
+ template = /home/michal/.gitmessage.txt
+ gpgsign = true
+[format]
+ signOff = true
 [push]
-	default = simple
+ default = simple
 [gpg]
-	program = /usr/bin/gpg2
+ program = /usr/bin/gpg2
 
 [alias]
-	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+ lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
