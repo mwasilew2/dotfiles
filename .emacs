@@ -291,6 +291,13 @@
 (use-package hydra
   :ensure t)
 
+(use-package groovy-mode
+  :ensure t)
+
+(use-package jinja2-mode
+  :ensure t)
+(add-to-list 'auto-mode-alist '("j2\\'" . jinja2-mode))
+
 (use-package magit
   :ensure t)
 (global-set-key (kbd "C-x g") 'magit-status)
@@ -361,6 +368,9 @@
   :diminish smartparens-mode
   :config)
   ;; (smartparens-global-mode t))
+
+(use-package scala-mode
+  :ensure t)
 
 (setq show-paren-delay 0)  ;; disable delay when highlighting matching parenthesis
 (show-paren-mode 1)  ;; highlight matching parenthesis
