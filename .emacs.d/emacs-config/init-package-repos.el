@@ -15,5 +15,7 @@
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
+(setq use-package-verbose t)
+(require 'use-package)
 
 (provide 'init-package-repos)

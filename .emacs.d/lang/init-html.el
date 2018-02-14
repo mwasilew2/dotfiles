@@ -1,3 +1,7 @@
-(require-package 'htmlize)
+(use-package htmlize
+  :ensure t)
+
+;; (use-package html-mode
+  ;; :ensure t)
 
 (provide 'init-html)

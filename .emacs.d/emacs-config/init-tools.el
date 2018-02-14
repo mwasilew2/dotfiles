@@ -113,5 +113,7 @@
         (setq yas-dont-activate t)))
 
 
+(use-package eldoc
+  :ensure t)
 
 (provide 'init-tools)

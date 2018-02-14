@@ -1,6 +1,8 @@
 (global-set-key "\M-;" 'comment-line)
 (windmove-default-keybindings) ;; use default keybindings for moving across windows
 (setq tramp-default-method "ssh")
+(setq sentence-end-double-space nil)
+(fset 'yes-or-no-p 'y-or-n-p)
 
 ;; no longer needed since using evil
 ;; with the below, keybindings are as needed, but view-mode is enabled

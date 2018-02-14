@@ -1,5 +1,5 @@
 (use-package elpy
-  ;; requires following pip modules: elpy jedi rope
+  ;; requires following pip modules: elpy jedi rope, check with elpy-config
   :ensure t
   :config
   (elpy-enable)
