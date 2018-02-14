@@ -65,21 +65,21 @@
 (define-globalized-minor-mode global-fci-mode fci-mode (lambda () (fci-mode 1))) ;; make fill-column-indicator a global minor mode
 (global-fci-mode 1) ;; enable the global mode you just created
 
-(use-package nlinum-relative
-  :ensure t
-  :pin melpa
-  :diminish nlinum-relative-mode
-  :config
-  (setq nlinum-relative-redisplay-delay 0)
-  (setq nlinum-relative-current-symbol "0")
-  (global-nlinum-relative-mode))
+;; (use-package nlinum-relative
+;;   :ensure t
+;;   :pin melpa
+;;   :diminish nlinum-relative-mode
+;;   :config
+;;   (setq nlinum-relative-redisplay-delay 0)
+;;   (setq nlinum-relative-current-symbol "0")
+;;   (global-nlinum-relative-mode))
 
-;; (use-package nlinum
+;; ;; (use-package nlinum
 ;; LINE NUMBERING:: use nlinum for line numbering
 ;;   :ensure t
 ;;   :diminish nlinum-mode)
 
-;; (global-linum-mode t) ;; display global line numbers on the left hand side
+(global-linum-mode t) ;; display global line numbers on the left hand side
 
 
 ;; OTHER
@@ -155,6 +155,7 @@
 ;; (setq select-enable-primary t) ;; non-nil means cutting and pasting uses the primary selection
 ;; (setq mouse-drag-copy-region t) ;; non-nil means copy to kill-ring upon mouse adjustments of region
 (setq save-interprogram-paste-before-kill t) ;; save clipboard to kill ring when overwriting clipboard with kill
+(global-set-key (kbd "S-<insert>") 'evil-paste-before)
 
 ;; CUSTOM FUNCTIONS
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
