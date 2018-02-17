@@ -3,16 +3,8 @@
   :config
   (global-set-key (kbd "M-g f") 'avy-goto-word-1))
 
-(use-package auto-complete
-  :ensure t
-  :diminish auto-complete-mode
-  :init
-  (progn
-    (ac-config-default)
-    (global-auto-complete-mode t)))
-(defadvice auto-complete-mode (around disable-auto-complete-for-python)
-  (unless (eq major-mode 'python-mode) ad-do-it))
-(ad-activate 'auto-complete-mode)
+(use-package eldoc
+  :ensure t)
 
 (use-package helm
   ;; HELM - fuzzy matching, etc.
@@ -38,14 +30,6 @@
   :ensure t)
 (global-set-key (kbd "C-x g") 'magit-status)
 
-(use-package org
-  :ensure t)
-
-(use-package org-trello
-  :ensure t
-  :config
-  (setq org-trello-files '("/home/michal/trello")))
-
 (use-package multiple-cursors
   :ensure t)
 
@@ -65,6 +49,14 @@
   (interactive)
   (neotree-dir "/home/michal/workspace"))
 
+(use-package org
+  :ensure t)
+
+(use-package org-trello
+  :ensure t
+  :config
+  (setq org-trello-files '("/home/michal/trello")))
+
 (use-package projectile
   :ensure t
   :diminish projectile-mode
@@ -74,22 +66,12 @@
     :ensure t)
   (helm-projectile-on))
 ;; helm-projectile-switch-project
-;; rofi
 
 (use-package smart-shift
   ;; replaced move-text
   :ensure t
   :config
   (global-smart-shift-mode 1))
-
-(use-package smartparens
-  :ensure t
-  :diminish smartparens-mode
-  :config)
-  ;; (smartparens-global-mode t))
-
-(setq show-paren-delay 0)  ;; disable delay when highlighting matching parenthesis
-(show-paren-mode 1)  ;; highlight matching parenthesis
 
 (use-package tabbar
   :ensure t)
@@ -111,9 +93,5 @@
   (yas-global-mode 1))
 (add-hook 'term-mode-hook (lambda()
         (setq yas-dont-activate t)))
-
-
-(use-package eldoc
-  :ensure t)
 
 (provide 'init-tools)

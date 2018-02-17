@@ -1,9 +1,4 @@
-
-;; VIEW PREFERENCES
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
 (setq inhibit-startup-screen t) ;; don't display emacs welcome screen (tutorial)
-(setq inhibit-default-init t) ;; don't load default init file
 (scroll-bar-mode -1) ;; remove all scroll bars
 ;; (horizontal-scroll-bar-mode t) ;; display horizontal scroll bar
 (tool-bar-mode -1) ;; Turn off tool bar in X mode
@@ -13,24 +8,24 @@
 (setq-default frame-title-format "%b (%f)") ;; display file path in the frame title
 (set-face-attribute 'default nil :height 110)  ;; font size
 ;; (setq resize-mini-windows nil) ;; don't automatically resize the mini window
-(split-window-right)
-(global-hl-line-mode)
+(split-window-right) ;; when spliting windows, do it side by side https://www.gnu.org/software/emacs/manual/html_node/emacs/Split-Window.html
+(global-hl-line-mode) ;; highlight line
 
-;; (use-package monokai-theme
-  ;; :ensure t
-  ;; :config (load-theme 'monokai t))
+(use-package monokai-theme
+  :ensure t
+  :config (load-theme 'monokai t))
 
 ;; (use-package material-theme
   ;; :ensure t)
   ;; :config (load-theme 'material t))
 
-(use-package solarized-theme
-  :ensure t
-  :config (load-theme 'solarized-dark t))
+;; (use-package solarized-theme
+  ;; :ensure t
+  ;; :config (load-theme 'solarized-dark t))
 
-(use-package diminish
+;; (use-package diminish
   ;; don't display modes in the status bar
-  :ensure t)
+  ;; :ensure t)
 
 (use-package powerline
   ;; Use powerline

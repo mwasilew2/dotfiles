@@ -1,6 +1,3 @@
-;; CUSTOM FUNCTIONS
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
 ;; (defun delete-current-line ()
 ;;   "Delete (not kill) the current line."
 ;;   (interactive)

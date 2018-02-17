@@ -1,4 +1,3 @@
-;; spell checking
 ;; (add-hook 'text-mode-hook 'flyspell-buffer) ;; check the entire buffer when opening, slows down emacs massively when working with big files
 (add-hook 'text-mode-hook 'flyspell-mode) ;; enable flyspell-mode, checks only the word around cursor
 (add-hook 'prog-mode-hook (lambda () (ac-flyspell-workaround))) ;; enable flyspell workaround
@@ -12,5 +11,6 @@
   ;; :config
   ;; (global-flycheck-mode))
 
+(diminish 'flyspell-mode)
 
 (provide 'init-spell-check)
