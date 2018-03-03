@@ -66,6 +66,10 @@
     :ensure t)
   (helm-projectile-on))
 ;; helm-projectile-switch-project
+;; workaround for laggy projectile, more info: https://github.com/bbatsov/projectile/issues/1183
+(setq projectile-mode-line
+         '(:eval (format " Projectile[%s]"
+                        (projectile-project-name))))
 
 (use-package smart-shift
   ;; replaced move-text
@@ -93,5 +97,8 @@
   (yas-global-mode 1))
 (add-hook 'term-mode-hook (lambda()
         (setq yas-dont-activate t)))
+
+(use-package yasnippet-snippets
+  :ensure t)
 
 (provide 'init-tools)
