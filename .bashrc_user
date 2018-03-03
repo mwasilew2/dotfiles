@@ -69,3 +69,5 @@ function stopwatch(){
 }
 
 alias docker_cleanc='docker system prune -a'
+
+. ~/.kube/completion.bash.inc
