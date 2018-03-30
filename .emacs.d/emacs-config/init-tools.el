@@ -17,7 +17,17 @@
           ("C-x C-b" . helm-buffers-list)
           ;; Finding files can also be a pain, so use helm
           ;; to locate and open files
-          ("C-x C-f" . helm-find-files)))
+          ("C-x C-f" . helm-find-files))
+  :config
+  (setq helm-boring-buffer-regexp-list (list
+                                        (rx "*magit-")
+                                        (rx "*helm")
+                                        (rx "*Messages")
+                                        (rx "*Minibuf-")
+                                        (rx "*NeoTree*")
+                                        (rx "*Echo Area")
+                                        (rx "*code-conversion-w")
+                                        (rx "scratch"))))
 
 (use-package helm-swoop
   :ensure t

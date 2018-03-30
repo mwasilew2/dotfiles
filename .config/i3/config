@@ -196,7 +196,7 @@ exec --no-startup-id i3-msg 'workspace 8 emacs; exec emacs'
 exec --no-startup-id i3-msg 'workspace 9 web; exec firefox'
 #exec --no-startup-id i3-msg 'workspace 4:nautilus; exec nautilus'
 
-exec xautolock -time 1 -locker '$Locker' &
+exec xautolock -time 3 -locker '$Locker' &
 
 # Pulse Audio controls
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
