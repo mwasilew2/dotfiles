@@ -20,13 +20,14 @@
           ("C-x C-f" . helm-find-files))
   :config
   (setq helm-boring-buffer-regexp-list (list
-                                        (rx "*magit-")
+                                        (rx "*magit:")
                                         (rx "*helm")
                                         (rx "*Messages")
+                                        (rx "*Compile-Log*")
                                         (rx "*Minibuf-")
                                         (rx "*NeoTree*")
                                         (rx "*Echo Area")
-                                        (rx "*code-conversion-w")
+                                        (rx "*code-converting-work")
                                         (rx "scratch"))))
 
 (use-package helm-swoop
