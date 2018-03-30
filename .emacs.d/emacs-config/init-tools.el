@@ -27,7 +27,7 @@
                                         (rx "*Minibuf-")
                                         (rx "*NeoTree*")
                                         (rx "*Echo Area")
-                                        (rx "*code-converting-work")
+                                        (rx "*code-conversion-work")
                                         (rx "scratch"))))
 
 (use-package helm-swoop
