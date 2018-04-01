@@ -23,6 +23,7 @@
                                         (rx "*magit-")
                                         (rx "*magit:")
                                         (rx "*helm")
+                                        (rx "*server*")
                                         (rx "*Messages")
                                         (rx "*Compile-Log*")
                                         (rx "*Minibuf-")
