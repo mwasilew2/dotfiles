@@ -20,6 +20,7 @@
           ("C-x C-f" . helm-find-files))
   :config
   (setq helm-boring-buffer-regexp-list (list
+                                        (rx "*magit-")
                                         (rx "*magit:")
                                         (rx "*helm")
                                         (rx "*Messages")
