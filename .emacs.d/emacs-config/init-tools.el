@@ -21,16 +21,18 @@
   :config
   (setq helm-boring-buffer-regexp-list (list
                                         (rx "*magit-")
-                                        (rx "*magit:")
-                                        (rx "*helm")
-                                        (rx "*server*")
-                                        (rx "*Messages")
-                                        (rx "*Compile-Log*")
+                                        (rx "*magit: ")
+                                        (rx "*helm ")
                                         (rx "*Minibuf-")
-                                        (rx "*NeoTree*")
                                         (rx "*Echo Area")
-                                        (rx "*code-conversion-work")
-                                        (rx "scratch"))))
+
+                                        (rx "*code-conversion-work*")
+                                        (rx "*Messages*")
+                                        (rx "*NeoTree*")
+                                        (rx "*Compile-Log*")
+                                        (rx "*Shell Command Output*")
+                                        (rx "*server*")
+                                        (rx "*scratch*"))))
 
 (use-package helm-swoop
   :ensure t
