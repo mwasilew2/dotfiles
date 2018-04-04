@@ -27,6 +27,7 @@
 (require 'init-tabs-spaces)
 (require 'init-tools)
 (require 'init-view-preferences)
+(require 'init-whitespaces)
 
 ;; lang
 (require 'init-ansible)
@@ -39,6 +40,7 @@
 (require 'init-haskell)
 (require 'init-html)
 (require 'init-jinja2)
+(require 'init-json)
 (require 'init-lisp)
 (require 'init-markdown)
 (require 'init-nix)

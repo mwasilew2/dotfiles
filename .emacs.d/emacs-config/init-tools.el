@@ -26,13 +26,17 @@
                                         (rx "*Minibuf-")
                                         (rx "*Echo Area")
 
-                                        (rx "*code-conversion-work*")
+                                        (rx "*Backtrace*")
+                                        (rx "*code-converting-work*")
+                                        (rx "*Compile-Log*")
+                                        (rx "*Completions*")
+                                        (rx "*groovy*")
+                                        (rx "*Help*")
                                         (rx "*Messages*")
                                         (rx "*NeoTree*")
-                                        (rx "*Compile-Log*")
-                                        (rx "*Shell Command Output*")
+                                        (rx "*scratch*")
                                         (rx "*server*")
-                                        (rx "*scratch*"))))
+                                        (rx "*Shell Command Output*"))))
 
 (use-package helm-swoop
   :ensure t

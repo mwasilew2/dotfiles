@@ -1,4 +1,5 @@
-(setq inhibit-startup-screen t) ;; don't display emacs welcome screen (tutorial)
+(setq inhibit-startup-screen t) ;; don't display emacs welcome screen (tutorial), inhibit-splash-screen is an alias for this var
+(setq initial-scratch-message "") ;; initial message in the startup scratch buffer
 (scroll-bar-mode -1) ;; remove all scroll bars
 ;; (horizontal-scroll-bar-mode t) ;; display horizontal scroll bar
 (tool-bar-mode -1) ;; Turn off tool bar in X mode

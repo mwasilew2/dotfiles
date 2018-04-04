@@ -1,3 +1,6 @@
+(use-package request
+  :ensure t)
+
 (use-package htmlize
   :ensure t)
 
