@@ -4,11 +4,8 @@
 (setq sentence-end-double-space nil) ;; if set to non-nil, sentences end with two spaces
 (fset 'yes-or-no-p 'y-or-n-p)
 
-(let ((normal-gc-cons-threshold (* 20 1024 1024))
-     (init-gc-cons-threshold (* 128 1024 1024)))
- (setq gc-cons-threshold init-gc-cons-threshold)
- (add-hook 'after-init-hook
-(lambda () (setq gc-cons-threshold normal-gc-cons-threshold)))) ;; emacs garbage collection threshold, the default is very conservative 800k
+(setq gc-cons-threshold (* 100 1024 1024)
+      gc-cons-percentage 0.6) ;; emacs garbage collection threshold, the default is very conservative 800k
 
 ;; no longer needed since using evil
 ;; with the below, keybindings are as needed, but view-mode is enabled
