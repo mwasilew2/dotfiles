@@ -1,4 +1,3 @@
-;;(require-package 'gnuplot)
 ;;(require-package 'lua-mode)
 ;;(maybe-require-package 'regex-tool)
 ;;(maybe-require-package 'dotenv-mode)
