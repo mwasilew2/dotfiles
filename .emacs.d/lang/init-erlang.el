@@ -1,4 +1,5 @@
 (use-package erlang
-  :ensure t)
+  :ensure t
+  )
 
 (provide 'init-erlang)

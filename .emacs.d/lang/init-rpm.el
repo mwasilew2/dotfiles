@@ -1,4 +1,5 @@
 (use-package rpm-spec-mode
-  :ensure t)
+  :ensure t
+  )
 
 (provide 'init-rpm)

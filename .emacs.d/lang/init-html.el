@@ -1,8 +1,10 @@
 (use-package request
-  :ensure t)
+  :ensure t
+  )
 
 (use-package htmlize
-  :ensure t)
+  :ensure t
+  )
 
 ;; (use-package html-mode
   ;; :ensure t)

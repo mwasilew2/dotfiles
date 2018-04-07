@@ -1,4 +1,5 @@
 (use-package json-mode
-  :ensure t)
+  :ensure t
+  )
 
 (provide 'init-json)

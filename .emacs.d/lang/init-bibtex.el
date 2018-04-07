@@ -1,4 +1,5 @@
 (use-package bibtex
-  :ensure t)
+  :ensure t
+  )
 
 (provide 'init-bibtex)

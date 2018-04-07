@@ -5,7 +5,7 @@
 (tool-bar-mode -1) ;; Turn off tool bar in X mode
 (set-default 'truncate-lines nil) ;; wrap lines
 ;; (setq truncate-partial-width-windows nil) ;; don't wrap lines for horizontally split windows
-(setq column-number-mode t) ;; display cursor position at the bottom of a window
+;; (setq column-number-mode t) ;; display cursor position at the bottom of a window, not relevant since using powerline
 (setq-default frame-title-format "%b (%f)") ;; display file path in the frame title
 (set-face-attribute 'default nil :height 110)  ;; font size
 ;; (setq resize-mini-windows nil) ;; don't automatically resize the mini window
@@ -39,9 +39,10 @@
   :ensure t
   :config
   (setq fci-rule-column 80)
-  (setq fci-handle-truncate-lines nil))
-(define-globalized-minor-mode global-fci-mode fci-mode (lambda () (fci-mode 1))) ;; make fill-column-indicator a global minor mode
-(global-fci-mode 1) ;; enable the global mode you just created
+  (setq fci-handle-truncate-lines nil)
+  (define-globalized-minor-mode global-fci-mode fci-mode (lambda () (fci-mode 1))) ;; make fill-column-indicator a global minor mode
+  (global-fci-mode 1) ;; enable the global mode you just created
+  )
 
 ;; (use-package nlinum-relative
 ;;   :ensure t

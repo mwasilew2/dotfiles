@@ -1,7 +1,9 @@
 (use-package php-mode
-  :ensure t)
+  :ensure t
+  )
 
 (use-package smarty-mode
-  :ensure t)
+  :ensure t
+  )
 
 (provide 'init-php)

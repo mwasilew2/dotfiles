@@ -35,6 +35,7 @@
 (require 'init-clojure)
 (require 'init-docker)
 (require 'init-erlang)
+(require 'init-gnuplot)
 (require 'init-golang)
 (require 'init-groovy)
 (require 'init-haskell)
@@ -52,8 +53,8 @@
 (require 'init-scala)
 (require 'init-shell)
 (require 'init-terraform)
-(require 'init-toml)
 ;;(require 'to-be-processed)
+(require 'init-toml)
 (require 'init-yaml)
 
 (provide 'init)

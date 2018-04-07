@@ -1,4 +1,5 @@
 (use-package gnuplot
-  :ensure t)
+  :ensure t
+  )
 
 (provide 'init-gnuplot)

@@ -1,10 +1,15 @@
 (use-package clojure-mode
-  :ensure t)
+  :ensure t
+  )
 
 (use-package elein
-  :ensure t)
+  :ensure t
+  :diminish elein
+  )
 
 (use-package cljsbuild-mode
-  :ensure t)
+  :ensure t
+  :diminish cljsbuild
+  )
 
 (provide 'init-clojure)

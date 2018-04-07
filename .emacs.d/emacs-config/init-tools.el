@@ -28,6 +28,7 @@
 
                                         (rx "*Backtrace*")
                                         (rx "*code-converting-work*")
+                                        (rx "*code-conversion-work*")
                                         (rx "*Compile-Log*")
                                         (rx "*Completions*")
                                         (rx "*groovy*")
