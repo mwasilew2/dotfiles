@@ -55,6 +55,7 @@
 (require 'init-terraform)
 ;;(require 'to-be-processed)
 (require 'init-toml)
+(require 'init-xml)
 (require 'init-yaml)
 
 (provide 'init)

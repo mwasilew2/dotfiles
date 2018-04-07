@@ -24,6 +24,7 @@
 (add-to-list 'ac-modes 'json-mode)
 (add-to-list 'ac-modes 'markdown-mode)
 (add-to-list 'ac-modes 'nix-mode)
+(add-to-list 'ac-modes 'nxml-mode)
 (add-to-list 'ac-modes 'php-mode)
 (add-to-list 'ac-modes 'puppet-mode)
 (add-to-list 'ac-modes 'rpm-spec-mode)
