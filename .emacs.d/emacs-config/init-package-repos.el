@@ -9,5 +9,10 @@
   (package-install 'use-package))
 (setq use-package-verbose t)
 (require 'use-package)
+(use-package diminish
+  :ensure t
+  )
+
+
 
 (provide 'init-package-repos)

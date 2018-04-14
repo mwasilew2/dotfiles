@@ -22,6 +22,8 @@
   (setq helm-boring-buffer-regexp-list (list
                                         (rx "*magit-")
                                         (rx "*magit: ")
+                                        (rx "magit-")
+                                        (rx "magit: ")
                                         (rx "*helm ")
                                         (rx "*Minibuf-")
                                         (rx "*Echo Area")
@@ -60,7 +62,7 @@
   (setq neo-show-hidden-files t)
   (setq neo-window-fixed-size nil)
   (setq neo-window-width 35)
-  (global-set-key [f8] 'neotree-toggle))
+  (global-set-key [f7] 'neotree-toggle))
 (add-hook 'after-init-hook #'neotree-toggle)
 (defun workspace ()
   (interactive)
@@ -114,9 +116,10 @@
   :ensure t
   :diminish yasnippet-mode
   :config
-  (yas-global-mode 1))
-(add-hook 'term-mode-hook (lambda()
-        (setq yas-dont-activate t)))
+  (yas-global-mode 1)
+  (add-hook 'term-mode-hook (lambda()
+          (setq yas-dont-activate t)))
+  )
 
 (use-package yasnippet-snippets
   :ensure t)

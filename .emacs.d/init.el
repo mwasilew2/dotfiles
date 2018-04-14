@@ -12,6 +12,7 @@
 (add-to-list 'load-path (expand-file-name "emacs-config" user-emacs-directory))
 (add-to-list 'load-path (expand-file-name "lang" user-emacs-directory))
 (package-initialize)
+(require 'init-package-repos)
 
 ;; emacs config
 (require 'init-autocomplete)
@@ -21,7 +22,6 @@
 (require 'init-evil)
 (require 'init-mouse-scrolling)
 (require 'init-other)
-(require 'init-package-repos)
 (require 'init-parens)
 (require 'init-spell-check)
 (require 'init-tabs-spaces)
@@ -37,7 +37,7 @@
 (require 'init-erlang)
 (require 'init-gnuplot)
 (require 'init-golang)
-(require 'init-groovy)
+;;(require 'init-groovy)
 (require 'init-haskell)
 (require 'init-html)
 (require 'init-jinja2)

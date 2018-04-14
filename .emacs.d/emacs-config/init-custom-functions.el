@@ -2,7 +2,7 @@
   "open terminal in the current buffer's location"
   (interactive)
   (shell-command "gnome-terminal"))
-(global-set-key [f7] 'terminal-here)
+(global-set-key [f8] 'terminal-here)
 
 (defun terminal-inside ()
   "
