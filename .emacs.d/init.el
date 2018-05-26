@@ -37,7 +37,7 @@
 (require 'init-erlang)
 (require 'init-gnuplot)
 (require 'init-golang)
-;;(require 'init-groovy)
+(require 'init-groovy)
 (require 'init-haskell)
 (require 'init-html)
 (require 'init-jinja2)
