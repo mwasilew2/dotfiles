@@ -1,14 +1,14 @@
 # User specific aliases and functions
 
-export HISTFILESIZE=200000
-export HISTSIZE=100000
+export HISTFILESIZE=2000000
+export HISTSIZE=1000000
 export HISTTIMEFORMAT="%d/%m/%y %T "
 
 export VISUAL=vim
 export EDITOR="$VISUAL"
 
 export WORKON_HOME=~/.virtualenvs
-#. /home/michal/.local/bin/virtualenvwrapper.sh
+# . /home/michal/.local/bin/virtualenvwrapper.sh
 . /usr/bin/virtualenvwrapper.sh
 
 # print function for colors in cli
@@ -43,6 +43,7 @@ if [ -f `which powerline-daemon` ]; then
   POWERLINE_BASH_CONTINUATION=1
   POWERLINE_BASH_SELECT=1
   # . /run/current-system/sw/lib/python3.5/site-packages/powerline/bindings/bash/powerline.sh
+  # . /usr/local/lib/python2.7/dist-packages/powerline/bindings/bash/powerline.sh
   # . /usr/share/powerline/bindings/bash/powerline.sh
   . /usr/share/powerline/bash/powerline.sh
 fi
@@ -51,6 +52,8 @@ fi
 alias workspace="cd /media/veracrypt1/1_home/weekly.0/localhost/1_home/workspace"
 alias workworkspace="cd /home/michal/workspace/"
 . /usr/share/fzf/shell/key-bindings.bash
+# . /home/linuxbrew/.linuxbrew/Cellar/fzf/0.17.3/shell/key-bindings.bash
+# . /home/linuxbrew/.linuxbrew/Cellar/fzf/0.17.3/shell/completion.bash
 
 
 function countdown(){
@@ -68,6 +71,9 @@ function stopwatch(){
    done
 }
 
-alias docker_cleanc='docker system prune -a'
-
 . ~/.kube/completion.bash.inc
+
+# test -d ~/.linuxbrew && PATH="$HOME/.linuxbrew/bin:$HOME/.linuxbrew/sbin:$PATH"
+# test -d /home/linuxbrew/.linuxbrew && PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH"
+# test -r ~/.bash_profile && echo "export PATH='$(brew --prefix)/bin:$(brew --prefix)/sbin'":'"$PATH"' >>~/.bash_profile
+# echo "export PATH='$(brew --prefix)/bin:$(brew --prefix)/sbin'":'"$PATH"' >>~/.profile

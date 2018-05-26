@@ -9,15 +9,17 @@
 ;; you should have .ensime file in your project
 (use-package ensime
   :ensure t
-  :pin melpa
+  :pin melpa-stable
   )
 
 (use-package sbt-mode
-  :pin melpa
+  :pin melpa-stable
   )
 
 (use-package scala-mode
-  :pin melpa
+  :pin melpa-stable
+  :config
+  (add-hook 'scala-mode-hook 'ensime)
   )
 
 (provide 'init-scala)
