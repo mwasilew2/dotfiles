@@ -93,6 +93,7 @@ bindsym $mod+Shift+Tab workspace prev
 # arandr for configuring display layout and generating a script that applies it
 # for desktop numbers beyond 10: https://faq.i3wm.org/question/1267/desktop-numbers-beyond-10.1.html
 
+# dell
 workspace "1 sec" output HDMI-1
 workspace 2 output HDMI-1
 workspace 3 output HDMI-1
@@ -104,6 +105,7 @@ workspace "8 emacs" output HDMI-1
 workspace "9 term" output HDMI-2
 workspace "10 web" output HDMI-2
 
+# thinkpad
 # workspace "1 sec" output eDP1
 # workspace 2 output eDP1
 # workspace 3 output eDP1

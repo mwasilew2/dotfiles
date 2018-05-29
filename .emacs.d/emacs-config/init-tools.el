@@ -62,6 +62,8 @@
   (setq neo-show-hidden-files t)
   (setq neo-window-fixed-size nil)
   (setq neo-window-width 35)
+  ;; (setq neo-autorefresh t) ;; setting to t will cause neotree to change root after opening a file
+  (setq neo-force-change-root t)
   (global-set-key [f7] 'neotree-toggle))
 (add-hook 'after-init-hook #'neotree-toggle)
 (defun workspace ()

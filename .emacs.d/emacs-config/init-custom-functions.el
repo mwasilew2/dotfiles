@@ -1,3 +1,6 @@
+;; shell is very, very limited
+;; terminal doesn't work well with bash tools, e.g. venvs, custom prompts
+;; eshell is emacs shell
 (defun terminal-here ()
   "open terminal in the current buffer's location"
   (interactive)
