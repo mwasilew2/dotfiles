@@ -7,6 +7,8 @@ export HISTTIMEFORMAT="%d/%m/%y %T "
 export VISUAL=vim
 export EDITOR="$VISUAL"
 
+export GOPATH=$HOME/go
+
 export WORKON_HOME=~/.virtualenvs
 . /usr/bin/virtualenvwrapper.sh # Fedora
 # . /home/michal/.local/bin/virtualenvwrapper.sh # Ubuntu
