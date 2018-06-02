@@ -8,6 +8,7 @@ export VISUAL=vim
 export EDITOR="$VISUAL"
 
 export GOPATH="/media/veracrypt1/1_home/weekly.0/localhost/1_home/workspace/projects/go"
+export PATH=$PATH:/media/veracrypt1/1_home/weekly.0/localhost/1_home/workspace/projects/go/bin
 
 export WORKON_HOME=~/.virtualenvs
 . /usr/bin/virtualenvwrapper.sh # Fedora
