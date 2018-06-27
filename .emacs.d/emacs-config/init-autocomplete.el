@@ -6,8 +6,8 @@
   (ac-config-default)
   ;; delays
   ;; (setq ac-auto-start 0)         ;; 2
-  (setq ac-delay 0.1)              ;; 0.1
-  (setq ac-auto-show-menu 0.1)   ;; 0.8
+  (setq ac-delay 0.2)              ;; 0.1
+  (setq ac-auto-show-menu 0.2)   ;; 0.8
   (setq ac-quick-help-delay 0.1) ;; 1.5
   (global-auto-complete-mode t)
   (setq-default ac-sources

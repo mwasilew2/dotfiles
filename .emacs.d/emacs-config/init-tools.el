@@ -42,7 +42,7 @@
                                         ;; (rx "*groovy*")
                                         ;; (rx "*Help*")
                                         ;; (rx "*Messages*")
-                                        ;; (rx "*NeoTree*")
+                                        (rx "*NeoTree*")
                                         ;; (rx "*scratch*")
                                         ;; (rx "*server*")
                                         ;; (rx "*Shell Command Output*")
