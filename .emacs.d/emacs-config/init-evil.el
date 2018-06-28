@@ -1,3 +1,4 @@
+;; https://github.com/bbatsov/prelude/issues/1173
 (use-package undo-tree
   :load-path "site-lisp/undo-tree"
   )
