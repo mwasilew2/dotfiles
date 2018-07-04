@@ -13,13 +13,6 @@
 - [Search & Replace](#search--replace)
 - [windows/buffers](#windowsbuffers)
 - [Markdown](#markdown)
-- [Magit](#magit)
-- [Neotree](#neotree)
-- [Projectile](#projectile)
-- [Dockerfile](#dockerfile)
-- [Org](#org)
-    - [Tables](#tables)
-    - [Org-trello](#org-trello)
 - [Clipboards](#clipboards)
 - [getting help](#getting-help)
 - [other](#other-1)
@@ -171,55 +164,6 @@ C-x e     - apply macro
 | C-x 3             | split vertical                 |
 | C-x 2             | splint horizontal              |
 
-# Markdown #
-
-| Shortcut   | Action                |
-| ---------- | -------------         |
-| C-c C-s    | set style of text     |
-| C-c C-s 3  | title level 3         |
-| C-c C--    | promote with children |
-| C-c C-=    | demote with children  |
-| C-c >      | indent region         |
-| C-c <      | unindent region       |
-|            |                       |
-
-https://jblevins.org/projects/markdown-mode/
-
-https://github.com/jrblevin/markdown-mode/blob/ee7a3a5bf19e0ad4163a4d7e136829ebd5dcc892/markdown-mode.el#L5780
-
-# Magit #
-# Neotree #
-
-| Shortcut  | Action        |
-| --------- | ------------- |
-| C-c C-n   | new file      |
-| C-c C-d   | delete a file |
-| C-c C-r   | rename        |
-| C-c C-p   | copy          |
-
-https://www.emacswiki.org/emacs/NeoTree
-
-# Projectile #
-
-http://projectile.readthedocs.io/en/latest/usage/
-
-# Dockerfile #
-
-https://github.com/spotify/dockerfile-mode
-
-# Org #
-
-full: http://orgmode.org/org.html
-compact: http://orgmode.org/guide/
-
-## Tables ##
-
-http://orgmode.org/guide/Tables.html#Tables
-
-## Org-trello ##
-
-http://org-trello.github.io/
-
 # Clipboards #
 
 the primary facility to store text in emacs is kill ring: `https://www.gnu.org/software/emacs/manual/html_node/emacs/Kill-Ring.html`
@@ -228,8 +172,8 @@ by default kill commands will overwrite clipboard (which will make first entry i
 - clipboard (OS wide)
 - kill ring
 - primary selection
-	- copy by selecting with mouse in any application
-	- paste with middle click
+- copy by selecting with mouse in any application
+- paste with middle click
 
 
 # getting help #

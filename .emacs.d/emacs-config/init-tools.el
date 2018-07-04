@@ -60,6 +60,15 @@
 (use-package multiple-cursors
   :ensure t)
 
+
+;; https://www.emacswiki.org/emacs/NeoTree
+;; | Shortcut  | Action        |
+;; | --------- | ------------- |
+;; | C-c C-n   | new file      |
+;; | C-c C-d   | delete a file |
+;; | C-c C-r   | rename        |
+;; | C-c C-p   | copy          |
+
 (use-package neotree
   ;; neotree - displays directory tree on the side
   :ensure t
@@ -78,14 +87,19 @@
   (interactive)
   (neotree-dir "/home/michal/workspace"))
 
+;; full: http://orgmode.org/org.html
+;; compact: http://orgmode.org/guide/
+;; http://orgmode.org/guide/Tables.html#Tables
 (use-package org
   :ensure t)
 
+;; http://org-trello.github.io/
 (use-package org-trello
   :ensure t
   :config
   (setq org-trello-files '("/home/michal/trello")))
 
+;; http://projectile.readthedocs.io/en/latest/usage/
 (use-package projectile
   :ensure t
   :diminish projectile-mode
