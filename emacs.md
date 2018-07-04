@@ -188,26 +188,6 @@ https://jblevins.org/projects/markdown-mode/
 https://github.com/jrblevin/markdown-mode/blob/ee7a3a5bf19e0ad4163a4d7e136829ebd5dcc892/markdown-mode.el#L5780
 
 # Magit #
-
-| Shortcut  | Action                                            |
-| --------- | -----------------                                 |
-| C-x g     | open magit status                                 |
-| S         | Stage everything                                  |
-| cc        | commit                                            |
-| C-c C-c   | finish commiting                                  |
-| Pu        | push                                              |
-| Fu        | pull                                              |
-| $         | magit status/logs                                 |
-| i         | ignoring files                                    |
-| tab       | fold/unfold changes (when hoovering above a hunk) |
-| ll        | one line log                                      |
-| y         | branches view                                     |
-| bb        | switch to branch                                  |
-| bc        | create new branch                                 |
-|           |                                                   |
-
-https://magit.vc/manual/magit.html#Top
-
 # Neotree #
 
 | Shortcut  | Action        |

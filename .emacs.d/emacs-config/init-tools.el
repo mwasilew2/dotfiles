@@ -57,10 +57,6 @@
 (use-package hydra
   :ensure t)
 
-(use-package magit
-  :ensure t)
-(global-set-key (kbd "C-x g") 'magit-status)
-
 (use-package multiple-cursors
   :ensure t)
 

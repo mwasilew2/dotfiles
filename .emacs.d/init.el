@@ -20,6 +20,7 @@
 (require 'init-clipboard)
 (require 'init-custom-functions)
 (require 'init-evil)
+(require 'init-magit)
 (require 'init-mouse-scrolling)
 (require 'init-other)
 (require 'init-parens)
