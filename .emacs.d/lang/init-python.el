@@ -1,11 +1,20 @@
 (use-package elpy
-  ;; requires following pip modules: elpy jedi rope, check with elpy-config
+  ;; use elpy-config to see what pip modules are required by elpy
   :ensure t
   :config
   (elpy-enable)
-  (setq elpy-rpc-python-command "python3")
-  (setq python-shell-interpreter "python3")
-  (setq python-shell-completion-native-enable nil)
+  (add-hook 'elpy-mode-hook
+            (lambda ()
+              (add-hook 'before-save-hook 'elpy-format-before-save-hook nil 'make-it-local)))
+  )
+
+(defun elpy-format-before-save-hook ()
+  (elpy-format-code))
+
+(use-package virtualenvwrapper
+  ;; elpy by default installs pyvenv which exposes functionality of simple venvs
+  ;; this package exposes virtualenvwrapper which introduces a number of wrappers for venvs
+  :ensure t
   )
 
 (provide 'init-python)

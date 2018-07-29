@@ -30,6 +30,7 @@
 ;; (with-eval-after-load 'go-mode
    ;; (require 'go-autocomplete))
 
+;; this should be changed, see elpy formating on save
 (defun my-go-mode-hook ()
   ; Call Gofmt before saving
   (add-hook 'before-save-hook 'gofmt-before-save)

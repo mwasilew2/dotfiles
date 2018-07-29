@@ -1,7 +1,8 @@
 (use-package terraform-mode
   :ensure t
   :config
-  (add-hook 'terraform-mode 'company-terraform-init)
+  (add-hook 'terraform-mode-hook 'company-terraform-init)
+  (add-hook 'terraform-mode-hook 'terraform-format-on-save-mode)
   )
 
 (use-package company-terraform
