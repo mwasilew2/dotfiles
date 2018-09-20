@@ -207,7 +207,8 @@ exec --no-startup-id nitrogen --restore # desktop background
 exec --no-startup-id nm-applet # network manager applet
 exec --no-startup-id xset r rate 200 25 # keyboard repeat rate and lag
 exec --no-startup-id start-pulseaudio-x11 # start pulseaudio on login
-exec --no-startup-id i3-msg 'workspace 1 sec; exec keepass2'
+exec --no-startup-id volumeicon # start volume control applet
+exec --no-startup-id i3-msg 'workspace 1 sec; exec keepass2; exec gnome-pomodoro'
 exec --no-startup-id i3-msg 'workspace 9 term; exec gnome-terminal'
 exec --no-startup-id i3-msg 'workspace 8 emacs; exec emacs'
 
