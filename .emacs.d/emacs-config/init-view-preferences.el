@@ -12,9 +12,13 @@
 (split-window-right) ;; when spliting windows, do it side by side https://www.gnu.org/software/emacs/manual/html_node/emacs/Split-Window.html
 (global-hl-line-mode) ;; highlight line
 
-(use-package monokai-theme
+(use-package gruvbox-theme
   :ensure t
-  :config (load-theme 'monokai t))
+  :config (load-theme 'gruvbox-dark-medium t))
+
+;; (use-package monokai-theme
+  ;; :ensure t
+  ;; :config (load-theme 'monokai t))
 
 ;; (use-package material-theme
   ;; :ensure t)
