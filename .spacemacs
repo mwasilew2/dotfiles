@@ -46,6 +46,7 @@ This function should only modify configuration layer settings."
      emacs-lisp
      evil-commentary
      git
+     go
      haskell
      helm
      html
@@ -379,7 +380,11 @@ It should only modify the values of Spacemacs settings."
    ;;                       text-mode
    ;;   :size-limit-kb 1000)
    ;; (default nil)
-   dotspacemacs-line-numbers t
+   dotspacemacs-line-numbers '(:relative nil
+                               :enabled-for-modes prog-mode
+                                                  text-mode
+                                                  javascript-mode
+                               :size-limit-kb 1000)
 
    ;; Code folding method. Possible values are `evil' and `origami'.
    ;; (default 'evil)
