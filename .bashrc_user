@@ -9,8 +9,12 @@ export EDITOR="$VISUAL"
 
 export GOPATH="/media/veracrypt1/1_home/weekly.0/localhost/1_home/workspace/projects/go"
 export PATH=$PATH:/media/veracrypt1/1_home/weekly.0/localhost/1_home/workspace/projects/go/bin
-#export PATH=$PATH:/home/michal/go/bin
+#export PATH=$PATH:/home/michal/go/bin # Ubuntu
 
+# handling venvs for different python versions
+#export WORKON_HOME=~/.virtualenvs36
+#export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3.6
+#export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
 export WORKON_HOME=~/.virtualenvs
 . /usr/bin/virtualenvwrapper.sh # Fedora
 # . /home/michal/.local/bin/virtualenvwrapper.sh # Ubuntu
@@ -82,3 +86,31 @@ function stopwatch(){
 # test -d /home/linuxbrew/.linuxbrew && PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH"
 # test -r ~/.bash_profile && echo "export PATH='$(brew --prefix)/bin:$(brew --prefix)/sbin'":'"$PATH"' >>~/.bash_profile
 # echo "export PATH='$(brew --prefix)/bin:$(brew --prefix)/sbin'":'"$PATH"' >>~/.profile
+
+alias fks='gstage && gcloud compute ssh stage-kube-master --ssh-flag="-fN -L127.0.0.1:8012:127.0.0.1:8001"'
+
+function gprod()
+{
+  gcloud config configurations activate prod
+  export GCE_EMAIL=ansible@prod.iam.gserviceaccount.com
+  export GCE_CREDENTIALS_FILE_PATH=~/private/gcp-svc-acc/prod/sa.json
+}
+
+function gstage()
+{
+  gcloud config configurations activate stage
+  export GCE_EMAIL=ansible@stage.iam.gserviceaccount.com
+  export GCE_CREDENTIALS_FILE_PATH=~/private/gcp-svc-acc/stage/sa.json
+}
+
+function aprod()
+{
+  unset ANSIBLE_VAULT_PASSWORD_FILE
+  export ANSIBLE_VAULT_PASSWORD_FILE=~/private/ansible-vault/prod-pass
+}
+
+function astage()
+{
+  unset ANSIBLE_VAULT_PASSWORD_FILE
+  export ANSIBLE_VAULT_PASSWORD_FILE=~/private/ansible-vault/stage-pass
+}
