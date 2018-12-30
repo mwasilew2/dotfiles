@@ -40,7 +40,10 @@ This function should only modify configuration layer settings."
      ;; `M-m f e R' (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      ansible
-     auto-completion
+     (auto-completion
+      :variables
+      auto-completion-enable-snippets-in-popup t
+     )
      better-defaults
      csv
      emacs-lisp
@@ -61,6 +64,7 @@ This function should only modify configuration layer settings."
       :variables
       org-enable-github-support t
       )
+     pdf
      php
      puppet
      (python
@@ -77,12 +81,16 @@ This function should only modify configuration layer settings."
       shell-default-position 'bottom
       shell-default-shell 'eshell
       )
+     shell-script
      slack
      spell-checking
      sql
      syntax-checking
      systemd
-     terraform
+     (terraform
+      :variables
+      terraform-auto-format-on-save t
+     )
      themes-megapack
      vagrant
      version-control
@@ -384,6 +392,8 @@ It should only modify the values of Spacemacs settings."
                                :enabled-for-modes prog-mode
                                                   text-mode
                                                   javascript-mode
+                                                  groovy-mode
+                                                  conf-mode
                                :size-limit-kb 1000)
 
    ;; Code folding method. Possible values are `evil' and `origami'.
@@ -500,6 +510,7 @@ before packages are loaded."
   ;; below is using the spacemacs implementation, works globally
   (spacemacs/toggle-truncate-lines) ;; truncate lines globally
   (add-hook 'text-mode-hook 'spacemacs/toggle-visual-line-navigation-on) ;; navigate through truncated lines as they are displayed
+  (add-hook 'prog-mode-hook 'spacemacs/toggle-visual-line-navigation-on) ;; navigate through truncated lines as they are displayed
   ;; enable per mode using hooks
   ;;(spacemacs/add-to-hooks 'spacemacs/toggle-truncate-lines '(prog-mode-hook text-mode-hook))
   ;; wrap entire words, at whitespaces
@@ -513,10 +524,6 @@ before packages are loaded."
   (add-hook 'prog-mode-hook 'turn-on-fci-mode)
   (add-hook 'text-mode-hook 'turn-on-fci-mode)
   (setq-default fci-handle-truncate-lines nil)
-
-  ;; terraform hook
-  ;;;;;;;;;;;;;;;;;
-  (add-hook 'terraform-mode-hook 'terraform-format-on-save-mode)
 
   ;; disable ido
   ;;;;;;;;;;;;;;
