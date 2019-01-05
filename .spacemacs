@@ -503,6 +503,26 @@ configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
 
+  ;; terminal here
+  ;;;;;;;;;;;;;;;;
+  ;; shell is very, very limited
+  ;; terminal doesn't work well with bash tools, e.g. venvs, custom prompts
+  ;; eshell is emacs shell
+  (defun terminal-here ()
+    "open terminal in the current buffer's location"
+    (interactive)
+    (shell-command "gnome-terminal"))
+  (global-set-key [f8] 'terminal-here)
+
+  ;; refresh file from disk
+  ;;;;;;;;;;;;;;;;;;;;;;;;;
+  (global-set-key (kbd "<f5>")
+    ;; "Add a keybinding to F5 to refresh the current buffer (from the file on the disk)"
+    (lambda ()
+      (interactive)
+      (revert-buffer t t)
+      (message (concat "Refreshed buffer from " (buffer-file-name)))))
+
   ;; truncate lines
   ;;;;;;;;;;;;;;;;;
   ;; old hack
