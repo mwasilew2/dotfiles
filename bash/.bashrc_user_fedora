@@ -88,29 +88,30 @@ function stopwatch(){
 # echo "export PATH='$(brew --prefix)/bin:$(brew --prefix)/sbin'":'"$PATH"' >>~/.profile
 
 alias fks='gstage && gcloud compute ssh stage-kube-master --ssh-flag="-fN -L127.0.0.1:8012:127.0.0.1:8001"'
+#export GOOGLE_APPLICATION_CREDENTIALS=/home/michal/private/personal/gcp-sa/
 
-function gprod()
-{
-  gcloud config configurations activate prod
-  export GCE_EMAIL=ansible@prod.iam.gserviceaccount.com
-  export GCE_CREDENTIALS_FILE_PATH=~/private/gcp-svc-acc/prod/sa.json
-}
-
-function gstage()
-{
-  gcloud config configurations activate stage
-  export GCE_EMAIL=ansible@stage.iam.gserviceaccount.com
-  export GCE_CREDENTIALS_FILE_PATH=~/private/gcp-svc-acc/stage/sa.json
-}
-
-function aprod()
-{
-  unset ANSIBLE_VAULT_PASSWORD_FILE
-  export ANSIBLE_VAULT_PASSWORD_FILE=~/private/ansible-vault/prod-pass
-}
-
-function astage()
-{
-  unset ANSIBLE_VAULT_PASSWORD_FILE
-  export ANSIBLE_VAULT_PASSWORD_FILE=~/private/ansible-vault/stage-pass
-}
+#function gprod()
+#{
+#  gcloud config configurations activate prod
+#  export GCE_EMAIL=ansible@prod.iam.gserviceaccount.com
+#  export GCE_CREDENTIALS_FILE_PATH=~/private/gcp-svc-acc/prod/sa.json
+#}
+#
+#function gstage()
+#{
+#  gcloud config configurations activate stage
+#  export GCE_EMAIL=ansible@stage.iam.gserviceaccount.com
+#  export GCE_CREDENTIALS_FILE_PATH=~/private/gcp-svc-acc/stage/sa.json
+#}
+#
+#function aprod()
+#{
+#  unset ANSIBLE_VAULT_PASSWORD_FILE
+#  export ANSIBLE_VAULT_PASSWORD_FILE=~/private/ansible-vault/prod-pass
+#}
+#
+#function astage()
+#{
+#  unset ANSIBLE_VAULT_PASSWORD_FILE
+#  export ANSIBLE_VAULT_PASSWORD_FILE=~/private/ansible-vault/stage-pass
+#}
