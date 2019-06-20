@@ -121,5 +121,5 @@ export VISUAL=vim
 export EDITOR="$VISUAL"
 
 # fzf
-. /usr/share/zsh/site-functions/fzf
+. /usr/share/fzf/shell/key-bindings.zsh
 
