@@ -93,6 +93,7 @@ function stopwatch(){
 # echo "export PATH='$(brew --prefix)/bin:$(brew --prefix)/sbin'":'"$PATH"' >>~/.profile
 
 alias fks='gstage && gcloud compute ssh stage-kube-master --ssh-flag="-fN -L127.0.0.1:8012:127.0.0.1:8001"'
+#alias fks='gstage && kubectl config use-context stage'
 #export GOOGLE_APPLICATION_CREDENTIALS=/home/michal/private/personal/gcp-sa/
 
 #function gprod()
