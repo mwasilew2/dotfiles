@@ -26,6 +26,18 @@ setopt PRINT_EXIT_VALUE          # print exit value if non-zero
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 #ZSH_THEME="robbyrussell"
 ZSH_THEME="powerlevel9k/powerlevel9k"
+POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+
+POWERLEVEL9K_CUSTOM_GCLOUD="cat ~/.config/gcloud/active_config"
+POWERLEVEL9K_CUSTOM_GCLOUD_BACKGROUND='black'
+POWERLEVEL9K_CUSTOM_GCLOUD_FOREGROUND='darkorange'
+
+POWERLEVEL9K_CUSTOM_KUBE="cat ~/.kube/config | grep current-context | cut -d ' ' -f 2"
+POWERLEVEL9K_CUSTOM_KUBE_BACKGROUND='black'
+POWERLEVEL9K_CUSTOM_KUBE_FOREGROUND='blue'
+
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context custom_gcloud custom_kube dir vcs)
+
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -206,4 +218,7 @@ export PATH="/Users/michalwasilewski/workspace/ops/gitlab-com/gitlab-com-infrast
 
 
 complete -C /usr/local/Cellar/tfenv/0.6.0/versions/0.11.7/terraform terraform
+
+# direnv
+eval "$(direnv hook zsh)"
 
