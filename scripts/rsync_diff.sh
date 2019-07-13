@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-rsync -vvahi --delete-after --dry-run weekly.1/ weekly.0/
+rsync -ahivv --delete-after --dry-run weekly.1/ weekly.0/
