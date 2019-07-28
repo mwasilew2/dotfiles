@@ -571,7 +571,8 @@ before packages are loaded."
   (setq epa-pinentry-mode 'loopback)
 
   ;; ssh-agent socket
-  (setenv "SSH_AUTH_SOCK" (concat (getenv "HOME") "/.gnupg/S.gpg-agent.ssh"))
+  ;;(setenv "SSH_AUTH_SOCK" (concat (getenv "HOME") "/.gnupg/S.gpg-agent.ssh"))
+  (setenv "SSH_AUTH_SOCK" "/run/user/1000/gnupg/S.gpg-agent.ssh")
 
   ;; dirs which projectile will check for projects
   (setq projectile-project-search-path '("/Users/michalwasilewski/workspace/" "/Users/michalwasilewski/git_repos/"))

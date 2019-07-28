@@ -160,6 +160,18 @@ fi
 export WORKON_HOME=~/.virtualenvs
 . /usr/bin/virtualenvwrapper.sh
 
+# tfenv
+export PATH="$HOME/.tfenv/bin:$PATH"
+
+# gcloud
+source /usr/lib64/google-cloud-sdk/completion.zsh.inc
+
+# kubectl
+source ~/.kube/completion.zsh.inc
+
+# helm
+source ~/.kube/completion_helm.zsh.inc
+
 # python36
 #export WORKON_HOME=~/.virtualenvs36
 #export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3.6
