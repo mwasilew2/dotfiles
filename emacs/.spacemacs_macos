@@ -394,6 +394,8 @@ It should only modify the values of Spacemacs settings."
    ;;                       text-mode
    ;;   :size-limit-kb 1000)
    ;; (default nil)
+   ;;dotspacemacs-line-numbers nil
+
    dotspacemacs-line-numbers '(:relative nil
                                :enabled-for-modes prog-mode
                                                   text-mode

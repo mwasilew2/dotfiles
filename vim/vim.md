@@ -12,6 +12,20 @@ cheatsheet from rhsa book
 vimtutor
 macros
 
+## leader key
+
+## vimrc file
+
+### mapping
+
+`:help map-overview`
+
+## displaying the current vim environment (variables)
+
+https://vim.fandom.com/wiki/Displaying_the_current_Vim_environment
+
+inspect a global variable: `:echo g:YourVariable`
+
 ## motion ##
 
 * `w` - jump by start of words (punctuation considered words)
@@ -37,3 +51,11 @@ macros
         * `t [char]` - Move to before the next char on the current line after the cursor
         * `T [char]` - Move to before the next char on the current line before the cursor
         * All these commands can be followed by `;` (semicolon) to go to the next searched item, and `,` (comma) to go the the previous searched item
+* `zz` - move the line under cursor to the middle of the screen
+
+
+## Plugins
+
+### CtrlP
+
+https://github.com/ctrlpvim/ctrlp.vim
