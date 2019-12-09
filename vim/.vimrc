@@ -17,10 +17,17 @@ let g:mapleader=" "
 " Insert spaces when TAB is pressed.
 set expandtab
 
-""""""""""" View """""""""""""""""""
+""""""""""" UI """""""""""""""""""
+" ruller at 80
 set colorcolumn=80
+set textwidth=80
+set termguicolors
+" view line numbers
 set number
-"set cmdheight=2
+set cmdheight=2
+" different cursors for different modes
+let &t_SI.="\e[5 q" "SI = INSERT mode
+let &t_EI.="\e[1 q" "EI = NORMAL mode (ELSE)
 
 """"""""""" movement """""""""""""""
 nmap <leader>l <C-W>l
@@ -46,9 +53,13 @@ Plugin 'xolox/vim-misc'
 """"" comments
 Plugin 'scrooloose/nerdcommenter' "Comment helper
 
+""""""""""" buffers and windows """"
+Plugin 'rbgrouleff/bclose.vim'
+"" <leader>bd  close the current buffer without closing the window
+
 """"" echodoc
-"" Plugin 'Shougo/echodoc.vim'
-"" let g:echodoc_enable_at_startup = 1
+Plugin 'Shougo/echodoc.vim'
+let g:echodoc_enable_at_startup = 1
 
 """"" file navigation
 Plugin 'scrooloose/nerdtree' "Filesystem explorer
@@ -60,8 +71,8 @@ nmap <leader>nf :NERDTreeFind<CR>
 """"" fuzzy matching
 
 " use Denite instead? is Denite missing any features that CtrlP has?
-Plugin 'ctrlpvim/ctrlp.vim'
-let g:ctrlp_show_hidden = 1
+"Plugin 'ctrlpvim/ctrlp.vim'
+"let g:ctrlp_show_hidden = 1
 " nmap <leader>m :CtrlPMixed<CR>|  " search mru + files + buffers
 " nmap <leader>b :CtrlPBuffer<CR>|  " search buffers
 " nmap <leader>p :CtrlPBuffer<CR>|  " search projects
@@ -111,7 +122,17 @@ Plugin 'elzr/vim-json'
 
 
 """"" markdown
+" coudln't get vim-pandoc to work, was getting errors and not features were
+" working
+"Plugin 'vim-pandoc/vim-pandoc'
+"Plugin 'vim-pandoc/vim-pandoc-syntax'
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'mzlogin/vim-markdown-toc'
 
+""""" yaml
+" requires files to be marked as ansible filetype
+"Plugin 'chase/vim-ansible-yaml'
 
 
 """""""""""""""""""""""""""""""""""""""
@@ -130,3 +151,25 @@ filetype plugin indent on    " required
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
+
+
+
+
+
+
+
+
+" Change file/rec command.
+call denite#custom#var('file/rec', 'command', ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
+"call denite#custom#option('default', 'prompt', 'λ')
+call denite#custom#var('grep', 'command', ['ag'])
+call denite#custom#var('grep', 'default_opts', ['-i', '--vimgrep'])
+call denite#custom#var('grep', 'recursive_opts', [])
+call denite#custom#var('grep', 'pattern_opt', [])
+call denite#custom#var('grep', 'separator', ['--'])
+call denite#custom#var('grep', 'final_opts', [])
+call denite#custom#source('file_rec', 'sorters', ['sorter_sublime'])
+"call denite#custom#filter('matcher_ignore_globs', 'ignore_globs',
+      "\ [ '.git/', '.ropeproject/', '__pycache__/*', '*.pyc', 'node_modules/',
+      "\   'venv/', 'images/', '*.min.*', 'img/', 'fonts/', '*.png'])
+

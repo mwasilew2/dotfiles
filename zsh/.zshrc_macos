@@ -183,8 +183,18 @@ echo "UPDATESTARTUPTTY" | gpg-connect-agent > /dev/null 2>&1  # fix zsh inabilit
 #export PATH="/usr/local/opt/gnu-getopt/bin:$PATH"
 #export PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
 
+# GNUtils
+for gnutil in coreutils grep gnu-tar gnu-sed gawk findutils make ; do
+  export PATH=/usr/local/opt/$gnutil/libexec/gnubin:$PATH
+  export MANPATH=/usr/local/opt/$gnutil/libexec/gnuman:$MANPATH
+done
+
+
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# vim
+alias vim='/usr/local/bin/vim'
 
 # virtualenvwrapper
 export WORKON_HOME=$HOME/.virtualenvs
