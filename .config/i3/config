@@ -96,16 +96,16 @@ bindsym $mod+Shift+Tab workspace prev
 workspace_layout tabbed
 
 # dell
-workspace "1 sec" output HDMI-1
-workspace 2 output HDMI-1
+workspace "1 editor" output DP-2
+workspace "2 sec" output DVI-D-0
 workspace 3 output HDMI-1
 workspace 4 output HDMI-1
 workspace 5 output HDMI-1
 workspace 6 output HDMI-1
-workspace 7 output HDMI-2
-workspace "8 emacs" output HDMI-1
-workspace "9 term" output HDMI-2
-workspace "10 web" output HDMI-2
+workspace 7 output DP-0
+workspace 8 output DP-0
+workspace "9 term" output HDMI-0
+workspace "10 web" output HDMI-0
 
 # thinkpad
 # workspace "1 sec" output eDP1
@@ -207,26 +207,27 @@ bindsym $mod+Pause mode "$mode_system"
 
 exec --no-startup-id gnome-flashback # some gnome features are missing in i3, e.g. display config
 exec --no-startup-id gtk-launch geoclue-demo-agent.desktop  # launch geoclue agent used by redshift
-
-exec --no-startup-id nitrogen --restore # desktop background
 exec --no-startup-id nm-applet # network manager applet
+#exec --no-startup-id start-pulseaudio-x11
 exec --no-startup-id xset r rate 200 25 # keyboard repeat rate and lag
 exec --no-startup-id start-pulseaudio-x11 # start pulseaudio on login
 exec --no-startup-id volumeicon # start volume control applet
-#exec --no-startup-id i3-msg 'workspace 1 sec; exec keepass; exec gnome-pomodoro'
-#exec --no-startup-id i3-msg 'workspace 7; exec gnome-terminal'
-exec --no-startup-id i3-msg 'workspace 9 term; exec gnome-terminal'
-#exec --no-startup-id i3-msg 'workspace 8 emacs; exec emacs'
-
-exec --no-startup-id i3-msg 'workspace 10 web; exec firefox'
-#exec --no-startup-id i3-msg 'workspace 4:nautilus; exec nautilus'
-#exec --no-startup-id start-pulseaudio-x11
-exec --no-startup-id /home/michal/.screenlayout/test.sh
-
 exec xautolock -time 3 -locker '$Locker' &
-
 exec --no-startup-id gnome-flashback # some gnome features are missing in i3, e.g. display config
 exec --no-startup-id gtk-launch geoclue-demo-agent.desktop  # launch geoclue agent used by redshift
+
+exec --no-startup-id xrandr --output DVI-D-0 --mode 1280x800
+exec --no-startup-id /home/michal/.screenlayout/layout.sh
+exec --no-startup-id nitrogen --restore # desktop background
+
+#exec --no-startup-id i3-msg 'workspace 1 sec; exec keepass; exec gnome-pomodoro'
+exec --no-startup-id i3-msg 'workspace 1 editor; exec emacs;'
+exec --no-startup-id i3-msg 'workspace 2 sec; exec gnome-pomodoro;'
+#exec --no-startup-id i3-msg 'workspace 7; exec gnome-terminal'
+#exec --no-startup-id i3-msg 'workspace 8 emacs; exec emacs'
+exec --no-startup-id i3-msg 'workspace 9 term; exec gnome-terminal'
+exec --no-startup-id i3-msg 'workspace 10 web; exec firefox'
+#exec --no-startup-id i3-msg 'workspace 4:nautilus; exec nautilus'
 
 # Pulse Audio controls
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 1 toggle
