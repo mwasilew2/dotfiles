@@ -1,9 +1,9 @@
 [user]
  name = Michal Wasilewski
- email = mwasilewski@gmx.com
- signingkey = 7A9A5002 # personal yubikey
+ email = mwasilewski@gitlab.com
+ #signingkey = 7A9A5002 # personal yubikey
 [commit]
- template = /home/michal/.gitmessage.txt
+ template = ~/.gitmessage.txt
  gpgsign = true
 [format]
  signOff = true
