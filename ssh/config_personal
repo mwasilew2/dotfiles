@@ -1,0 +1,19 @@
+AddKeysToAgent yes
+PasswordAuthentication no
+PubkeyAuthentication yes
+
+Host github.com
+    User mwasilew2
+    #IdentityFile /home/michal/private/personal/ssh/yubikey.pub
+
+Host bitbucket.org
+    User mwasilew
+    #IdentityFile /home/michal/private/personal/ssh/yubikey.pub
+
+Host gitlab.com
+    User mwasilewski
+    #IdentityFile /home/michal/private/personal/ssh/yubikey.pub
+
+Host *
+    User root
+    #IdentityFile /home/michal/private/personal/ssh/yubikey.pub
