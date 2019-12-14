@@ -1,7 +1,8 @@
 [user]
  name = Michal Wasilewski
  email = mwasilewski@gmx.com
- signingkey = 7A9A5002 # personal yubikey
+ signingkey = 5F94409B # personal yubikey
+ # signingkey = 7A9A5002 # personal backup yubikey
 [commit]
  template = /home/michal/.gitmessage.txt
  gpgsign = true
