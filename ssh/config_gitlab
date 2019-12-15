@@ -1,19 +1,131 @@
-AddKeysToAgent yes
-PasswordAuthentication no
-PubkeyAuthentication yes
+###############
+# global config
+###############
 
-Host github.com
-    User mwasilew2
-    #IdentityFile /home/michal/private/personal/ssh/yubikey.pub
+# Setting the username and PreferredAuthentications here to avoid duplication
+Host gitlab-*.internal lb-bastion.*.gitlab.com
+        User                       michalwasilewski
+        PreferredAuthentications   publickey
+        #IdentitiesOnly             yes
+        #IdentityFile               cardno:000609610478
 
-Host bitbucket.org
-    User mwasilew
-    #IdentityFile /home/michal/private/personal/ssh/yubikey.pub
+
+
+######################
+# host specific config
+######################
+
+#Host bitbucket.org
+#        IdentityFile              cardno:000610145429
 
 Host gitlab.com
-    User mwasilewski
-    #IdentityFile /home/michal/private/personal/ssh/yubikey.pub
+        User mwasilewski-gitlab
 
-Host *
-    User root
-    #IdentityFile /home/michal/private/personal/ssh/yubikey.pub
+Host ops.gitlab.net
+        User mwasilewski-gitlab
+
+Host dev.gitlab.org
+        User mwasilewski-gitlab
+
+#####################
+# default host config
+#####################
+
+#Host *
+#    User michalwasilewski
+
+# not using mux cause in some cases names were too long, need to come up with a better naming scheme
+#    ControlMaster auto
+#    ControlPath ~/.ssh/S.%r@%h:%p
+#    ControlPersist 5m
+
+
+################################################################################
+# gprd
+################################################################################
+Host *.gitlab-production.internal
+        ProxyCommand                    ssh lb-bastion.gprd.gitlab.com -W %h:%p
+
+Host gprd-console
+        HostName                console-01-sv-gprd.c.gitlab-production.internal
+        ProxyCommand            ssh lb-bastion.gprd.gitlab.com -W %h:%p
+
+Host *-gprd
+        HostName	%h.c.gitlab-production.internal
+        ProxyJump	lb-bastion.gprd.gitlab.com
+
+
+################################################################################
+# gstg
+################################################################################
+Host *.gitlab-staging-1.internal
+        ProxyCommand                    ssh lb-bastion.gstg.gitlab.com -W %h:%p
+
+Host gstg-console
+        HostName                console-01-sv-gstg.c.gitlab-staging-1.internal
+        ProxyCommand            ssh lb-bastion.gstg.gitlab.com -W %h:%p
+
+Host *-gstg
+        HostName    %h.c.gitlab-staging-1.internal
+        ProxyJump    lb-bastion.gstg.gitlab.com
+
+
+################################################################################
+# dr
+################################################################################
+Host *.gitlab-dr.internal
+        ProxyCommand                    ssh lb-bastion.dr.gitlab.com -W %h:%p
+
+Host gdr-console
+        HostName                console-01-sv-dr.c.gitlab-dr.internal
+        ProxyCommand            ssh lb-bastion.dr.gitlab.com -W %h:%p
+
+Host *-dr
+        HostName    %h.gitlab-dr.internal
+        ProxyJump    lb-bastion.dr.gitlab.com
+
+
+################################################################################
+# ops
+################################################################################
+Host *.gitlab-ops.internal
+        ProxyCommand                    ssh lb-bastion.ops.gitlab.com -W %h:%p
+
+Host *-ops
+        HostName    %h.c.gitlab-ops.internal
+        ProxyJump    lb-bastion.ops.gitlab.com
+
+################################################################################
+# pre
+################################################################################
+Host *.gitlab-pre.internal
+        ProxyCommand                    ssh lb-bastion.pre.gitlab.com -W %h:%p
+
+################################################################################
+# testbed
+################################################################################
+Host *.gitlab-testbed.internal
+        ProxyCommand                    ssh lb-bastion.testbed.gitlab.com -W %h:%p
+
+
+################################################################################
+# gitter
+################################################################################
+Host *.prod.gitter
+	User deployer
+	PreferredAuthentications publickey
+	ProxyCommand ssh deployer@54.237.251.176 -W %h:%p
+	ForwardAgent yes
+
+Host *.beta.gitter
+	User deployer
+	PreferredAuthentications publickey
+	ProxyCommand ssh deployer@54.237.251.176 -W %h:%p
+	ForwardAgent yes
+
+################################################################################
+# other
+################################################################################
+# HAProxy
+Host fe-*.gitlab-*.internal
+        Port 2222
