@@ -574,13 +574,17 @@ before packages are loaded."
 
   ;; ssh-agent socket
   ;;(setenv "SSH_AUTH_SOCK" (concat (getenv "HOME") "/.gnupg/S.gpg-agent.ssh"))
-  (setenv "SSH_AUTH_SOCK" "/run/user/1000/gnupg/S.gpg-agent.ssh")
+  ;;(setenv "SSH_AUTH_SOCK" "/run/user/1000/gnupg/S.gpg-agent.ssh")
+  (setenv "SSH_AUTH_SOCK" (concat (getenv "XDG_RUNTIME_DIR") "/gnupg/S.gpg-agent.ssh"))
 
   ;; dirs which projectile will check for projects
   (setq projectile-project-search-path '("~/workspace/" "~/workspace/com/gitlab-com/"))
 
   ;; remove trailng whitespaces on save
   (add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+  ;; set shell mode indentation
+  (setq sh-basic-offset 2)
 
   ;; other
   (setq dotspacemacs-elpa-timeout 300)
