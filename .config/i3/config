@@ -217,7 +217,7 @@ exec --no-startup-id gnome-flashback # some gnome features are missing in i3, e.
 exec --no-startup-id gtk-launch geoclue-demo-agent.desktop  # launch geoclue agent used by redshift
 
 exec --no-startup-id xrandr --output DVI-D-0 --mode 1280x800
-exec --no-startup-id /home/michal/.screenlayout/layout.sh
+exec --no-startup-id "${HOME}/.screenlayout/layout.sh"
 exec --no-startup-id nitrogen --restore # desktop background
 
 #exec --no-startup-id i3-msg 'workspace 1 sec; exec keepass; exec gnome-pomodoro'

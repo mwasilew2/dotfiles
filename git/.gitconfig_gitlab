@@ -1,7 +1,7 @@
 [user]
  name = Michal Wasilewski
  email = mwasilewski@gitlab.com
- #signingkey = 7A9A5002 # personal yubikey
+ signingkey = 190AFDD5  # gitlab key
 [commit]
  template = ~/.gitmessage.txt
  gpgsign = true

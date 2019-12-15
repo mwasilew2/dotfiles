@@ -577,7 +577,7 @@ before packages are loaded."
   (setenv "SSH_AUTH_SOCK" "/run/user/1000/gnupg/S.gpg-agent.ssh")
 
   ;; dirs which projectile will check for projects
-  (setq projectile-project-search-path '("/home/michal/workspace/" "/home/michal/workspace/com/gitlab-com/"))
+  (setq projectile-project-search-path '("~/workspace/" "~/workspace/com/gitlab-com/"))
 
   ;; remove trailng whitespaces on save
   (add-hook 'before-save-hook 'delete-trailing-whitespace)
