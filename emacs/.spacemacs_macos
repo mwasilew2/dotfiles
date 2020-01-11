@@ -586,6 +586,11 @@ before packages are loaded."
   ;; set shell mode indentation
   (setq sh-basic-offset 2)
 
+  ;; golang mode
+  ;;;;;;;;;;;;;;
+  ;;(setq spacemacs-default-jump-handlers
+  ;;  (remove 'evil-goto-definition spacemacs-default-jump-handlers))
+
   ;; other
   (setq dotspacemacs-elpa-timeout 300)
 

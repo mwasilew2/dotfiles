@@ -160,6 +160,10 @@ fi
 export WORKON_HOME=~/.virtualenvs
 . /usr/bin/virtualenvwrapper.sh
 
+# golang
+export GOPATH="$HOME/go"
+export PATH="$PATH:$HOME/go/bin"
+
 # terraform
 #export PATH="$HOME/.tfenv/bin:$PATH"
 export PATH="$HOME/workspace/ops/gitlab-com/gitlab-com-infrastructure/bin:$PATH"

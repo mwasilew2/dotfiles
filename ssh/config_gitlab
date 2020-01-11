@@ -3,11 +3,13 @@
 ###############
 
 # Setting the username and PreferredAuthentications here to avoid duplication
-Host gitlab-*.internal lb-bastion.*.gitlab.com
-        User                       michalwasilewski
-        PreferredAuthentications   publickey
+#Host gitlab-*.internal lb-bastion.*.gitlab.com
         #IdentitiesOnly             yes
         #IdentityFile               cardno:000609610478
+        #
+Host *
+        User                       michalwasilewski
+        PreferredAuthentications   publickey
 
 
 
