@@ -160,7 +160,11 @@ fi
 export WORKON_HOME=~/.virtualenvs
 . /usr/bin/virtualenvwrapper.sh
 
-# tfenv
+# golang
+export GOPATH="$HOME/go"
+export PATH="$PATH:$HOME/go/bin"
+
+# terraform
 export PATH="$HOME/.tfenv/bin:$PATH"
 
 # gcloud
