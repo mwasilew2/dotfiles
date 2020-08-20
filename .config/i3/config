@@ -101,11 +101,11 @@ workspace "2 sec" output DVI-D-0
 workspace 3 output HDMI-1
 workspace 4 output HDMI-1
 workspace 5 output HDMI-1
-workspace 6 output HDMI-1
-workspace 7 output DP-0
-workspace 8 output DP-0
-workspace "9 term" output HDMI-0
-workspace "10 web" output HDMI-0
+#workspace 6 output HDMI-1
+#workspace 7 output HDMI-0
+#workspace 8 output DP-0
+#workspace "9 term" output DP-0
+#workspace "10 web" output DP-0
 
 # thinkpad
 # workspace "1 sec" output eDP1

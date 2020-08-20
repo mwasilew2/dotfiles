@@ -161,6 +161,7 @@ export WORKON_HOME=~/.virtualenvs
 . /usr/bin/virtualenvwrapper.sh
 
 # golang
+export PATH=$PATH:/usr/local/go/bin
 export GOPATH="$HOME/go"
 export PATH="$PATH:$HOME/go/bin"
 
@@ -177,9 +178,13 @@ source ~/.kube/completion.zsh.inc
 # helm
 source ~/.kube/completion_helm.zsh.inc
 
+# asdf
+source ~/.asdf/asdf.sh
+
 # python36
 #export WORKON_HOME=~/.virtualenvs36
 #export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3.6
 #export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
 
 
+if [ -e /home/mwasilewski-gitlab/.nix-profile/etc/profile.d/nix.sh ]; then . /home/mwasilewski-gitlab/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
