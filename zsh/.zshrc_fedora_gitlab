@@ -158,7 +158,7 @@ fi
 
 # python 
 export WORKON_HOME=~/.virtualenvs
-. /usr/bin/virtualenvwrapper.sh
+source /usr/local/bin/virtualenvwrapper.sh
 
 # golang
 export PATH=$PATH:/usr/local/go/bin
@@ -179,7 +179,7 @@ source ~/.kube/completion.zsh.inc
 source ~/.kube/completion_helm.zsh.inc
 
 # asdf
-source ~/.asdf/asdf.sh
+source $HOME/.asdf/asdf.sh
 
 # python36
 #export WORKON_HOME=~/.virtualenvs36
