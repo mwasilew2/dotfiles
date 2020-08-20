@@ -169,6 +169,7 @@ export PATH="$HOME/.tfenv/bin:$PATH"
 
 # gcloud
 source /usr/lib64/google-cloud-sdk/completion.zsh.inc
+#export GOOGLE_APPLICATION_CREDENTIALS=/home/michal/private/personal/gcp-sa/
 
 # kubectl
 source ~/.kube/completion.zsh.inc
