@@ -158,7 +158,7 @@ fi
 
 # python 
 export WORKON_HOME=~/.virtualenvs
-. /usr/bin/virtualenvwrapper.sh
+source /usr/local/bin/virtualenvwrapper.sh
 
 # golang
 export GOPATH="$HOME/go"
@@ -182,4 +182,5 @@ source ~/.kube/completion_helm.zsh.inc
 #export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3.6
 #export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
 
-
+# asdf
+source $HOME/.asdf/asdf.sh
