@@ -96,8 +96,8 @@ bindsym $mod+Shift+Tab workspace prev
 workspace_layout tabbed
 
 # the below section assigns workspaces to monitors permanently, you won't be able to move them
-#workspace "1 editor" output DP-4
-#workspace "2 sec" output DVI-D-0
+workspace "1 editor" output DP-4
+workspace "2 sec" output DVI-D-0
 #workspace 3 output DP-4
 #workspace 4 output DP-4
 #workspace 5 output DP-0
@@ -105,7 +105,7 @@ workspace_layout tabbed
 #workspace 7 output DP-0
 #workspace 8 output DP-0
 #workspace 9 output DP-0
-#workspace "10 web" output HDMI-0
+workspace "10 web" output HDMI-0
 
 # switch to workspace
 bindsym $mod+1 workspace number 1 editor
