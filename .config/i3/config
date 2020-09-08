@@ -104,7 +104,7 @@ workspace "2 sec" output DVI-D-0
 #workspace 6 output DP-0
 #workspace 7 output DP-0
 #workspace 8 output DP-0
-#workspace 9 output DP-0
+workspace 9 output DP-2
 workspace "10 web" output HDMI-0
 
 # switch to workspace
