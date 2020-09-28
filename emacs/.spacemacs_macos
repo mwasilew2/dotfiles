@@ -55,6 +55,10 @@ This function should only modify configuration layer settings."
      helm
      html
      javascript
+     (json
+     :variables
+     js-indent-level 2
+     )
      latex
      (markdown
       :variables

@@ -164,6 +164,7 @@ source /usr/local/bin/virtualenvwrapper.sh
 #export PATH=$PATH:/usr/local/go/bin
 export GOPATH="${HOME}/go"
 export PATH="$PATH:/usr/local/go/bin"
+export PATH="$PATH:${HOME}/go/bin"
 
 # terraform
 export PATH="$HOME/.tfenv/bin:$PATH"
@@ -188,3 +189,6 @@ source $HOME/.asdf/asdf.sh
 
 
 if [ -e /home/mwasilewski-gitlab/.nix-profile/etc/profile.d/nix.sh ]; then . /home/mwasilewski-gitlab/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+
+export PATH="$PATH:/var/lib/snapd/snap/bin"
+
