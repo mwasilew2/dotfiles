@@ -148,10 +148,10 @@ export VISUAL=vim
 export EDITOR="$VISUAL"
 
 # ssh & gpg
-unset SSH_AGENT_PID
-if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
-  export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
-fi
+#unset SSH_AGENT_PID
+#if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
+#  export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
+#fi
 
 # fzf
 . /usr/share/fzf/shell/key-bindings.zsh
@@ -160,15 +160,14 @@ fi
 export WORKON_HOME=~/.virtualenvs
 source /usr/local/bin/virtualenvwrapper.sh
 
-# golang
-#export PATH=$PATH:/usr/local/go/bin
-export GOPATH="${HOME}/go"
-export PATH="$PATH:/usr/local/go/bin"
-export PATH="$PATH:${HOME}/go/bin"
+## golang
+#export GOPATH="${HOME}/go"
+#export PATH="$PATH:/usr/local/go/bin"
+#export PATH="$PATH:${HOME}/go/bin"
 
-# terraform
-export PATH="$HOME/.tfenv/bin:$PATH"
-export PATH="$HOME/workspace/ops/gitlab-com/gitlab-com-infrastructure/bin:$PATH"
+## terraform
+#export PATH="$HOME/.tfenv/bin:$PATH"
+#export PATH="$HOME/workspace/ops/gitlab-com/gitlab-com-infrastructure/bin:$PATH"
 
 # gcloud
 source /usr/lib64/google-cloud-sdk/completion.zsh.inc
@@ -180,7 +179,7 @@ source ~/.kube/completion.zsh.inc
 source ~/.kube/completion_helm.zsh.inc
 
 # asdf
-source $HOME/.asdf/asdf.sh
+#source $HOME/.asdf/asdf.sh
 
 # python36
 #export WORKON_HOME=~/.virtualenvs36
@@ -190,5 +189,6 @@ source $HOME/.asdf/asdf.sh
 
 if [ -e /home/mwasilewski-gitlab/.nix-profile/etc/profile.d/nix.sh ]; then . /home/mwasilewski-gitlab/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
-export PATH="$PATH:/var/lib/snapd/snap/bin"
+# snap
+#export PATH="$PATH:/var/lib/snapd/snap/bin"
 

@@ -43,22 +43,27 @@ This function should only modify configuration layer settings."
      (auto-completion
       :variables
       auto-completion-enable-snippets-in-popup t
-     )
+      )
      better-defaults
      csv
      docker
      emacs-lisp
      evil-commentary
      git
-     go
+     (go
+      :variables
+      go-format-before-save t
+      go-use-golangci-lint t
+      )
      ;; haskell
      helm
      html
      javascript
      (json
-     :variables
-     js-indent-level 2
-     )
+      :variables
+      js-indent-level 2
+      )
+     jsonnet
      latex
      (markdown
       :variables
@@ -72,6 +77,7 @@ This function should only modify configuration layer settings."
      (org
       :variables
       org-enable-github-support t
+      org-enable-trello-support t
       )
      pandoc
      ;;pdf
@@ -85,14 +91,16 @@ This function should only modify configuration layer settings."
      ruby-on-rails
      rust
      ;; scala
-     (shell
-      :variables
-      shell-default-height 30
-      shell-default-position 'bottom
-      shell-default-shell 'eshell
-      )
-     ;; shell-script
+     ;; shell layer is used for running shells in buffers, not for writing shell code
+     ;;(shell
+     ;; :variables
+     ;; shell-default-height 30
+     ;; shell-default-position 'bottom
+     ;; shell-default-shell 'eshell
+     ;;)
+     shell-scripts
      slack
+     spacemacs-org
      spell-checking
      sql
      syntax-checking
@@ -100,7 +108,7 @@ This function should only modify configuration layer settings."
      (terraform
       :variables
       terraform-auto-format-on-save t
-     )
+      )
      themes-megapack
      vagrant
      version-control
@@ -299,7 +307,7 @@ It should only modify the values of Spacemacs settings."
 
    ;; If non-nil then the last auto saved layouts are resumed automatically upon
    ;; start. (default nil)
-   dotspacemacs-auto-resume-layouts nil
+   dotspacemacs-auto-resume-layouts t
 
    ;; If non-nil, auto-generate layout name when creating new layouts. Only has
    ;; effect when using the "jump to layout by number" commands. (default nil)
@@ -531,10 +539,10 @@ before packages are loaded."
   ;; shell is very, very limited
   ;; terminal doesn't work well with bash tools, e.g. venvs, custom prompts
   ;; eshell is emacs shell
-  (defun terminal-here ()
-    "open terminal in the current buffer's location"
-    (interactive)
-    (shell-command "/Applications/Kitty.app/Contents/MacOS/kitty --single-instance"))
+  ;;(defun terminal-here ()
+  ;;  "open terminal in the current buffer's location"
+  ;;  (interactive)
+  ;;  (shell-command "/Applications/Kitty.app/Contents/MacOS/kitty --single-instance"))
   ;;(global-set-key [f8] 'terminal-here) ;; starting the terminal from emacs for some reason breaks emacs on macOS
 
   ;; refresh file from disk
@@ -552,8 +560,10 @@ before packages are loaded."
   ;;(add-hook 'hack-local-variables-hook (lambda () (setq truncate-lines t)))
   ;; below is using the spacemacs implementation, works globally
   (spacemacs/toggle-truncate-lines) ;; truncate lines globally
-  (add-hook 'text-mode-hook 'spacemacs/toggle-visual-line-navigation-on) ;; navigate through truncated lines as they are displayed
-  (add-hook 'prog-mode-hook 'spacemacs/toggle-visual-line-navigation-on) ;; navigate through truncated lines as they are displayed
+  (spacemacs/toggle-visual-line-navigation-globally)
+  ;; enable per global mode using hooks
+  ;;(add-hook 'text-mode-hook 'spacemacs/toggle-visual-line-navigation-on) ;; navigate through truncated lines as they are displayed, this was a hook per mode and it's no longer needed, there's now a global toggle for this
+  ;;(add-hook 'prog-mode-hook 'spacemacs/toggle-visual-line-navigation-on)
   ;; enable per mode using hooks
   ;;(spacemacs/add-to-hooks 'spacemacs/toggle-truncate-lines '(prog-mode-hook text-mode-hook))
   ;; wrap entire words, at whitespaces
@@ -563,10 +573,12 @@ before packages are loaded."
   ;; column indicator
   ;;;;;;;;;;;;;;;;;;;
   ;; Activate column indicator in prog-mode and text-mode
-  ;;(spacemacs/toggle-fill-column-indicator) ;; doesnt work, debug further why
-  (add-hook 'prog-mode-hook 'turn-on-fci-mode)
-  (add-hook 'text-mode-hook 'turn-on-fci-mode)
-  (setq-default fci-handle-truncate-lines nil)
+  (spacemacs/toggle-fill-column-indicator-globally)
+  ;; old hack using hooks, before the global toggle was available
+  ;;(add-hook 'prog-mode-hook 'turn-on-fci-mode)
+  ;;(add-hook 'text-mode-hook 'turn-on-fci-mode)
+  ;; old hack
+  ;;(setq-default fci-handle-truncate-lines nil)
 
   ;; disable ido
   ;;;;;;;;;;;;;;
@@ -579,10 +591,20 @@ before packages are loaded."
   ;; ssh-agent socket
   ;;(setenv "SSH_AUTH_SOCK" (concat (getenv "HOME") "/.gnupg/S.gpg-agent.ssh"))
   ;;(setenv "SSH_AUTH_SOCK" "/run/user/1000/gnupg/S.gpg-agent.ssh")
-  (setenv "SSH_AUTH_SOCK" (concat (getenv "XDG_RUNTIME_DIR") "/gnupg/S.gpg-agent.ssh"))
+  ;;(setenv "SSH_AUTH_SOCK" (concat (getenv "XDG_RUNTIME_DIR") "/gnupg/S.gpg-agent.ssh"))
 
   ;; dirs which projectile will check for projects
-  (setq projectile-project-search-path '("~/workspace/" "~/workspace/com/gitlab-com/" "~/workspace/ops/gitlab-com/" "~/workspace/ops/gitlab-com/gl-infra/terraform-modules/" "~/workspace/com/gitlab-cookbooks/"))
+  (setq projectile-project-search-path '(
+                                         "~/go/src/"
+                                         "~/workspace/"
+                                         "~/workspace/com/gitlab-com/"
+                                         "~/workspace/com/gitlab-com/gl-infra/"
+                                         "~/workspace/com/gitlab-cookbooks/"
+                                         "~/workspace/git_repos/"
+                                         "~/workspace/ops/gitlab-com/"
+                                         "~/workspace/ops/gitlab-com/gl-infra/terraform-modules/google/"
+                                         "~/workspace/test/"
+                                         ))
 
   ;; remove trailng whitespaces on save
   (add-hook 'before-save-hook 'delete-trailing-whitespace)
