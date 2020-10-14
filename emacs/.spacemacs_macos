@@ -62,6 +62,7 @@ This function should only modify configuration layer settings."
      (json
       :variables
       js-indent-level 2
+      json-fmt-on-save t
       )
      jsonnet
      latex
@@ -307,7 +308,7 @@ It should only modify the values of Spacemacs settings."
 
    ;; If non-nil then the last auto saved layouts are resumed automatically upon
    ;; start. (default nil)
-   dotspacemacs-auto-resume-layouts t
+   dotspacemacs-auto-resume-layouts nil
 
    ;; If non-nil, auto-generate layout name when creating new layouts. Only has
    ;; effect when using the "jump to layout by number" commands. (default nil)
@@ -596,10 +597,15 @@ before packages are loaded."
   ;; dirs which projectile will check for projects
   (setq projectile-project-search-path '(
                                          "~/go/src/"
+                                         "~/go/src/github.com/"
+                                         "~/go/src/github.com/grafana/"
+                                         "~/go/src/github.com/jaegertracing/"
                                          "~/workspace/"
                                          "~/workspace/com/gitlab-com/"
                                          "~/workspace/com/gitlab-com/gl-infra/"
                                          "~/workspace/com/gitlab-cookbooks/"
+                                         "~/workspace/com/gitlab-org/"
+                                         "~/workspace/com/gitlab-org/charts"
                                          "~/workspace/git_repos/"
                                          "~/workspace/ops/gitlab-com/"
                                          "~/workspace/ops/gitlab-com/gl-infra/terraform-modules/google/"
@@ -608,6 +614,13 @@ before packages are loaded."
 
   ;; remove trailng whitespaces on save
   (add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+  ;; jsonnetfmt on save
+  (defun jsonnetfmt-on-save ()
+    (when (eq major-mode 'jsonnet-mode)
+      (jsonnet-reformat-buffer)))
+
+  (add-hook 'before-save-hook #'jsonnetfmt-on-save)
 
   ;; set shell mode indentation
   (setq sh-basic-offset 2)
