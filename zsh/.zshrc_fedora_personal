@@ -184,3 +184,7 @@ source ~/.kube/completion_helm.zsh.inc
 
 # asdf
 source $HOME/.asdf/asdf.sh
+source $HOME/.asdf/completions/asdf.bash
+
+# snap
+export PATH="$PATH:/var/lib/snapd/snap/bin"
