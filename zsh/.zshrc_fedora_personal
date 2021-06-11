@@ -163,6 +163,7 @@ source /usr/local/bin/virtualenvwrapper.sh
 # golang
 export GOPATH="$HOME/go"
 export PATH="$PATH:$HOME/go/bin"
+export PATH="$PATH:/usr/local/go/bin"
 
 # terraform
 export PATH="$HOME/.tfenv/bin:$PATH"

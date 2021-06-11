@@ -8,6 +8,7 @@ Host github.com
 
 Host bitbucket.org
     User mwasilew
+    PubkeyAcceptedKeyTypes +ssh-rsa
     #IdentityFile /home/michal/private/personal/ssh/yubikey.pub
 
 Host gitlab.com
