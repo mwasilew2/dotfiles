@@ -17,7 +17,9 @@ Host *
 # host specific config
 ######################
 
-#Host bitbucket.org
+Host bitbucket.org
+    User mwasilew
+    PubkeyAcceptedKeyTypes +ssh-rsa
 #        IdentityFile              cardno:000610145429
 
 Host gitlab.com
