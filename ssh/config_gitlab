@@ -11,6 +11,7 @@ Host *
         User                       michalwasilewski
         PreferredAuthentications   publickey
 
+PubkeyAcceptedKeyTypes +ssh-rsa
 
 
 ######################

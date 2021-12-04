@@ -17,4 +17,4 @@ export PATH="$PATH:${HOME}/go/bin"
 
 # terraform
 export PATH="$HOME/.tfenv/bin:$PATH"
-export PATH="$HOME/workspace/ops/gitlab-com/gitlab-com-infrastructure/bin:$PATH"
+export PATH="$HOME/workspace/ops/gitlab-com/gl-infra/config-mgmt/bin:$PATH"
