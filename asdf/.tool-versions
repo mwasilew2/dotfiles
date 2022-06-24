@@ -1,0 +1,4 @@
+kubectl 1.24.2
+helm 3.9.0
+helmfile 0.144.0
+minikube 1.26.0
