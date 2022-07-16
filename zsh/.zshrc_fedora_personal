@@ -156,7 +156,7 @@ fi
 # fzf
 . /usr/share/fzf/shell/key-bindings.zsh
 
-# python 
+# python
 export WORKON_HOME=~/.virtualenvs
 source /usr/local/bin/virtualenvwrapper.sh
 
@@ -173,10 +173,13 @@ source /usr/lib64/google-cloud-sdk/completion.zsh.inc
 #export GOOGLE_APPLICATION_CREDENTIALS=/home/michal/private/personal/gcp-sa/
 
 # kubectl
-source ~/.kube/completion.zsh.inc
+source ~/.kube/completion_kubectl.zsh.inc
 
 # helm
 source ~/.kube/completion_helm.zsh.inc
+
+# minikube
+source ~/.kube/completion_minikube.zsh.inc
 
 # python36
 #export WORKON_HOME=~/.virtualenvs36
