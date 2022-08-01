@@ -96,16 +96,16 @@ bindsym $mod+Shift+Tab workspace prev
 workspace_layout tabbed
 
 # the below section assigns workspaces to monitors permanently, you won't be able to move them
-workspace "1 web" output DP-4
-workspace "2 sec" output DVI-D-0
-workspace "3 utils" output DVI-D-0
+workspace "1 web" output DP-5
+workspace "2 sec" output DVI-D-1
+workspace "3 utils" output DVI-D-1
 #workspace 4 output DP-4
 #workspace 5 output DP-0
 #workspace 6 output DP-0
 #workspace 7 output DP-0
 #workspace 8 output DP-0
-workspace "9 term" output DP-2
-workspace "10 editor" output HDMI-0
+workspace "9 term" output DP-4
+workspace "10 editor" output HDMI-1
 
 # switch to workspace
 bindsym $mod+1 workspace number 1 web
@@ -212,7 +212,7 @@ exec xautolock -time 3 -locker '$Locker' &
 exec --no-startup-id gnome-flashback # some gnome features are missing in i3, e.g. display config
 exec --no-startup-id gtk-launch geoclue-demo-agent.desktop  # launch geoclue agent used by redshift
 
-exec --no-startup-id xrandr --output DVI-D-0 --mode 1280x800
+#exec --no-startup-id xrandr --output DVI-D-1 --mode 1280x800
 exec --no-startup-id "${HOME}/.screenlayout/layout.sh"
 exec --no-startup-id nitrogen --restore # desktop background
 
@@ -225,8 +225,8 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id pactl -- set-sink-volume 1 +5%
 # bindsym XF86AudioNext exec --no-startup-id
 # bindsym XF86AudioStop exec --no-startup-id
 
-exec --no-startup-id i3-msg '[workspace="1 web"] move workspace to output DP-4'
-exec --no-startup-id i3-msg '[workspace="2 sec"] move workspace to output DVI-D-0'
-exec --no-startup-id i3-msg '[workspace="3 utils"] move workspace to output DVI-D-0'
-exec --no-startup-id i3-msg '[workspace="9 term"] move workspace to output DP-0'
-exec --no-startup-id i3-msg '[workspace="10 editor"] move workspace to output HDMI-0'
+exec --no-startup-id i3-msg '[workspace="1 web"] move workspace to output DP-5'
+exec --no-startup-id i3-msg '[workspace="2 sec"] move workspace to output DVI-D-1'
+exec --no-startup-id i3-msg '[workspace="3 utils"] move workspace to output DVI-D-1'
+exec --no-startup-id i3-msg '[workspace="9 term"] move workspace to output DP-4'
+exec --no-startup-id i3-msg '[workspace="10 editor"] move workspace to output HDMI-4'
