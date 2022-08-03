@@ -192,3 +192,8 @@ source $HOME/.asdf/completions/asdf.bash
 
 # snap
 export PATH="$PATH:/var/lib/snapd/snap/bin"
+
+# rbenv
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
