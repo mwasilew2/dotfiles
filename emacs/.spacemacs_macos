@@ -50,11 +50,11 @@ This function should only modify configuration layer settings."
      emacs-lisp
      evil-commentary
      git
-     (go
-      :variables
-      go-format-before-save t
-      go-use-golangci-lint t
-      )
+     ;;(go
+     ;; :variables
+     ;; go-format-before-save t
+     ;; go-use-golangci-lint t
+     ;; )
      ;; haskell
      helm
      html
@@ -75,6 +75,10 @@ This function should only modify configuration layer settings."
      ;;neotree
      nginx
      ;;nixos
+     ;; org
+     ;; (shell :variables
+     ;;        shell-default-height 30
+     ;;        shell-default-position 'bottom)
      (org
       :variables
       org-enable-github-support t
