@@ -1,6 +1,6 @@
 [user]
  name = Michal Wasilewski
- email = mwasilewski@gmx.com
+ email = michal@mwasilewski.net
  signingkey = 5F94409B # personal yubikey
  # signingkey = 7A9A5002 # personal backup yubikey
 [commit]
