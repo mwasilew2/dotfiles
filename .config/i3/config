@@ -198,13 +198,14 @@ exec --no-startup-id i3-msg 'workspace 1 web; exec firefox;'
 exec --no-startup-id i3-msg 'workspace 2 sec; exec keepassx;'
 exec --no-startup-id i3-msg 'workspace 3 utils; exec gnome-pomodoro;'
 exec --no-startup-id i3-msg 'workspace 9 term; exec gnome-terminal;'
-exec --no-startup-id i3-msg 'workspace 10 editor; exec emacs; exec goland;'
+#exec --no-startup-id i3-msg 'workspace 10 editor; exec emacs; exec goland;'
+exec --no-startup-id i3-msg 'workspace 10 editor; exec goland;'
 #exec --no-startup-id i3-msg 'workspace 4:nautilus; exec nautilus'
 
 exec --no-startup-id gnome-flashback # some gnome features are missing in i3, e.g. display config
 exec --no-startup-id gtk-launch geoclue-demo-agent.desktop  # launch geoclue agent used by redshift
 exec --no-startup-id nm-applet # network manager applet
-exec --no-startup-id blueman-applet # bluetooth applet
+#exec --no-startup-id blueman-applet # bluetooth applet  # no longer available on fedora?
 exec --no-startup-id pasystray # start volume control applet
 #exec --no-startup-id start-pulseaudio-x11
 exec --no-startup-id xset r rate 200 25 # keyboard repeat rate and lag
