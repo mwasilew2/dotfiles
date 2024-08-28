@@ -2,5 +2,5 @@
 sync
 sync
 sync
-veracrypt -d
+sudo veracrypt -d
 # truecrypt -d
