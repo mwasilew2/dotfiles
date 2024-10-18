@@ -1,19 +1,23 @@
+[init]
+ defaultBranch = main
 [user]
  name = Michal Wasilewski
  email = michal@mwasilewski.net
  signingkey = 5F94409B # personal yubikey
  # signingkey = 7A9A5002 # personal backup yubikey
 [commit]
- template = /home/michal/.gitmessage.txt
+ template = ~/.gitmessage.txt
  gpgsign = true
 [format]
  signOff = true
 [push]
  default = simple
-[gpg]
- program = /usr/bin/gpg2
+#[gpg]
+# program = /usr/bin/gpg2
 
 [alias]
  lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 [diff "sopsdiffer"]
 	textconv = sops -d
+[core]
+  excludesfile = ~/.gitignore
