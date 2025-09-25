@@ -153,7 +153,7 @@ gpgconf --launch gpg-agent
 export ENCORE_INSTALL="/home/michal/.encore"
 export PATH="$ENCORE_INSTALL/bin:$PATH"
 
-alias claude="/home/michal/.claude/local/claude"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+export PATH="$HOME/.local/bin:$PATH"
